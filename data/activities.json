@@ -1,0 +1,40 @@
+{
+  "upcoming": [
+    {
+      "id": 1,
+      "title": "CSE Gaming Fest MLBB",
+      "date": "June 25, 2025 • 3:00 PM",
+      "description": "Join our Mobile Legends tournament with exciting prizes.",
+      "detailedDescription": "Compete in our annual Mobile Legends tournament featuring top players from CSE department. Win exclusive prizes in intense 5v5 battles.",
+      "image": "assets/images/logos/vgs.png",
+      "tags": ["Mobile", "Tournament", "5v5"],
+      "badge": "Upcoming",
+      "buttonText": "Learn More"
+    },
+    {
+      "id": 2,
+      "title": "Inter Department Competition",
+      "date": "July 10-12, 2025",
+      "description": "Departments compete in popular esports titles.",
+      "detailedDescription": "Inter-departmental esports event featuring Valorant, CS:GO, and FIFA. Brings together students from all departments.",
+      "image": "assets/images/logos/vgs.png",
+      "tags": ["PC", "Console", "Team Event"],
+      "badge": "Ongoing",
+      "buttonText": "Learn More",
+      "registrationLink": "https://example.com/register"
+    }
+  ],
+  "past": [
+    {
+      "id": 3,
+      "title": "PC Building Workshop",
+      "date": "March 15, 2025",
+      "description": "Learned fundamentals of assembling custom PCs.",
+      "detailedDescription": "Workshop on building high-performance gaming PCs, including hardware selection and optimization techniques.",
+      "image": "assets/images/logos/vgs.png",
+      "tags": ["Workshop", "Hardware"],
+      "buttonText": "View Gallery",
+      "galleryLink": "https://facebook.com/events/pc-workshop"
+    }
+  ]
+}

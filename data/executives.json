@@ -1,0 +1,200 @@
+{
+  "moderationPanel": [
+    {
+      "name": "Md. Monirul Islam",
+      "role": "Moderator",
+      "image": "assets/images/members/md-monirul-islam.png",
+      "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:monirul@cse.green.edu.bd"}
+      ]
+    },
+    {
+      "name": "Montaser Abdul Quader",
+      "role": "Deputy Moderator",
+      "image": "assets/images/members/montaser-abdul-quader.png",
+      "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:montaser@cse.green.edu.bd"}
+      ]
+    },
+    {
+      "name": "Ms. Feroza Naznin",
+      "role": "Deputy Moderator",
+      "image": "assets/images/members/feroza-naznin.jpg",
+      "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:feroza@cse.green.edu.bd"}
+      ]
+    }
+  ],
+
+
+
+
+  "wingPanel": [
+    {
+      "name": "Faysal Hossain Tomal",
+      "role": "Chair",
+      "image": "assets/images/members/faysal-hossain-tomal.png",
+      "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:faysaltomal02@gmail.com"},
+        {"icon": "fab fa-linkedin", "url": "https://www.linkedin.com/in/faysaltomal/"},
+        {"icon": "fab fa-github", "url": "https://github.com/FaysalHT"},
+        {"icon": "fab fa-facebook", "url": "https://www.facebook.com/FaysalHT02"}
+      ]
+    },
+    {
+      "name": "M. Tahsinur Rahman",
+      "role": "Vice Chair",
+      "image": "assets/images/members/m-tahsinur-rahman.png",
+      "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:ariyanrahman1713@gmail.com"},
+        {"icon": "fab fa-linkedin", "url": "https://www.linkedin.com/in/m-tahsinur-rahman62"},
+        {"icon": "fab fa-github", "url": "https://github.com/Aruuu62"},
+        {"icon": "fab fa-facebook", "url": "https://m.facebook.com/iqbal.abdullah.3572/"}
+      ]
+    },
+    {
+        "name": "K M Monoarul Islam Shovon",
+        "role": "General Secretary",
+        "image": "assets/images/members/k-m-monoarul-islam-shovon.png",
+        "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:shovon2565@gmail.com"},
+        {"icon": "fab fa-linkedin", "url": "https://www.linkedin.com/in/k-m-shovon/"},
+        {"icon": "fab fa-github", "url": "https://github.com/Shovon25657"},
+        {"icon": "fab fa-facebook", "url": "https://www.facebook.com/km.shvon.9"}
+        ]
+    },
+    {
+        "name": "Muaz Ibn Kamal",
+        "role": "Joint General Secretary",
+        "image": "assets/images/members/muaz-ibn-kamal.png",
+        "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:muazibnkamal8@gmail.com"},
+        {"icon": "fab fa-linkedin", "url": "https://www.linkedin.com/in/muaz-ibn-kamal-26252735a/"},
+        {"icon": "fab fa-github", "url": "https://github.com/MuazibnKamal"},
+        {"icon": "fab fa-facebook", "url": "https://www.facebook.com/muazibnkamal.alif.18"}
+        ]
+    },
+    {
+        "name": "Hasibul Hassan",
+        "role": "Treasurer",
+        "image": "assets/images/members/hasibul-hassan.png",
+        "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:hasibulgreen@gmail.com"}
+        ]
+    },
+    {
+        "name": "Dip Barman",
+        "role": "Joint Treasurer",
+        "image": "assets/images/members/dip-barman.png",
+        "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:dipbarman1212@gmail.com"},
+        {"icon": "fab fa-linkedin", "url": "https://www.linkedin.com/in/dipbarman"},
+        {"icon": "fab fa-facebook", "url": "https://www.facebook.com/share/1BdLjDHS88/"}
+        ]
+    },
+    {
+        "name": "Heaven Bawm",
+        "role": "Organizing Secretary",
+        "image": "assets/images/members/heaven-bawm.png",
+        "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:heavenbawm77@gmail.com"},
+        {"icon": "fab fa-linkedin", "url": "https://www.linkedin.com/in/heaven-bawm-4a79a1295"},
+        {"icon": "fab fa-github", "url": "https://github.com/MrB0T15"},
+        {"icon": "fab fa-facebook", "url": "https://www.facebook.com/share/1G7uEH4JYD/"}
+        ]
+    },
+    {
+        "name": "Nahian Reza Shafin",
+        "role": "Joint Organizing Secretary",
+        "image": "assets/images/members/nahian-reza-shafin.png",
+        "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:shafinnahian401@gmail.com"},
+        {"icon": "fab fa-linkedin", "url": "https://www.linkedin.com/in/nahian-shafin-8a655b272"},
+        {"icon": "fab fa-github", "url": "https://github.com/Shafin2576"},
+        {"icon": "fab fa-facebook", "url": "https://www.facebook.com/prince.shafin.50/"}
+        ]
+    },
+    {
+        "name": "Pronoy Sarker Amit",
+        "role": "Outreach Secretary",
+        "image": "assets/images/members/pronoy-sarker-amit.png",
+        "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:pronoysarkeramit@gmail.com"},
+        {"icon": "fab fa-linkedin", "url": "https://www.linkedin.com/in/pronoy-sarker-amit/"},
+        {"icon": "fab fa-github", "url": "https://github.com/PSarker108"},
+        {"icon": "fab fa-facebook", "url": "https://www.facebook.com/pronoy.sarker.479806"}
+        ]
+    },
+    {
+        "name": "Md Rezanur Bin Shamim",
+        "role": "E-Sports Gaming Secretary",
+        "image": "assets/images/members/md-rezanur-bin-shamim.png",
+        "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:rezanurbinshamim@gmail.com"},
+        {"icon": "fab fa-linkedin", "url": "https://www.linkedin.com/in/rnrezanur/"},
+        {"icon": "fab fa-github", "url": "https://github.com/Rnrezanur"},
+        {"icon": "fab fa-facebook", "url": "https://www.facebook.com/Rnrezanur/"}
+        ]
+    },
+    {
+        "name": "MD. SAZIB",
+        "role": "Executive Member",
+        "image": "assets/images/members/md-sazib.png",
+        "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:mdsazib.cse@gmail.com"},
+        {"icon": "fab fa-linkedin", "url": "https://www.linkedin.com/in/mdsazib-cybercop/"},
+        {"icon": "fab fa-github", "url": "https://github.com/mdsazibhossenrabby"},
+        {"icon": "fab fa-facebook", "url": "https://www.facebook.com/immdsazib"}
+        ]
+    },
+    {
+        "name": "Afiya Humaira",
+        "role": "Executive Member",
+        "image": "assets/images/members/afiya-humaira.png",
+        "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:afiyahumaira999@gmail.com"},
+        {"icon": "fab fa-linkedin", "url": "https://www.linkedin.com/in/afiya-humaira-13a396285"},
+        {"icon": "fab fa-facebook", "url": "https://www.facebook.com/share/1A8KwRUow2/"}
+        ]
+    },
+    {
+        "name": "Humayra Nur",
+        "role": "Executive Member",
+        "image": "assets/images/members/humayra-nur.png",
+        "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:anannaanu974@gmail.com"},
+        {"icon": "fab fa-facebook", "url": "https://www.facebook.com/anannaanu974"}
+        ]
+    },
+    {
+        "name": "Ryan Hasan Sunny",
+        "role": "Graphics & Multimedia Secretary",
+        "image": "assets/images/members/ryan-hasan-sunny.png",
+        "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:ryanhasansunny31@gmail.com"},
+        {"icon": "fab fa-linkedin", "url": "https://www.linkedin.com/in/ryan-hasan-sunny-190a65245/"},
+        {"icon": "fab fa-github", "url": "https://github.com/RyanHasanSunny"},
+        {"icon": "fab fa-facebook", "url": "https://www.facebook.com/ryanhasan.sunny7"}
+        ]
+    },
+    {
+        "name": "Julqarnaeen Ahmed Jihad",
+        "role": "Graphics & Multimedia Secretary",
+        "image": "assets/images/members/julqarnaeen-ahmed-jihad.png",
+        "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:julqarnaeen2003@gmail.com"},
+        {"icon": "fab fa-facebook", "url": "https://www.facebook.com/zulqarnaeen.9"}
+        ]
+    },
+    {
+        "name": "Ashraf Zaman",
+        "role": "Graphics & Multimedia Secretary",
+        "image": "assets/images/members/ashraf-zaman.png",
+        "socialLinks": [
+        {"icon": "fas fa-envelope", "url": "mailto:ashraf636bd@gmail.com"},
+        {"icon": "fab fa-facebook", "url": "https://www.facebook.com/share/1Dmi3Cafmr/"}
+        ]
+    }
+    
+  ]
+}

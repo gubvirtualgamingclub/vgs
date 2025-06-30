@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GUCC Virtual Gaming Society ‑ Home</title>
+
+    <!-- ——— CSS ——— -->
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/modal-contact.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts / Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body class="bg-gray-950 text-white font-inter overflow-x-hidden">
+    <div id="nav-placeholder"></div>
+
+    <main>
+        <!--════════════════════════════════════════════════════════════
+            HERO SECTION
+        ══════════════════════════════════════════════════════════════-->
+        <section
+            class="hero-section relative overflow-hidden flex flex-col items-center justify-center text-center py-32 px-4 min-h-screen">
+            <!-- Content container -->
+            <div class="relative z-10 max-w-5xl mx-auto w-full">
+                <div class="hero-content-wrapper">
+                    <h1
+                        class="hero-title text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 text-white tracking-tighter font-orbitron">
+                        <span
+                            class="hero-text-gradient text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500">
+                            GUCC VIRTUAL <br /> GAMING SOCIETY
+                        </span>
+                    </h1>
+
+                    <p class="hero-subtitle text-lg md:text-xl max-w-3xl mx-auto mb-10 text-gray-300 leading-relaxed">
+                        Green University of Bangladesh's official first ever e‑sports and gaming club — where gamers
+                        become legends and dreams transform into reality!
+                    </p>
+
+                    <div class="hero-buttons flex flex-wrap justify-center gap-6 mb-12">
+                        <a href="#about" class="cta-primary group">
+                            <span class="relative z-10">Learn More</span>
+                            <div class="button-glow"></div>
+                        </a>
+                        <a href="activities.html" class="cta-secondary group">
+                            <span class="relative z-10">Our Events</span>
+                            <i
+                                class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                    </div>
+
+                    <!-- Stats preview -->
+                    <div class="hero-stats grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+                        <div class="stat-preview" data-target="16">
+                            <div class="stat-number text-green-400">0</div>
+                            <div class="stat-label">Active Members</div>
+                        </div>
+                        <div class="stat-preview" data-target="2">
+                            <div class="stat-number text-blue-400">0</div>
+                            <div class="stat-label">Tournaments</div>
+                        </div>
+                        <div class="stat-preview" data-target="8">
+                            <div class="stat-number text-purple-400">0</div>
+                            <div class="stat-label">Games</div>
+                        </div>
+                        <div class="stat-preview" data-target="6">
+                            <div class="stat-number text-yellow-400">0</div>
+                            <div class="stat-label">Partners</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <p class="text-xs text-gray-400 mt-2">Scroll to explore</p>
+            </div>
+        </section>
+
+        <!-- Mission/Vision Section -->
+        <section id="mission-vision"
+            class="py-20 px-8 md:px-20 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+            <div class="relative z-10 max-w-6xl mx-auto">
+                <div class="section-header text-center mb-16">
+                    <h2
+                        class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400 font-orbitron mb-4">
+                        OUR CORE VALUES
+                    </h2>
+                    <div class="section-divider mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Mission Card -->
+                    <div class="value-card mission-card group">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="icon-wrapper mission-icon">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title text-green-300">Our Mission</h3>
+                            </div>
+                            <p class="card-text">
+                                The mission of GUCC Virtual Gaming Society is to build a thriving, inclusive community
+                                where students passionate about gaming
+                                can connect, compete, collaborate, and develop both their technical and strategic
+                                skills.
+                                <br><br>
+                                We aim to promote esports culture within the university environment, encouraging
+                                teamwork, leadership, sportsmanship, and creativity.
+                                Through tournaments, workshops, training sessions, and community engagement, we seek to
+                                empower gamers and help them explore career
+                                pathways in esports, game development, streaming, and beyond.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Vision Card -->
+                    <div class="value-card vision-card group">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="icon-wrapper vision-icon">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title text-blue-300">Our Vision</h3>
+                            </div>
+                            <p class="card-text">
+                                Our vision is to establish GUCC Virtual Gaming Society as a leading esports and gaming
+                                organization in the country,
+                                recognized for excellence in competitive gaming, innovation, and community development.
+                                <br><br>
+                                We envision a future where gaming is celebrated as a legitimate and empowering form of
+                                education, entertainment, and
+                                career opportunity. We aspire to foster the next generation of professional gamers,
+                                content creators, developers, and
+                                esports leaders from Green University and beyond.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collaborators Section -->
+        <section
+            class="collaborators-section py-20 px-8 md:px-20 bg-gray-900/90 backdrop-blur-sm relative overflow-hidden">
+            <div class="section-header flex flex-col md:flex-row justify-between items-center mb-16">
+                <div>
+                    <h2
+                        class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400 font-orbitron mb-4">
+                        Our Valued Collaborators
+                    </h2>
+                    <p class="text-gray-400 text-lg">Partners who make our gaming dreams possible</p>
+                </div>
+                <a href="collaboration.html" class="view-all-btn group mt-6 md:mt-0">
+                    <span>View all collaborations</span>
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                    <div class="btn-glow"></div>
+                </a>
+            </div>
+
+            <div class="collaborators-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Collaborator 1 -->
+                <div class="collaborator-card group" data-category="hardware">
+                    <div class="card-inner">
+                        <div class="collaborator-header">
+                            <div class="collaborator-avatar">
+                                <img src="assets/images/collaborators/aorus.png" alt="Gaming Gear Inc."
+                                    class="avatar-img" onerror="this.src='assets/images/placeholder-avatar.png'">
+                                <div class="avatar-ring"></div>
+                            </div>
+                            <div class="collaborator-info">
+                                <h3 class="collaborator-name">GIGABYTE AORUS</h3>
+                                <p class="collaborator-type hardware-type">Hardware Partner</p>
+                            </div>
+                        </div>
+                        <p class="collaborator-desc">They powered the entire event IDGC-2025 as the
+                            main sponsor, likely offering financial support, branding or gaming hardware.</p>
+                        <div class="collaborator-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-trophy"></i>
+                                <span>1 Tournaments</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-handshake"></i>
+                                <span>Financial Support</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="partnership-badge hardware-badge">Hardware Excellence</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collaborator 2 -->
+                <div class="collaborator-card group" data-category="streaming">
+                    <div class="card-inner">
+                        <div class="collaborator-header">
+                            <div class="collaborator-avatar">
+                                <img src="assets/images/collaborators/pcb.png" alt="StreamTech" class="avatar-img"
+                                    onerror="this.src='assets/images/placeholder-avatar.png'">
+                                <div class="avatar-ring"></div>
+                            </div>
+                            <div class="collaborator-info">
+                                <h3 class="collaborator-name">PC Builder Bangladesh</h3>
+                                <p class="collaborator-type streaming-type">Seminar Collaboration Partner</p>
+                            </div>
+                        </div>
+                        <p class="collaborator-desc">Expert tech content creator for hardware and gadget enthusiasts</p>
+                        <div class="collaborator-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-broadcast-tower"></i>
+                                <span>1 Events</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-users"></i>
+                                <span>Semener</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="partnership-badge streaming-badge">Tech Hardware Guru</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collaborator 3 -->
+                <div class="collaborator-card group" data-category="nutrition">
+                    <div class="card-inner">
+                        <div class="collaborator-header">
+                            <div class="collaborator-avatar">
+                                <img src="assets/images/collaborators/royalmoon.png" alt="GameFuel" class="avatar-img"
+                                    onerror="this.src='assets/images/placeholder-avatar.png'">
+                                <div class="avatar-ring"></div>
+                            </div>
+                            <div class="collaborator-info">
+                                <h3 class="collaborator-name">Royal Moon Rooftop Restaurant</h3>
+                                <p class="collaborator-type nutrition-type">Food Partner</p>
+                            </div>
+                        </div>
+                        <p class="collaborator-desc">Royal Moon is a rooftop restaurant and event venue in Bhulta, offering great food and a vibrant atmosphere.</p>
+                        <div class="collaborator-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-utensils"></i>
+                                <span>1 Events</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-gift"></i>
+                                <span>Food</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="partnership-badge nutrition-badge">Excellent in Food</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about"
+            class="about-section py-20 px-8 md:px-20 bg-gradient-to-b from-gray-800 via-gray-900 to-gray-800 relative overflow-hidden">
+            <div class="relative z-10 max-w-6xl mx-auto">
+                <div class="about-content grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <!-- Text Content -->
+                    <div class="about-text">
+                        <div class="section-tag">
+                            <span class="tag-text">About Us</span>
+                        </div>
+                        <h2
+                            class="about-title text-4xl md:text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400 font-orbitron">
+                            GUCC VGS
+                        </h2>
+                        <div class="about-description text-gray-300 leading-8 space-y-6">
+                            <p class="text-highlight">
+                                Founded in 2024, the GUCC Virtual Gaming Society (GUCC VGS) is a dynamic wing of the
+                                Green University Computer Club (GUCC). Since its inception, GUCC VGS has become the
+                                beating heart of the gaming community at Green University of Bangladesh.
+                            </p>
+                            <p>
+                                Our society unites students who are passionate about e-sports, console gaming, and PC
+                                gaming, creating a vibrant and inclusive space for gamers of all skill levels.
+                            </p>
+                            <p>
+                                At GUCC VGS, our mission is to cultivate a thriving gaming culture within the
+                                university. We aim to not only provide entertainment and community engagement but also
+                                to open pathways to professional growth in the gaming and e-sports industries.
+                            </p>
+                        </div>
+
+                        <!-- Interactive Stats Grid -->
+                        <div class="stats-grid mt-12 grid grid-cols-2 gap-6">
+                            <a href="executive.html" class="stat-card members-stat group">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number text-green-400">16</div>
+                                    <div class="stat-label">Active Members</div>
+                                </div>
+                                <div class="stat-arrow">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </a>
+
+                            <a href="activities.html" class="stat-card events-stat group">
+                                <div class="stat-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number text-blue-400">2</div>
+                                    <div class="stat-label">Tournaments</div>
+                                </div>
+                                <div class="stat-arrow">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </a>
+
+                            <a href="#games-popup" class="stat-card games-stat group" onclick="showGamesPopup(event)">
+                                <div class="stat-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number text-purple-400">8</div>
+                                    <div class="stat-label">Games Supported</div>
+                                </div>
+                                <div class="stat-arrow">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </a>
+
+                            <a href="collaboration.html" class="stat-card partners-stat group">
+                                <div class="stat-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number text-yellow-400">6</div>
+                                    <div class="stat-label">Industry Partners</div>
+                                </div>
+                                <div class="stat-arrow">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Image Section -->
+                    <div class="about-visual relative">
+                        <div class="image-container group">
+                            <div class="main-image">
+                                <img src="assets/images/banners/gaming-team.png" alt="GUCC VGS Team" class="team-image">
+                                <div class="image-overlay">
+                                    <div class="overlay-content">
+                                        <h3 class="overlay-title">Join Our Gaming Community</h3>
+                                        <p class="overlay-text">Whether you're a competitor or casual gamer, we welcome
+                                            you!</p>
+                                        <a href="activities.html" class="overlay-btn">
+                                            Get Started
+                                            <i class="fas fa-arrow-right ml-2"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section
+            class="cta-section py-20 px-8 md:px-20 bg-gradient-to-r from-green-900/20 via-blue-900/20 to-purple-900/20 relative overflow-hidden">
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white font-orbitron">
+                    Ready to Level Up?
+                </h2>
+                <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                    Join our community of passionate gamers and take your skills to the next level. Compete, learn, and
+                    grow with us!
+                </p>
+                <div class="cta-buttons flex flex-wrap justify-center gap-6">
+                    <a href="activities.html" class="cta-primary-large group">
+                        <span class="relative z-10">Join GUCC VGS</span>
+                        <div class="button-glow"></div>
+                    </a>
+                    <a href="activities.html" class="cta-secondary-large group">
+                        <span class="relative z-10">View Tournaments</span>
+                        <i class="fas fa-calendar ml-2 group-hover:scale-110 transition-transform duration-300"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Games Popup -->
+    <div id="games-popup" class="games-modal fixed inset-0 z-50 hidden overflow-y-auto">
+        <div
+            class="modal-backdrop flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Background overlay -->
+            <div class="modal-overlay fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-black opacity-80"></div>
+            </div>
+
+            <!-- Popup content -->
+            <div
+                class="modal-content inline-block align-bottom bg-gray-800 rounded-2xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
+                <div
+                    class="modal-header bg-gradient-to-r from-green-900/30 to-blue-900/30 px-6 py-4 border-b border-gray-700">
+                    <div class="flex items-center justify-between">
+                        <h3
+                            class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400 font-orbitron">
+                            Games We Support
+                        </h3>
+                        <button type="button" onclick="closeGamesPopup()" class="modal-close-btn group">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <p class="text-gray-400 mt-2">Discover the games where legends are made</p>
+                </div>
+
+                <div class="modal-body bg-gray-800 px-6 py-8">
+                    <div id="games-container" class="games-grid grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                    </div>
+                </div>
+
+                <div class="modal-footer bg-gray-700 px-6 py-4 flex justify-end">
+                    <button type="button" onclick="closeGamesPopup()" class="modal-btn">
+                        <span>Close</span>
+                        <i class="fas fa-times ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer / modal shells -->
+    <div id="footer-placeholder"></div>
+    <div id="modal-placeholder"></div>
+
+    <!--————————————————  JavaScript  ————————————————-->
+    <script src="js/index.js" defer></script>
+
+    <!-- Component loading scripts -->
+    <script>
+        fetch('components/nav.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('nav-placeholder').innerHTML = html;
+                const s = document.createElement('script');
+                s.src = 'js/nav.js';
+                document.body.appendChild(s);
+            });
+
+        fetch('components/footer.html')
+            .then(r => r.text())
+            .then(html => document.getElementById('footer-placeholder').innerHTML = html);
+
+        fetch('components/contact-modal.html')
+            .then(r => r.text())
+            .then(html => document.getElementById('modal-placeholder').innerHTML = html);
+    </script>
+    <script src="js/footer.js" defer></script>
+    <script src="js/modal-contact.js" defer></script>
+</body>
+
+</html>

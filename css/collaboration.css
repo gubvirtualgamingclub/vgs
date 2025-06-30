@@ -1,0 +1,327 @@
+/* Base Styles */
+#partners-grid {
+  transition: opacity 0.5s ease;
+}
+
+/* Click Blocker */
+#click-blocker-overlay {
+  display: none;
+  z-index: 999; /* Adjusted to sit below modals but above other content */
+}
+
+/* Partner Cards */
+.partner-card {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+  z-index: 10;
+}
+
+.partner-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.1) 0%, rgba(74, 222, 128, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.partner-card:hover::before {
+  opacity: 1;
+}
+
+.partner-logo-container {
+  transition: background-color 0.3s ease;
+}
+
+.partner-card:hover .partner-logo-container {
+  background-color: rgba(17, 24, 39, 0.5);
+}
+
+.partner-card:hover .partner-logo {
+  transform: scale(1.05);
+}
+
+/* Event Tags */
+.event-tag {
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.partner-card:hover .event-tag {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Styles */
+#partner-modal {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: none;
+  z-index: 1000; /* Increased to ensure modal is above all content */
+}
+
+.modal-content {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-height: 90vh;
+  overflow-y: auto;
+  z-index: 1001; /* Increased to ensure content is above modal background */
+}
+
+/* Modal Event Tags */
+#partner-modal .event-tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background-color: rgba(59, 130, 246, 0.2);
+  color: rgb(147, 197, 253);
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(74, 222, 128, 0.5);
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(74, 222, 128, 0.8);
+}
+
+#close-partner-modal { /* Updated ID */
+  transition: all 0.2s ease;
+  z-index: 1002; /* Increased to ensure close button is clickable */
+}
+
+#close-partner-modal:hover { /* Updated ID */
+  transform: rotate(90deg);
+  color: #ef4444;
+}
+
+/* Collaboration CTA */
+#collaborate-cta {
+  background: rgba(31, 41, 55, 0.5);
+  border-radius: 1rem;
+  margin-top: 2rem;
+  border: 1px dashed rgba(74, 222, 128, 0.3);
+  z-index: 10;
+  position: relative;
+}
+
+.cta-button {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cta-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 45%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0) 55%
+  );
+  transform: rotate(30deg);
+  transition: all 0.3s;
+}
+
+.cta-button:hover::after {
+  left: 100%;
+}
+
+/* Collaboration Modal */
+#collaborate-modal {
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000; /* Increased to ensure modal is above all content */
+}
+
+#collaborate-modal > div {
+  width: 95%;
+  max-width: 600px;
+  margin: 0 auto;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.95);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1001; /* Increased to ensure content is above modal background */
+}
+
+#collaborate-modal[style*="display: flex"] {
+  opacity: 1;
+}
+
+#collaborate-modal .space-y-6 {
+  padding: 1rem;
+}
+
+#collaborate-modal h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#collaborate-modal h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+#collaborate-modal ul {
+  margin-left: 1rem;
+}
+
+#collaborate-modal li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+#collaborate-modal .space-y-2 p {
+  font-size: 0.95rem;
+}
+
+#collaborate-modal a.inline-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.75rem 1rem;
+}
+
+#close-collab-modal {
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5rem;
+  transition: all 0.2s ease;
+  z-index: 1002; /* Increased to ensure close button is clickable */
+}
+
+#close-collab-modal:hover {
+  transform: rotate(90deg);
+  color: #ef4444;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  #collaborate-modal > div {
+    width: 100%;
+    border-radius: 0;
+    min-height: 100vh;
+  }
+  
+  #collaborate-modal {
+    padding: 0;
+  }
+  
+  .partner-logo-container {
+    height: 140px;
+  }
+  
+  .partner-name {
+    font-size: 1.1rem;
+  }
+  
+  .partner-desc {
+    font-size: 0.8rem;
+  }
+  
+  .partner-events {
+    margin-bottom: 0.5rem;
+  }
+  
+  .event-tag {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.4rem;
+  }
+}
+
+@media (min-width: 640px) {
+  #collaborate-modal > div {
+    padding: 1.5rem;
+  }
+  
+  #collaborate-modal h3 {
+    font-size: 1.75rem;
+  }
+  
+  #collaborate-modal h4 {
+    font-size: 1.25rem;
+  }
+  
+  #collaborate-modal a.inline-block {
+    width: auto;
+    display: inline-block;
+  }
+}
+
+@media (min-width: 768px) {
+  #collaborate-cta {
+    padding: 3rem 1.5rem;
+  }
+  
+  #collaborate-modal > div {
+    padding: 2rem;
+  }
+  
+  #collaborate-modal .space-y-6 {
+    padding: 0;
+  }
+}
+
+/* Ensure all interactive elements are clickable but below modals */
+nav, #nav-placeholder, #footer-placeholder, 
+a, button, [tabindex="0"], .clickable {
+  position: relative;
+  z-index: 50; /* Lowered to ensure modals appear above */
+}
+
+/* Fix for body scroll when modal is open */
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 640px) {
+  #collaborate-modal > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+  }
+  
+  #collaborate-modal .space-y-6 {
+    width: 100%;
+    max-width: 95%;
+    margin: 0 auto;
+  }
+  
+  #close-collab-modal {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1002; /* Consistent with desktop */
+  }
+}
+
+@media (min-width: 1024px) {
+  #collaborate-modal > div {
+    max-width: 700px;
+  }
+}

@@ -1,0 +1,160 @@
+/* Base Styles */
+body {
+  padding-top: 4.5rem;
+}
+
+/* Member Cards */
+.member-card {
+  background: linear-gradient(145deg, #1f2937 0%, #2d3748 100%);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.member-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(74, 222, 128, 0.1) 0%,
+    rgba(74, 222, 128, 0) 60%
+  );
+  transform: rotate(30deg);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.member-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+  border-color: rgba(74, 222, 128, 0.3);
+}
+
+.member-card:hover::before {
+  transform: rotate(30deg) translateY(20%);
+}
+
+.member-photo {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1.5rem auto;
+  border: 3px solid rgba(74, 222, 128, 0.3);
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.2);
+  transition: all 0.4s ease;
+}
+
+.member-card:hover .member-photo {
+  border-color: rgba(74, 222, 128, 0.6);
+  box-shadow: 0 0 30px rgba(74, 222, 128, 0.4);
+  transform: scale(1.05);
+}
+
+.member-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: white;
+  position: relative;
+  display: inline-block;
+}
+
+.member-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #4ade80;
+  transition: width 0.4s ease;
+}
+
+.member-card:hover h3::after {
+  width: 100%;
+}
+
+.member-card p {
+  font-size: 0.9375rem;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-icon {
+  color: #9ca3af;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.social-icon:hover {
+  color: #4ade80;
+  transform: translateY(-3px) scale(1.2);
+}
+
+.social-icon::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #4ade80;
+  transition: width 0.3s ease;
+}
+
+.social-icon:hover::after {
+  width: 100%;
+}
+
+/* Floating Controller Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+#floating-controller {
+  animation: float 3s ease-in-out infinite;
+  cursor: pointer;
+}
+
+#floating-controller:hover {
+  animation: float 1.5s ease-in-out infinite;
+}
+
+
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .member-card {
+    padding: 1.5rem;
+  }
+  
+  .member-photo {
+    width: 6rem;
+    height: 6rem;
+  }
+}

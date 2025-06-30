@@ -1,0 +1,115 @@
+{
+  "partners": [
+    {
+      "id": 1,
+      "name": "GIGABYTE AORUS",
+      "logo": "assets/images/collaborators/aorus.png",
+      "types": ["Main Sponsor"],
+      "shortDesc": "Premium gaming brand specializing in high-performance gaming hardware",
+      "website": "https://www.aorus.com/en-bd",
+      "since": "2025",
+      "events": ["IDGC-2025"],
+      "details": {
+        "description": "GIGABYTE AORUS is a premium gaming brand under GIGABYTE, specializing in high-performance gaming hardware and actively supporting esports and competitive gaming communities worldwide. They powered the entire event IDGC-2025 as the main sponsor, likely offering financial support, branding or gaming hardware.",
+        "collaborations": [
+          "Main Sponsor for IDGC-2025",
+          "Powered the entire event",
+          "Provided financial support, branding or gaming hardware"
+        ],
+        "contact": "N/A"
+      }
+    },
+    {
+      "id": 2,
+      "name": "PC Builder Bangladesh",
+      "logo": "assets/images/collaborators/pcb.png",
+      "types": ["Seminar Collaboration Partner"],
+      "shortDesc": "Expert tech content creator for hardware and gadget enthusiasts",
+      "website": "https://pcbuilderbd.com",
+      "since": "2025",
+      "events": ["IDGC-2025"],
+      "details": {
+        "description": "PC Builder BD creates expert tech content, reviews, guides and insights for passionate hardware and gadget enthusiasts. They contributed as the Seminar Collaboration partner for the event IDGC-2025, likely organizing or supporting a tech-focused seminar, sharing insights on gaming hardware or esports trends.",
+        "collaborations": [
+          "Seminar Collaboration partner for IDGC-2025",
+          "Organized/supported tech-focused seminar",
+          "Shared insights on gaming hardware or esports trends"
+        ],
+        "contact": "contact@pcbuilderbd.com"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Trend Beat",
+      "logo": "assets/images/collaborators/trendbeat.png",
+      "types": ["Social Media Partner"],
+      "shortDesc": "News and media platform covering trending events and social issues",
+      "website": "https://www.facebook.com/trendbeatbd",
+      "since": "2025",
+      "events": ["IDGC-2025"],
+      "details": {
+        "description": "Trend Beat is a news and media platform that covers and promotes trending national events, news and social issues through digital media. They joined as the Social Media Partner, promoting IDGC 2025 through online coverage and updates.",
+        "collaborations": [
+          "Social Media Partner for IDGC-2025",
+          "Promoted the event through online coverage and updates"
+        ],
+        "contact": "N/A"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Royal Moon Rooftop Restaurant",
+      "logo": "assets/images/collaborators/royalmoon.png",
+      "types": ["Food Partner"],
+      "shortDesc": "Rooftop restaurant and event venue in Bhulta",
+      "website": "https://royalmoon.brittolabs.com",
+      "since": "2025",
+      "events": ["IDGC-2025"],
+      "details": {
+        "description": "Royal Moon is a rooftop restaurant and event venue in Bhulta, offering great food and a vibrant atmosphere. They were the Food Partner for the event IDGC-2025, providing food support for  guests or organizers during the event.",
+        "collaborations": [
+          "Food Partner for IDGC-2025",
+          "Provided food support for participants, guests and organizers"
+        ],
+        "contact": "royalmoon.rooftop@gmail.com"
+      }
+    },
+    {
+      "id": 5,
+      "name": "E-Sports Network Bangladesh",
+      "logo": "assets/images/collaborators/esnbd.png",
+      "types": ["Media Partner"],
+      "shortDesc": "Leading eSports media platform in Bangladesh",
+      "website": "https://streamtech.com",
+      "since": "2025",
+      "events": ["IDGC-2025"],
+      "details": {
+        "description": "ESNBD (E-Sports Network Bangladesh) is a leading eSports media platform in Bangladesh that focuses on delivering the latest news, analysis, and coverage of the eSports industry. They joined as the Media Partner, covering and promoting IDGC 2025 to a wider gaming audience.",
+        "collaborations": [
+          "Media Partner for IDGC-2025",
+          "Covered and promoted the event to a wider gaming audience"
+        ],
+        "contact": "inboxesnbd@gmail.com"
+      }
+    },
+    {
+      "id": 6,
+      "name": "NextGen Xperience",
+      "logo": "assets/images/collaborators/nextgen.png",
+      "types": ["Production Partner"],
+      "shortDesc": "Esports-focused production and visual support provider",
+      "website": "https://www.facebook.com/NextGenXperience",
+      "since": "2025",
+      "events": ["IDGC-2025"],
+      "details": {
+        "description": "NextGen Xperience brings competitive events to life through esports-focused production and visual support. As the Production Partner, they powered the event's production, enhancing the competitive vibe with expert staging and technical execution.",
+        "collaborations": [
+          "Production Partner for IDGC-2025",
+          "Powered the event's production",
+          "Enhanced competitive vibe with expert staging and technical execution"
+        ],
+        "contact": "nextgenxp.official@gmail.com"
+      }
+    }
+  ]
+}

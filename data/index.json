@@ -1,0 +1,37 @@
+{
+  "site": {
+    "title": "GUCC Virtual Gaming Society",
+    "description": "Green University of Bangladesh's official first ever e-sports and gaming club — where gamers become legends!",
+    "year": "2025"
+  },
+  "contact": {
+    "email": "faysaltomal02@gmail.com",
+    "facebook": "https://www.facebook.com/gucc.vgs",
+    "location": "Green University of Bangladesh, Dhaka"
+  },
+  "updates": [
+    "🔥 Upcoming: CSE Gaming Fest MLBB",
+    "🛠️ Website Under Active Development!",
+    "🚀 Official Launch of The Elder Scrolls IV: Oblivion Remastered",
+    "🎮 Game Review: Assassin's Creed Shadow",
+    "🏆 Jarno Opmeer Wins The F1 Esports World Championship 2025!"
+  ],
+  "activities": [
+    {
+      "title": "Upcoming: CSE Gaming Fest MLBB",
+      "description": "A thrilling Mobile Legends: Bang Bang tournament is on the horizon, promising epic battles and huge engagement from the community."
+    },
+    {
+      "title": "Inter Department Gaming Competition 2025",
+      "description": "An upcoming electrifying tournament powered by GIGABYTE AORUS, where departments compete in popular esports titles."
+    },
+    {
+      "title": "Seminar: PC Building 101",
+      "description": "In collaboration with PC Builder Bangladesh, participants learned the fundamentals of assembling custom PCs and optimizing hardware for gaming."
+    },
+    {
+      "title": "CSE Gaming Battle - GUB CSE Carnival 2024",
+      "description": "Featured multiple competitive titles where top players of the CSE department clashed for glory during the CSE Carnival 2024."
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "updates": [
+    {
+      "id": 1,
+      "type": "event",
+      "title": "Summer Tournament 2024",
+      "date": "2024-07-15",
+      "image": "assets/images/logos/vgs.png",
+      "description": "Join our biggest tournament of the year with a $5000 prize pool! Registration opens June 1st.",
+      "registration_link": "https://example.com/register",
+      "status": "upcoming"
+    },
+    {
+      "id": 2,
+      "type": "notice",
+      "title": "Club Meeting Announcement",
+      "date": "2024-05-20",
+      "image": "assets/images/logos/vgs.png",
+      "description": "Monthly club meeting on May 25th at 4PM in the Student Center. All members must attend.",
+      "important": true
+    },
+    {
+      "id": 3,
+      "type": "registration",
+      "title": "New Member Intake",
+      "date": "2024-06-01",
+      "image": "assets/images/logos/vgs.png",
+      "description": "We're accepting new members for the fall semester. Application deadline is June 15th.",
+      "form_link": "https://example.com/join"
+    },
+     {
+      "id": 4,
+      "type": "event",
+      "title": "Summer Tournament 2024",
+      "date": "2024-07-15",
+      "image": "assets/images/logos/vgs.png",
+      "description": "Join our biggest tournament of the year with a $5000 prize pool! Registration opens June 1st.",
+      "registration_link": "https://example.com/register",
+      "status": "upcoming"
+    },
+    {
+      "id": 5,
+      "type": "notice",
+      "title": "Club Meeting Announcement",
+      "date": "2024-05-20",
+      "image": "assets/images/logos/vgs.png",
+      "description": "Monthly club meeting on May 25th at 4PM in the Student Center. All members must attend.",
+      "important": true
+    },
+    {
+      "id": 6,
+      "type": "registration",
+      "title": "New Member Intake",
+      "date": "2024-06-01",
+      "image": "assets/images/logos/vgs.png",
+      "description": "We're accepting new members for the fall semester. Application deadline is June 15th.",
+      "form_link": "https://example.com/join"
+    }
+
+  ]
+}

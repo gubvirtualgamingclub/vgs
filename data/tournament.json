@@ -1,0 +1,232 @@
+{
+  "tournament": {
+    "name": "Intra-Department Gaming Competition 2025",
+    "logo": "assets/images/logos/idgc2025.png",
+    "description": "The biggest gaming event of the year featuring competitive tournaments across multiple platforms and genres. Join us for an unforgettable experience of skill, strategy, and excitement!",
+    "date": "August 15-17, 2025",
+    "time": "10:00 AM - 10:00 PM Daily",
+    "venue": "GUCC Campus & Online",
+    "prizePool": "৳200,000+"
+  },
+  "collaborators": [
+    {
+      "name": "Gaming Gear BD",
+      "logo": "assets/images/logos/vgs.png"
+    },
+    {
+      "name": "Tech Solutions Ltd",
+      "logo": "assets/images/logos/vgs.png"
+    },
+    {
+      "name": "Energy Drink X",
+      "logo": "assets/images/logos/vgs.png"
+    }
+  ],
+  "credits": [
+    {
+      "name": "GUCC Computer Club",
+      "logo": "assets/images/logos/vgs.png"
+    },
+    {
+      "name": "VGS Committee",
+      "logo": "assets/images/logos/vgs.png"
+    }
+  ],
+  "games": {
+    "casual": {
+      "available": true,
+      "games": [
+        {
+          "id": 1,
+          "name": "Table Tennis",
+          "logo": "assets/images/logos/vgs.png",
+          "howToPlay": "Single elimination bracket, best of 3 games",
+          "participationFee": "৳100 per player",
+          "eligibility": "Open to all GUCC students",
+          "teamBased": false,
+          "currentParticipants": 18,
+          "registrationOpen": true,
+          "registrationDeadline": "August 5, 2025",
+          "registrationFormLink": "https://forms.example.com/tabletennis",
+          "rulebookLink": "assets/rulebooks/tabletennis.pdf",
+          "tags": ["Sports", "Physical"]
+        },
+        {
+          "id": 2,
+          "name": "Chess",
+          "logo": "assets/images/games/chess.png",
+          "howToPlay": "Single elimination bracket, best of 3 games",
+          "participationFee": "৳100 per player",
+          "eligibility": "Open to all GUCC students",
+          "teamBased": false,
+          "currentParticipants": 18,
+          "registrationOpen": true,
+          "registrationDeadline": "August 5, 2025",
+          "registrationFormLink": "https://forms.example.com/tabletennis",
+          "rulebookLink": "assets/rulebooks/tabletennis.pdf",
+          "tags": ["Sports", "Physical"]
+        },
+        {
+          "id": 3,
+          "name": "Carrom",
+          "logo": "assets/images/games/carrom.png",
+          "howToPlay": "Single elimination bracket, best of 3 games",
+          "participationFee": "৳100 per player",
+          "eligibility": "Open to all GUCC students",
+          "teamBased": true,
+          "currentParticipants": 18,
+          "registrationOpen": true,
+          "registrationDeadline": "August 5, 2025",
+          "registrationFormLink": "https://forms.example.com/tabletennis",
+          "rulebookLink": "assets/rulebooks/tabletennis.pdf",
+          "tags": ["Sports", "Physical"]
+        }
+      ]
+    },
+    "virtualPc": {
+      "available": true,
+      "games": [
+        {
+          "id": 4,
+          "name": "Valorant",
+          "logo": "assets/images/games/valorant.png",
+          "howToPlay": "5v5 matches, single elimination bracket",
+          "participationFee": "৳500 per team",
+          "eligibility": "Teams of 5 GUCC students",
+          "teamBased": true,
+          "currentParticipants": 12,
+          "registrationOpen": true,
+          "registrationDeadline": "August 12, 2025",
+          "registrationFormLink": "https://forms.example.com/valorant",
+          "rulebookLink": "assets/rulebooks/valorant.pdf",
+          "tags": ["FPS", "Tactical"]
+        },
+        {
+          "id": 5,
+          "name": "FIFA 19",
+          "logo": "assets/images/games/fifa19.png",
+          "howToPlay": "1v1 matches, knockout tournament format",
+          "participationFee": "৳200 per player",
+          "eligibility": "Open to all GUCC students",
+          "teamBased": false,
+          "currentParticipants": 24,
+          "registrationOpen": true,
+          "registrationDeadline": "August 10, 2025",
+          "registrationFormLink": "https://forms.example.com/fifa25",
+          "rulebookLink": "assets/rulebooks/fifa25.pdf",
+          "tags": ["Sports", "Console"]
+        },
+        {
+          "id": 6,
+          "name": "Dota 2",
+          "logo": "assets/images/logos/vgs.png",
+          "howToPlay": "5v5 matches, double elimination bracket",
+          "participationFee": "৳600 per team",
+          "eligibility": "Teams of 5 GUCC students",
+          "teamBased": true,
+          "currentParticipants": 8,
+          "registrationOpen": true,
+          "registrationDeadline": "August 12, 2025",
+          "registrationFormLink": "https://forms.example.com/dota2",
+          "rulebookLink": "assets/rulebooks/dota2.pdf",
+          "tags": ["MOBA", "Strategy"]
+        },
+        {
+          "id": 6,
+          "name": "Dota 2",
+          "logo": "assets/images/logos/vgs.png",
+          "howToPlay": "5v5 matches, double elimination bracket",
+          "participationFee": "৳600 per team",
+          "eligibility": "Teams of 5 GUCC students",
+          "teamBased": true,
+          "currentParticipants": 8,
+          "registrationOpen": true,
+          "registrationDeadline": "August 12, 2025",
+          "registrationFormLink": "https://forms.example.com/dota2",
+          "rulebookLink": "assets/rulebooks/dota2.pdf",
+          "tags": ["MOBA", "Strategy"]
+        }
+      ]
+    },
+    "virtualMobile": {
+      "available": true,
+      "games": [
+        {
+          "id": 5,
+          "name": "Call of Duty Mobile",
+          "logo": "assets/images/games/codm.png",
+          "howToPlay": "Squad matches (4 players), 3 matches per team",
+          "participationFee": "৳400 per team",
+          "eligibility": "Teams of 4 GUCC students",
+          "teamBased": true,
+          "currentParticipants": 15,
+          "registrationOpen": true,
+          "registrationDeadline": "August 10, 2025",
+          "registrationFormLink": "https://forms.example.com/pubgm",
+          "rulebookLink": "assets/rulebooks/pubgm.pdf",
+          "tags": ["Battle Royale", "Squad"]
+        },
+        {
+          "id": 7,
+          "name": "eFootball",
+          "logo": "assets/images/games/efootball.png",
+          "howToPlay": "5v5 matches, single elimination bracket",
+          "participationFee": "৳500 per team",
+          "eligibility": "Teams of 5 GUCC students",
+          "teamBased": false,
+          "currentParticipants": 20,
+          "registrationOpen": false,
+          "registrationDeadline": "August 5, 2025",
+          "registrationFormLink": "https://forms.example.com/mlbb",
+          "rulebookLink": "assets/rulebooks/mlbb.pdf",
+          "tags": ["Sports", "1v1"]
+        },
+        {
+          "id": 8,
+          "name": "PUBG Mobile",
+          "logo": "assets/images/games/efootball.png",
+          "howToPlay": "5v5 matches, single elimination bracket",
+          "participationFee": "৳500 per team",
+          "eligibility": "Teams of 5 GUCC students",
+          "teamBased": false,
+          "currentParticipants": 20,
+          "registrationOpen": false,
+          "registrationDeadline": "August 5, 2025",
+          "registrationFormLink": "https://forms.example.com/mlbb",
+          "rulebookLink": "assets/rulebooks/mlbb.pdf",
+          "tags": ["Battle Royale", "Squad"]
+        },
+        {
+          "id": 9,
+          "name": "Free Fire",
+          "logo": "assets/images/games/efootball.png",
+          "howToPlay": "5v5 matches, single elimination bracket",
+          "participationFee": "৳500 per team",
+          "eligibility": "Teams of 5 GUCC students",
+          "teamBased": false,
+          "currentParticipants": 20,
+          "registrationOpen": true,
+          "registrationDeadline": "August 5, 2025",
+          "registrationFormLink": "https://forms.example.com/mlbb",
+          "rulebookLink": "assets/rulebooks/mlbb.pdf",
+          "tags": ["Battle Royale", "Squad"]
+        },
+        {
+          "id": 10,
+          "name": "Free Fire",
+          "logo": "assets/images/games/efootball.png",
+          "howToPlay": "5v5 matches, single elimination bracket",
+          "participationFee": "৳500 per team",
+          "eligibility": "Teams of 5 GUCC students",
+          "teamBased": false,
+          "currentParticipants": 20,
+          "registrationOpen": true,
+          "registrationDeadline": "August 5, 2025",
+          "registrationFormLink": "https://forms.example.com/mlbb",
+          "rulebookLink": "assets/rulebooks/mlbb.pdf",
+          "tags": ["Battle Royale", "Squad"]
+        }
+      ]
+    }
+  }
+}

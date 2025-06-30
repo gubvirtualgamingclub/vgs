@@ -1,0 +1,44 @@
+{
+    "games": [
+        {
+            "name": "CODM",
+            "logo": "assets/images/games/codm.png",
+            "platform": "Mobile"
+        },
+        {
+            "name": "VALORANT",
+            "logo": "assets/images/games/valorant.png",
+            "platform": "PC"
+        },
+        {
+            "name": "eFootball",
+            "logo": "assets/images/games/efootball.png",
+            "platform": "Mobile"
+        },
+        {
+            "name": "FIFA 19",
+            "logo": "assets/images/games/fifa19.png",
+            "platform": "PC"
+        },
+        {
+            "name": "Chess",
+            "logo": "assets/images/games/chess.png",
+            "platform": "Casual"
+        },
+        {
+            "name": "Ludo",
+            "logo": "assets/images/games/ludo.png",
+            "platform": "Casual"
+        },
+        {
+            "name": "Carrom",
+            "logo": "assets/images/games/carrom.png",
+            "platform": "Casual"
+        },
+        {
+            "name": "Table Tennis",
+            "logo": "assets/images/games/tabletennis.png",
+            "platform": "Casual"
+        }
+    ]
+}

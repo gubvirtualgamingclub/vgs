@@ -1,0 +1,80 @@
+{
+  "current": [
+    {
+      "name": "Faysal Hossain Tomal",
+      "github": "https://github.com/FaysalHT",
+      "avatar": "https://github.com/FaysalHT.png",
+      "role": "Project Initiator & Project Leader"
+    },
+    {
+      "name": "MD. SAZIB",
+      "github": "https://github.com/mdsazibhossenrabby",
+      "avatar": "https://avatars.githubusercontent.com/u/122990604",
+      "role": "Lead Full-Stack Developer"
+    }
+  ],
+  "past": [
+    {
+      "name": "Omor faruk",
+      "github": "https://github.com/johndoe",
+      "avatar": "https://github.com/johndoe.png",
+      "role": "Former Developer",
+      "year": "2024"
+    },
+    {
+      "name": "Jane Smith",
+      "github": "https://github.com/janesmith",
+      "avatar": "https://github.com/janesmith.png",
+      "role": "Former Designer",
+      "year": "2023"
+    },{
+      "name": "John Doe",
+      "github": "https://github.com/johndoe",
+      "avatar": "https://github.com/johndoe.png",
+      "role": "Former Developer",
+      "year": "2024"
+    },{
+      "name": "John Doe",
+      "github": "https://github.com/johndoe",
+      "avatar": "https://github.com/johndoe.png",
+      "role": "Former Developer",
+      "year": "2024"
+    },{
+      "name": "John Doe",
+      "github": "https://github.com/johndoe",
+      "avatar": "https://github.com/johndoe.png",
+      "role": "Former Developer",
+      "year": "2024"
+    },{
+      "name": "John Doe",
+      "github": "https://github.com/johndoe",
+      "avatar": "https://github.com/johndoe.png",
+      "role": "Former Developer",
+      "year": "2024"
+    },{
+      "name": "John Doe",
+      "github": "https://github.com/johndoe",
+      "avatar": "https://github.com/johndoe.png",
+      "role": "Former Developer",
+      "year": "2024"
+    },{
+      "name": "John Doe",
+      "github": "https://github.com/johndoe",
+      "avatar": "https://github.com/johndoe.png",
+      "role": "Former Developer",
+      "year": "2024"
+    },{
+      "name": "John Doe",
+      "github": "https://github.com/johndoe",
+      "avatar": "https://github.com/johndoe.png",
+      "role": "Former Developer",
+      "year": "2024"
+    },{
+      "name": "John Doe",
+      "github": "https://github.com/johndoe",
+      "avatar": "https://github.com/johndoe.png",
+      "role": "Former Developer",
+      "year": "2024"
+    }
+  ]
+}
