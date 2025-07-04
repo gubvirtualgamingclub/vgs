@@ -2,17 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>GUCC VGS - Tournament Registration</title>
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/footer.css">
+    
+    <!-- ——— CSS ——— -->
+    <link rel="stylesheet" href="css/loader.css?v=1.0.1" />
+    <link rel="stylesheet" href="css/nav.css?v=1.0.1" />
+    <link rel="stylesheet" href="css/footer.css?v=1.0.1" />
     <link rel="stylesheet" href="css/tournament.css">
-    <link rel="stylesheet" href="css/modal-contact.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- GSAP for smooth animations only -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gaming-primary': '#10b981',
+                        'gaming-secondary': '#0f172a',
+                        'gaming-accent': '#3b82f6',
+                        'gaming-dark': '#111827',
+                        'gaming-light': '#e2e8f0'
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'monospace'],
+                        'rajdhani': ['Rajdhani', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        glow: {
+                            'from': { boxShadow: '0 0 20px #10b981' },
+                            'to': { boxShadow: '0 0 30px #10b981, 0 0 40px #10b981' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <style>
         /* Custom scrollbar */
         ::-webkit-scrollbar {
@@ -28,7 +65,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white overflow-x-hidden">
+<body class="bg-gray-900 text-white overflow-x-hidden" style="padding-top: 80px;">
     <!-- Navigation will be injected here -->
     <div id="nav-placeholder"></div>
     
@@ -51,14 +88,125 @@
 
     <!-- Tournament Info -->
     <section class="py-12 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
-        <div id="tournament-info" class="flex flex-col md:flex-row items-center gap-8 mb-12 bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 shadow-lg">
-            <img id="tournament-logo" src="" alt="" class="h-40 w-40 object-contain rounded-lg border-2 border-gray-700 shadow-lg transition duration-300 hover:scale-105 hover:border-green-400">
-            <div class="text-center md:text-left">
-                <h2 id="tournament-name" class="text-3xl md:text-4xl font-bold mb-4 font-orbitron text-white"></h2>
-                <p id="tournament-description" class="text-lg text-gray-300"></p>
-                <div id="tournament-meta" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6"></div>
+        <!-- No Tournament Active Message -->
+        <div id="no-tournament-message" class="hidden text-center py-20 px-4">
+            <div class="max-w-4xl mx-auto bg-gradient-to-br from-gray-800/90 via-gray-900/90 to-gray-800/90 backdrop-blur-lg p-12 rounded-3xl border border-gray-700 shadow-2xl">
+                <!-- Animated background elements -->
+                <div class="absolute inset-0 overflow-hidden opacity-20 z-0">
+                    <div class="absolute top-0 left-0 w-32 h-32 bg-purple-500 rounded-full filter blur-3xl opacity-30 animate-pulse"></div>
+                    <div class="absolute bottom-0 right-0 w-32 h-32 bg-blue-500 rounded-full filter blur-3xl opacity-30 animate-pulse"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-green-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+                </div>
+                
+                <div class="relative z-10">
+                    <!-- Tournament Icon -->
+                    <div class="mb-8 flex justify-center">
+                        <div class="relative">
+                            <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-trophy text-4xl text-white"></i>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full animate-ping opacity-20"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Main Message -->
+                    <h2 class="text-4xl md:text-5xl font-bold font-orbitron text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 mb-6">
+                        No Tournament Live
+                    </h2>
+                    
+                    <p class="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+                        No tournament is currently hosted or active. Stay tuned for upcoming gaming competitions!
+                    </p>
+                    
+                    <!-- Decorative Elements -->
+                    <div class="flex justify-center space-x-6 mb-8">
+                        <div class="w-3 h-3 bg-purple-500 rounded-full animate-bounce"></div>
+                        <div class="w-3 h-3 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+                    </div>
+                    
+                    <!-- Info Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                        <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-300 group">
+                            <div class="text-purple-400 text-2xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Stay Updated</h3>
+                            <p class="text-gray-400 text-sm">Follow our announcements for upcoming tournaments</p>
+                        </div>
+                        
+                        <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-all duration-300 group">
+                            <div class="text-blue-400 text-2xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Coming Soon</h3>
+                            <p class="text-gray-400 text-sm">Exciting gaming competitions are being planned</p>
+                        </div>
+                        
+                        <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-green-500 transition-all duration-300 group">
+                            <div class="text-green-400 text-2xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Prepare</h3>
+                            <p class="text-gray-400 text-sm">Get ready and sharpen your gaming skills</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Call to Action -->
+                    <div class="mt-8 space-y-4">
+                        <p class="text-gray-400">Want to be notified when tournaments go live?</p>
+                        <div class="flex justify-center space-x-4">
+                            <button class="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                                <i class="fas fa-envelope mr-2"></i>
+                                Subscribe to Updates
+                            </button>
+                            <button class="px-6 py-3 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                                <i class="fas fa-home mr-2"></i>
+                                Back to Home
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <div id="tournament-info" class="relative overflow-hidden flex flex-col md:flex-row items-center gap-8 mb-16 bg-gradient-to-br from-gray-800/80 via-gray-900/80 to-gray-800/80 backdrop-blur-lg p-8 rounded-2xl border border-gray-700 shadow-2xl hover:shadow-green-500/20 transition-all duration-500 group">
+            <!-- Animated background elements -->
+            <div class="absolute inset-0 overflow-hidden opacity-30 z-0">
+                <div class="absolute -top-10 -left-10 w-32 h-32 bg-green-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+                <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+            </div>
+            
+            <!-- Tournament Logo Container -->
+            <div class="relative z-10 flex-shrink-0 h-48 w-48 md:h-56 md:w-56 bg-gray-800/70 rounded-xl border-2 border-gray-700 shadow-lg group-hover:border-green-400 transition-all duration-300 tournament-logo-container">
+                <div class="tournament-logo-wrapper">
+                    <img id="tournament-logo" src="" alt="Tournament Logo" 
+                        class="transition-transform duration-300 group-hover:scale-105">
+                </div>
+                <div class="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-green-400/50 pointer-events-none transition-all duration-500"></div>
+            </div>
+            
+            <!-- Tournament Info Content -->
+            <div class="relative z-10 text-center md:text-left space-y-4">
+                <h2 id="tournament-name" class="text-4xl md:text-5xl font-bold font-orbitron text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-400 to-purple-500 mb-2 tracking-tight">
+                    <!-- Name will be inserted here -->
+                </h2>
+                
+                <p id="tournament-description" class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl">
+                    <!-- Description will be inserted here -->
+                </p>
+                
+                <div id="tournament-meta" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                    <!-- Meta items will be inserted here -->
+                </div>
+            </div>
+            
+            <!-- Corner accent elements -->
+            <div class="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </div>
+
+
 
         <!-- Collaborators & Credits -->
         <div id="partners-section" class="mb-16">
@@ -118,71 +266,15 @@
         </div>
     </section>
 
-    <!-- Registration Modal -->
-    <div id="registration-modal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden items-center justify-center p-4">
-        <div class="bg-gray-800 rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative border-2 border-green-400 shadow-lg shadow-green-400/20">
-            <button id="close-registration-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl z-10 transition hover:text-red-500">
-                <i class="fas fa-times"></i>
-            </button>
-            <div id="registration-modal-content" class="p-6"></div>
-        </div>
-    </div>
+   <!-- Footer / component placeholder -->
+   <div id="footer-placeholder"></div>
 
-    <div id="footer-placeholder"></div>
-    <div id="modal-placeholder"></div>
-    
-    <script>
-        // Load components with error handling
-        function loadComponent(url, placeholderId, callback) {
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) throw new Error(`Failed to load ${url}`);
-                    return response.text();
-                })
-                .then(html => {
-                    document.getElementById(placeholderId).innerHTML = html;
-                    if (callback) callback();
-                })
-                .catch(error => {
-                    console.error(`Error loading ${url}:`, error);
-                    // Create a minimal fallback navigation
-                    if (placeholderId === 'nav-placeholder') {
-                        document.getElementById(placeholderId).innerHTML = `
-                            <nav class="bg-gray-900 py-4 px-6 shadow-lg">
-                                <div class="container mx-auto flex justify-between items-center">
-                                    <a href="/" class="text-xl font-bold text-green-400 font-orbitron">GUCC VGS</a>
-                                    <div class="flex space-x-6">
-                                        <a href="/" class="text-gray-300 hover:text-green-400 transition">Home</a>
-                                        <a href="/tournament" class="text-green-400 font-semibold">Tournament</a>
-                                        <a href="/about" class="text-gray-300 hover:text-green-400 transition">About</a>
-                                        <a href="/contact" class="text-gray-300 hover:text-green-400 transition">Contact</a>
-                                    </div>
-                                </div>
-                            </nav>
-                        `;
-                    }
-                });
-        }
 
-        // Load navigation with fallback
-        loadComponent('components/nav.html', 'nav-placeholder', () => {
-            const script = document.createElement('script');
-            script.src = 'js/nav.js';
-            script.onerror = () => {
-                console.log('nav.js failed to load, but page will continue functioning');
-            };
-            document.body.appendChild(script);
-        });
+   <!-- Unified Component Loader -->
+   <script src="js/components/loader.js"></script>
 
-        // Load other components
-        loadComponent('components/footer.html', 'footer-placeholder');
-        loadComponent('components/contact-modal.html', 'modal-placeholder');
-    </script>
-    
-    <!-- Load tournament.js after components are loaded -->
-    <script src="js/tournament.js" defer></script>
-    <script src="js/footer.js" defer></script>
-    <script src="js/modal-contact.js" defer></script>
+   <!-- Page-specific scripts -->
+   <script src="js/tournament.js" defer></script>
     
     <!-- Particles.js for background animation -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>

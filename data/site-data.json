@@ -16,5 +16,11 @@
     "🚀 Official Launch of The Elder Scrolls IV: Oblivion Remastered",
     "🎮 Game Review: Assassin's Creed Shadow",
     "🏆 Jarno Opmeer Wins The F1 Esports World Championship 2025!"
-  ]
+  ],
+  "stats": {
+    "activeMembers": 16,
+    "tournaments": 2,
+    "gamesSupported": 8,
+    "industryPartners": 6
+  }
 }

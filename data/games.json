@@ -1,44 +1,114 @@
 {
     "games": [
         {
-            "name": "CODM",
+            "id": "codm",
+            "name": "Call of Duty Mobile",
+            "shortName": "CODM",
             "logo": "assets/images/games/codm.png",
-            "platform": "Mobile"
+            "platform": "Mobile",
+            "category": "FPS",
+            "description": "Tactical first-person shooter battle royale game",
+            "featured": true
         },
         {
+            "id": "valorant",
             "name": "VALORANT",
+            "shortName": "VAL",
             "logo": "assets/images/games/valorant.png",
-            "platform": "PC"
+            "platform": "PC",
+            "category": "FPS",
+            "description": "5v5 character-based tactical FPS",
+            "featured": true
         },
         {
+            "id": "efootball",
             "name": "eFootball",
+            "shortName": "eFootball",
             "logo": "assets/images/games/efootball.png",
-            "platform": "Mobile"
+            "platform": "Mobile",
+            "category": "Sports",
+            "description": "Mobile football simulation game",
+            "featured": false
         },
         {
+            "id": "fifa19",
             "name": "FIFA 19",
+            "shortName": "FIFA",
             "logo": "assets/images/games/fifa19.png",
-            "platform": "PC"
+            "platform": "PC",
+            "category": "Sports",
+            "description": "Football simulation game",
+            "featured": false
         },
         {
+            "id": "pubgmobile",
+            "name": "PUBG Mobile",
+            "shortName": "PUBG",
+            "logo": "assets/images/games/pubgmobile.png",
+            "platform": "Mobile",
+            "category": "Battle Royale",
+            "description": "Battle royale survival game",
+            "featured": true
+        },
+        {
+            "id": "freefire",
+            "name": "Free Fire",
+            "shortName": "FF",
+            "logo": "assets/images/games/freefire.png",
+            "platform": "Mobile",
+            "category": "Battle Royale",
+            "description": "Fast-paced battle royale game",
+            "featured": false
+        },
+        {
+            "id": "mobilelegends",
+            "name": "Mobile Legends",
+            "shortName": "ML",
+            "logo": "assets/images/games/mobilelegends.png",
+            "platform": "Mobile",
+            "category": "MOBA",
+            "description": "5v5 MOBA battle arena game",
+            "featured": false
+        },
+        {
+            "id": "chess",
             "name": "Chess",
+            "shortName": "Chess",
             "logo": "assets/images/games/chess.png",
-            "platform": "Casual"
+            "platform": "Casual",
+            "category": "Strategy",
+            "description": "Classic strategy board game",
+            "featured": true
         },
         {
+            "id": "ludo",
             "name": "Ludo",
+            "shortName": "Ludo",
             "logo": "assets/images/games/ludo.png",
-            "platform": "Casual"
+            "platform": "Casual",
+            "category": "Board",
+            "description": "Traditional board game",
+            "featured": false
         },
         {
+            "id": "carrom",
             "name": "Carrom",
+            "shortName": "Carrom",
             "logo": "assets/images/games/carrom.png",
-            "platform": "Casual"
+            "platform": "Casual",
+            "category": "Board",
+            "description": "Traditional strike and pocket game",
+            "featured": false
         },
         {
+            "id": "tabletennis",
             "name": "Table Tennis",
+            "shortName": "TT",
             "logo": "assets/images/games/tabletennis.png",
-            "platform": "Casual"
+            "platform": "Casual",
+            "category": "Sports",
+            "description": "Fast-paced paddle sport",
+            "featured": false
         }
     ]
 }

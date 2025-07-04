@@ -2,19 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Partners & Collaborations | GUCC VGS</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/footer.css">
+  
+  <!-- ——— CSS ——— -->
+  <link rel="stylesheet" href="css/loader.css?v=1.0.1" />
+  <link rel="stylesheet" href="css/nav.css?v=1.0.1" />
+  <link rel="stylesheet" href="css/footer.css?v=1.0.1" />
   <link rel="stylesheet" href="css/collaboration.css">
-  <link rel="stylesheet" href="css/modal-contact.css">
-
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      'gaming-primary': '#10b981',
+                      'gaming-secondary': '#0f172a',
+                      'gaming-accent': '#3b82f6',
+                      'gaming-dark': '#111827',
+                      'gaming-light': '#e2e8f0'
+                  },
+                  fontFamily: {
+                      'orbitron': ['Orbitron', 'monospace'],
+                      'rajdhani': ['Rajdhani', 'sans-serif']
+                  },
+                  animation: {
+                      'float': 'float 6s ease-in-out infinite',
+                      'glow': 'glow 2s ease-in-out infinite alternate',
+                      'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                  },
+                  keyframes: {
+                      float: {
+                          '0%, 100%': { transform: 'translateY(0px)' },
+                          '50%': { transform: 'translateY(-20px)' }
+                      },
+                      glow: {
+                          'from': { boxShadow: '0 0 20px #10b981' },
+                          'to': { boxShadow: '0 0 30px #10b981, 0 0 40px #10b981' }
+                      }
+                  }
+              }
+          }
+      }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <script src="https://unpkg.com/scrollreveal"></script>
+  
+  <!-- Loader Script (Load Early) -->
+  <script src="js/loader.js"></script>
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body class="bg-gray-900 text-white font-sans" style="padding-top: 80px;">
   <!-- Click Blocker Overlay -->
   <div id="click-blocker-overlay" class="fixed inset-0 z-[9999] hidden bg-transparent pointer-events-none"></div>
 
@@ -118,32 +158,12 @@
 
   <!-- Footer -->
   <div id="footer-placeholder"></div>
-  <div id="modal-placeholder"></div>
 
-  <script src="js/collaboration.js"></script>
 
-  <script>
-    // Load components
-    fetch('components/nav.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('nav-placeholder').innerHTML = html;
-        const script = document.createElement('script');
-        script.src = 'js/nav.js';
-        document.body.appendChild(script);
-      });
-
-    fetch('components/footer.html')
-      .then(response => response.text())
-      .then(data => document.getElementById('footer-placeholder').innerHTML = data);
-
-    fetch('components/contact-modal.html')
-      .then(response => response.text())
-      .then(data => document.getElementById('modal-placeholder').innerHTML = data);
-  </script>
+  <!-- Unified Component Loader -->
+  <script src="js/components/loader.js"></script>
   
-  <script src="js/footer.js" defer></script>
-  <script src="js/modal-contact.js" defer></script>
-  <script src="js/nav.js" defer></script>
+  <!-- Page-specific scripts -->
+  <script src="js/collaboration.js" defer></script>
 </body>
 </html>

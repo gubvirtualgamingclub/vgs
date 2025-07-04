@@ -1,40 +1,332 @@
 {
-  "upcoming": [
+  "recent": [
     {
       "id": 1,
-      "title": "CSE Gaming Fest MLBB",
-      "date": "June 25, 2025 • 3:00 PM",
-      "description": "Join our Mobile Legends tournament with exciting prizes.",
-      "detailedDescription": "Compete in our annual Mobile Legends tournament featuring top players from CSE department. Win exclusive prizes in intense 5v5 battles.",
-      "image": "assets/images/logos/vgs.png",
-      "tags": ["Mobile", "Tournament", "5v5"],
-      "badge": "Upcoming",
-      "buttonText": "Learn More"
+      "title": "Inter Department Gaming Championship 2025",
+      "date": "July 15, 2025",
+      "time": "2:00 PM - 8:00 PM",
+      "venue": "Green University Main Auditorium",
+      "shortDescription": "The biggest inter-departmental gaming competition of the year featuring multiple game titles.",
+      "banner": "assets/images/events/inter-dept-championship.jpg",
+      "category": "recent",
+      "about": "Join us for the most anticipated gaming event of 2025! This inter-departmental championship brings together the best gamers from all departments of Green University. Compete in multiple gaming categories, showcase your skills, and represent your department with pride. The event features professional gaming setups, live streaming, expert commentary, and exciting prizes for winners.",
+      "games": ["Valorant", "CS:GO", "Mobile Legends", "FIFA 24", "PUBG Mobile"],
+      "prizes": {
+        "first": "৳50,000 + Gaming Laptop",
+        "second": "৳30,000 + Gaming Mouse & Keyboard",
+        "third": "৳20,000 + Gaming Headset"
+      },
+      "participants": 128,
+      "maxParticipants": 150,
+      "registrationStatus": "Open",
+      "guests": [
+        {
+          "name": "Ahmed Rahman",
+          "title": "Professional Esports Player",
+          "image": "assets/images/members/md-sazib.png",
+          "description": "Former PUBG Mobile World Championship participant"
+        },
+        {
+          "name": "Sarah Khan",
+          "title": "Gaming Content Creator",
+          "image": "assets/images/guests/sarah-khan.jpg",
+          "description": "Popular gaming YouTuber with 500K+ subscribers"
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "ASUS ROG",
+          "logo": "assets/images/sponsors/asus-rog.png",
+          "tier": "Title Sponsor"
+        },
+        {
+          "name": "Red Bull",
+          "logo": "assets/images/sponsors/red-bull.png",
+          "tier": "Energy Partner"
+        },
+        {
+          "name": "Logitech G",
+          "logo": "assets/images/sponsors/logitech-g.png",
+          "tier": "Gaming Partner"
+        }
+      ],
+      "schedule": [
+        {
+          "time": "2:00 PM",
+          "activity": "Registration & Check-in"
+        },
+        {
+          "time": "2:30 PM",
+          "activity": "Opening Ceremony"
+        },
+        {
+          "time": "3:00 PM",
+          "activity": "Valorant Tournament Begins"
+        },
+        {
+          "time": "5:00 PM",
+          "activity": "Mobile Gaming Session"
+        },
+        {
+          "time": "7:00 PM",
+          "activity": "Finals & Prize Distribution"
+        }
+      ],
+      "contact": {
+        "organizer": "GUCC VGS Team",
+        "email": "vgs@greenuniversity.edu.bd",
+        "phone": "+880 1518-918266"
+      },
+      "socialLinks": {
+        "facebook": "https://facebook.com/gucc.vgs/events/inter-dept-2025",
+        "registration": "https://forms.google.com/inter-dept-registration"
+      }
     },
     {
       "id": 2,
-      "title": "Inter Department Competition",
-      "date": "July 10-12, 2025",
-      "description": "Departments compete in popular esports titles.",
-      "detailedDescription": "Inter-departmental esports event featuring Valorant, CS:GO, and FIFA. Brings together students from all departments.",
-      "image": "assets/images/logos/vgs.png",
-      "tags": ["PC", "Console", "Team Event"],
-      "badge": "Ongoing",
-      "buttonText": "Learn More",
-      "registrationLink": "https://example.com/register"
+      "title": "Mobile Gaming Workshop & Tournament",
+      "date": "July 8, 2025",
+      "time": "4:00 PM - 7:00 PM",
+      "venue": "Computer Lab 1, 2nd Floor",
+      "shortDescription": "Learn mobile gaming strategies and compete in PUBG Mobile tournament.",
+      "banner": "assets/images/events/mobile-gaming-workshop.jpg",
+      "category": "recent",
+      "about": "Master the art of mobile gaming with our comprehensive workshop followed by an exciting tournament. Learn advanced strategies, device optimization techniques, and competitive gameplay tactics from professional mobile gamers. The session includes hands-on training, strategy discussions, and a live tournament where you can apply your newly learned skills.",
+      "games": ["PUBG Mobile", "Mobile Legends", "Call of Duty Mobile"],
+      "prizes": {
+        "first": "৳15,000 + Gaming Phone Case",
+        "second": "৳10,000 + Power Bank",
+        "third": "৳5,000 + Mobile Stand"
+      },
+      "participants": 45,
+      "maxParticipants": 60,
+      "registrationStatus": "Open",
+      "guests": [
+        {
+          "name": "Rafiq Ahmed",
+          "title": "Mobile Gaming Coach",
+          "image": "assets/images/guests/rafiq-ahmed.jpg",
+          "description": "Professional mobile gaming trainer with 5+ years experience"
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Xiaomi",
+          "logo": "assets/images/sponsors/xiaomi.png",
+          "tier": "Device Partner"
+        },
+        {
+          "name": "Mobile Dokan",
+          "logo": "assets/images/sponsors/mobile-dokan.png",
+          "tier": "Retail Partner"
+        }
+      ],
+      "schedule": [
+        {
+          "time": "4:00 PM",
+          "activity": "Workshop Registration"
+        },
+        {
+          "time": "4:15 PM",
+          "activity": "Mobile Gaming Strategies Session"
+        },
+        {
+          "time": "5:30 PM",
+          "activity": "Tournament Registration"
+        },
+        {
+          "time": "6:00 PM",
+          "activity": "PUBG Mobile Tournament"
+        },
+        {
+          "time": "7:00 PM",
+          "activity": "Prize Distribution"
+        }
+      ],
+      "contact": {
+        "organizer": "GUCC VGS Mobile Team",
+        "email": "mobile@vgs.gucc.edu.bd",
+        "phone": "+880 1518-918266"
+      },
+      "socialLinks": {
+        "facebook": "https://facebook.com/gucc.vgs/events/mobile-workshop-2025",
+        "registration": "https://forms.google.com/mobile-workshop-registration"
+      }
     }
   ],
   "past": [
     {
       "id": 3,
-      "title": "PC Building Workshop",
+      "title": "PC Building Workshop 2025",
       "date": "March 15, 2025",
-      "description": "Learned fundamentals of assembling custom PCs.",
-      "detailedDescription": "Workshop on building high-performance gaming PCs, including hardware selection and optimization techniques.",
-      "image": "assets/images/logos/vgs.png",
-      "tags": ["Workshop", "Hardware"],
-      "buttonText": "View Gallery",
-      "galleryLink": "https://facebook.com/events/pc-workshop"
+      "time": "10:00 AM - 4:00 PM",
+      "venue": "Hardware Lab, 3rd Floor",
+      "shortDescription": "Hands-on PC building workshop with expert guidance and component selection.",
+      "banner": "assets/images/events/pc-building-workshop.jpg",
+      "category": "past",
+      "about": "A comprehensive hands-on workshop where participants learned to build high-performance gaming PCs from scratch. The event covered component selection, compatibility checking, assembly techniques, cable management, and system optimization. Each participant worked with real hardware components and built a complete system under expert supervision.",
+      "games": ["Hardware Assembly", "System Testing", "Benchmarking"],
+      "prizes": {
+        "best_build": "Gaming SSD 1TB",
+        "most_creative": "RGB Lighting Kit",
+        "best_cable_management": "Modular PSU"
+      },
+      "participants": 32,
+      "maxParticipants": 35,
+      "registrationStatus": "Completed",
+      "guests": [
+        {
+          "name": "Mohammad Hassan",
+          "title": "Hardware Engineer",
+          "image": "assets/images/guests/mohammad-hassan.jpg",
+          "description": "Senior Hardware Engineer at Tech Solutions BD"
+        },
+        {
+          "name": "Fatima Ahmed",
+          "title": "System Builder",
+          "image": "assets/images/guests/fatima-ahmed.jpg",
+          "description": "Professional system builder and hardware reviewer"
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Intel",
+          "logo": "assets/images/sponsors/intel.png",
+          "tier": "Processor Partner"
+        },
+        {
+          "name": "NVIDIA",
+          "logo": "assets/images/sponsors/nvidia.png",
+          "tier": "Graphics Partner"
+        },
+        {
+          "name": "Corsair",
+          "logo": "assets/images/sponsors/corsair.png",
+          "tier": "Component Partner"
+        }
+      ],
+      "schedule": [
+        {
+          "time": "10:00 AM",
+          "activity": "Welcome & Component Overview"
+        },
+        {
+          "time": "11:00 AM",
+          "activity": "Hands-on Assembly Session 1"
+        },
+        {
+          "time": "1:00 PM",
+          "activity": "Lunch Break"
+        },
+        {
+          "time": "2:00 PM",
+          "activity": "Hands-on Assembly Session 2"
+        },
+        {
+          "time": "3:30 PM",
+          "activity": "System Testing & Benchmarking"
+        },
+        {
+          "time": "4:00 PM",
+          "activity": "Showcase & Prizes"
+        }
+      ],
+      "contact": {
+        "organizer": "GUCC Hardware Team",
+        "email": "hardware@vgs.gucc.edu.bd",
+        "phone": "+880 1518-918266"
+      },
+      "socialLinks": {
+        "facebook": "https://facebook.com/gucc.vgs/events/pc-workshop-2025",
+        "gallery": "https://facebook.com/gucc.vgs/albums/pc-workshop-gallery"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Valorant Championship Spring 2025",
+      "date": "February 20, 2025",
+      "time": "1:00 PM - 9:00 PM",
+      "venue": "Gaming Arena, Student Center",
+      "shortDescription": "Competitive Valorant tournament with 32 teams and professional casting.",
+      "banner": "assets/images/events/valorant-championship.jpg",
+      "category": "past",
+      "about": "The inaugural Valorant Championship brought together 32 teams in an intense competitive tournament. Featuring professional-grade gaming setups, live streaming with expert commentary, and a thrilling atmosphere. Teams competed through group stages leading to knockout rounds, culminating in an epic grand final that showcased the highest level of tactical FPS gameplay in the university.",
+      "games": ["Valorant"],
+      "prizes": {
+        "first": "৳40,000 + Gaming Monitors",
+        "second": "৳25,000 + Mechanical Keyboards",
+        "third": "৳15,000 + Gaming Mice"
+      },
+      "participants": 160,
+      "maxParticipants": 160,
+      "registrationStatus": "Completed",
+      "guests": [
+        {
+          "name": "Sakib Rahman",
+          "title": "Professional Valorant Player",
+          "image": "assets/images/guests/sakib-rahman.jpg",
+          "description": "Former professional player and current coach"
+        },
+        {
+          "name": "Nadia Islam",
+          "title": "Esports Commentator",
+          "image": "assets/images/guests/nadia-islam.jpg",
+          "description": "Professional esports commentator and analyst"
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "HyperX",
+          "logo": "assets/images/sponsors/hyperx.png",
+          "tier": "Gaming Partner"
+        },
+        {
+          "name": "ASUS",
+          "logo": "assets/images/sponsors/asus.png",
+          "tier": "Hardware Partner"
+        },
+        {
+          "name": "Razer",
+          "logo": "assets/images/sponsors/razer.png",
+          "tier": "Peripheral Partner"
+        }
+      ],
+      "schedule": [
+        {
+          "time": "1:00 PM",
+          "activity": "Team Check-in & Setup"
+        },
+        {
+          "time": "2:00 PM",
+          "activity": "Group Stage Round 1"
+        },
+        {
+          "time": "4:00 PM",
+          "activity": "Group Stage Round 2"
+        },
+        {
+          "time": "6:00 PM",
+          "activity": "Knockout Rounds"
+        },
+        {
+          "time": "8:00 PM",
+          "activity": "Grand Final"
+        },
+        {
+          "time": "9:00 PM",
+          "activity": "Closing Ceremony"
+        }
+      ],
+      "contact": {
+        "organizer": "GUCC Esports Division",
+        "email": "esports@vgs.gucc.edu.bd",
+        "phone": "+880 1518-918266"
+      },
+      "socialLinks": {
+        "facebook": "https://facebook.com/gucc.vgs/events/valorant-championship-2025",
+        "gallery": "https://facebook.com/gucc.vgs/albums/valorant-championship-gallery",
+        "highlights": "https://youtube.com/watch?v=valorant-highlights"
+      }
     }
   ]
 }

@@ -4,8 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const tournamentLogo = document.getElementById('tournament-logo');
     const tournamentDescription = document.getElementById('tournament-description');
     const tournamentMeta = document.getElementById('tournament-meta');
+    const tournamentInfo = document.getElementById('tournament-info');
     const collaborators = document.getElementById('collaborators');
     const credits = document.getElementById('credits');
+    const partnersSection = document.getElementById('partners-section');
+    const gamesSection = document.getElementById('games-section');
+    const noTournamentMessage = document.getElementById('no-tournament-message');
+
+    // Initially hide the no tournament message
+    if (noTournamentMessage) {
+        noTournamentMessage.classList.add('hidden');
+        noTournamentMessage.style.display = 'none';
+    }
     
     const casualGamesContainer = document.getElementById('casual-games');
     const virtualPcGamesContainer = document.getElementById('virtual-pc-games');
@@ -14,10 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const noCasual = document.getElementById('no-casual');
     const noVirtualPc = document.getElementById('no-virtual-pc');
     const noVirtualMobile = document.getElementById('no-virtual-mobile');
-    
-    const registrationModal = document.getElementById('registration-modal');
-    const registrationModalContent = document.getElementById('registration-modal-content');
-    const closeRegistrationModal = document.getElementById('close-registration-modal');
 
     // Fetch and initialize tournament data
     fetch('data/tournament.json')
@@ -29,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => {
             console.error('Error loading tournament data:', error);
             showErrorAlert('Failed to load tournament data. Please check the console and ensure tournament.json is accessible.');
+            // Show no tournament message as fallback
+            showNoTournamentMessage();
         });
 
     // Show error alert
@@ -49,268 +57,370 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000);
     }
 
+    // Show no tournament message and hide everything else
+    function showNoTournamentMessage() {
+        // Show no tournament message
+        if (noTournamentMessage) {
+            noTournamentMessage.classList.remove('hidden');
+            noTournamentMessage.style.display = 'block';
+        }
+        
+        // Hide all tournament content
+        if (tournamentInfo) {
+            tournamentInfo.style.display = 'none';
+        }
+        if (partnersSection) {
+            partnersSection.style.display = 'none';
+        }
+        if (gamesSection) {
+            gamesSection.style.display = 'none';
+        }
+        
+        // Add click event to "Back to Home" button
+        const backToHomeBtn = noTournamentMessage.querySelector('button:last-child');
+        if (backToHomeBtn) {
+            backToHomeBtn.addEventListener('click', () => {
+                window.location.href = 'index.html';
+            });
+        }
+    }
+
+    // Show tournament content and hide no tournament message
+    function showTournamentContent() {
+        // Hide no tournament message
+        if (noTournamentMessage) {
+            noTournamentMessage.classList.add('hidden');
+            noTournamentMessage.style.display = 'none';
+        }
+        
+        // Show tournament content
+        if (tournamentInfo) {
+            tournamentInfo.style.display = 'flex';
+        }
+        if (partnersSection) {
+            partnersSection.style.display = 'block';
+        }
+        if (gamesSection) {
+            gamesSection.style.display = 'block';
+        }
+    }
+
     // Initialize Tournament
     function initializeTournament(data) {
-        tournamentName.textContent = data.tournament.name || 'Tournament Name';
-        tournamentLogo.src = data.tournament.logo || 'assets/images/placeholder-game.png';
-        tournamentLogo.alt = `${data.tournament.name || 'Tournament'} Logo`;
-        tournamentDescription.textContent = data.tournament.description || 'No description available';
+        // Check if tournament is active
+        if (!data.tournament.active) {
+            showNoTournamentMessage();
+            return; // Exit early, don't load any tournament content
+        }
+        
+        // Show tournament content and hide no tournament message
+        showTournamentContent();
+        
+        // Load tournament information
+        if (tournamentName) tournamentName.textContent = data.tournament.name || 'Tournament Name';
+        if (tournamentLogo) {
+            if (data.tournament.logo) {
+                // Clear any previous error handlers
+                tournamentLogo.onerror = null;
+                tournamentLogo.style.display = 'block';
+                
+                // Set the logo source
+                tournamentLogo.src = data.tournament.logo;
+                tournamentLogo.alt = `${data.tournament.name || 'Tournament'} Logo`;
+                
+                // Handle image load errors properly
+                tournamentLogo.onerror = function() {
+                    console.log('Tournament logo failed to load:', this.src);
+                    // Only try fallback once to prevent infinite loop
+                    if (!this.hasAttribute('data-fallback-attempted')) {
+                        this.setAttribute('data-fallback-attempted', 'true');
+                        this.src = 'assets/images/members/placeholder.png';
+                        this.onerror = function() {
+                            console.log('Fallback image also failed, hiding logo');
+                            this.style.display = 'none';
+                        };
+                    } else {
+                        this.style.display = 'none';
+                    }
+                };
+                
+                // Handle successful load
+                tournamentLogo.onload = function() {
+                    console.log('Tournament logo loaded successfully:', this.src);
+                    this.style.display = 'block';
+                };
+            } else {
+                // No logo specified, hide the image
+                tournamentLogo.style.display = 'none';
+            }
+        }
+        if (tournamentDescription) tournamentDescription.textContent = data.tournament.description || 'No description available';
         
         // Set tournament meta details
-        tournamentMeta.innerHTML = `
-            <div class="detail-item">
-                <div class="detail-icon"><i class="fas fa-calendar-alt"></i></div>
-                <div><strong>Date:</strong> ${data.tournament.date || 'TBD'}</div>
-            </div>
-            <div class="detail-item">
-                <div class="detail-icon"><i class="fas fa-clock"></i></div>
-                <div><strong>Time:</strong> ${data.tournament.time || 'TBD'}</div>
-            </div>
-            <div class="detail-item">
-                <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
-                <div><strong>Venue:</strong> ${data.tournament.venue || 'TBD'}</div>
-            </div>
-            <div class="detail-item">
-                <div class="detail-icon"><i class="fas fa-trophy"></i></div>
-                <div><strong>Prize Pool:</strong> ${data.tournament.prizePool || 'TBD'}</div>
-            </div>
-        `;
+        if (tournamentMeta) {
+            tournamentMeta.innerHTML = `
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div><strong>Date:</strong> ${data.tournament.date || 'TBD'}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fas fa-clock"></i></div>
+                    <div><strong>Time:</strong> ${data.tournament.time || 'TBD'}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div><strong>Venue:</strong> ${data.tournament.venue || 'TBD'}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fas fa-trophy"></i></div>
+                    <div><strong>Prize Pool:</strong> ${data.tournament.prizePool || 'TBD'}</div>
+                </div>
+            `;
+        }
         
-        // Set collaborators
-        if (data.collaborators && data.collaborators.length > 0) {
+        // Load collaborators
+        if (collaborators && data.collaborators && data.collaborators.length > 0) {
+            collaborators.innerHTML = '';
             data.collaborators.forEach(collab => {
                 const collaborator = document.createElement('div');
                 collaborator.className = 'collaborator transition duration-300 hover:scale-105';
                 collaborator.innerHTML = `
                     <img src="${collab.logo || 'assets/images/placeholder-game.png'}" 
-                         alt="${collab.name || 'Collaborator'}" 
-                         class="collaborator-logo" 
-                         title="${collab.name || 'Collaborator'}">
+                        alt="${collab.name || 'Collaborator'}" 
+                        class="collaborator-logo" 
+                        title="${collab.name || 'Collaborator'}">
                 `;
                 collaborators.appendChild(collaborator);
             });
         }
-        
-        // Set credits
-        if (data.credits && data.credits.length > 0) {
+
+        // Load credits
+        if (credits && data.credits && data.credits.length > 0) {
+            credits.innerHTML = '';
             data.credits.forEach(credit => {
                 const creditItem = document.createElement('div');
                 creditItem.className = 'credit transition duration-300 hover:scale-105';
                 creditItem.innerHTML = `
                     <img src="${credit.logo || 'assets/images/placeholder-game.png'}" 
-                         alt="${credit.name || 'Credit'}" 
-                         class="credit-logo" 
-                         title="${credit.name || 'Credit'}">
+                        alt="${credit.name || 'Credit'}" 
+                        class="credit-logo" 
+                        title="${credit.name || 'Credit'}">
                 `;
                 credits.appendChild(creditItem);
             });
         }
         
         // Load games
-        loadGames(data.games.casual.games, casualGamesContainer, 'casual', noCasual, data.games.casual.available);
-        loadGames(data.games.virtualPc.games, virtualPcGamesContainer, 'virtual-pc', noVirtualPc, data.games.virtualPc.available);
-        loadGames(data.games.virtualMobile.games, virtualMobileGamesContainer, 'virtual-mobile', noVirtualMobile, data.games.virtualMobile.available);
+        if (data.games) {
+            loadGames(data.games.casual?.games, casualGamesContainer, 'casual', noCasual, data.games.casual?.available);
+            loadGames(data.games.virtualPc?.games, virtualPcGamesContainer, 'virtual-pc', noVirtualPc, data.games.virtualPc?.available);
+            loadGames(data.games.virtualMobile?.games, virtualMobileGamesContainer, 'virtual-mobile', noVirtualMobile, data.games.virtualMobile?.available);
+        }
         
-        // Setup event listeners
-        setupEventListeners();
+        // Event listeners are handled inline, no additional setup needed
+        console.log('✅ Tournament initialized with expandable card system');
     }
 
-    // Load games into container
+    // NEW: Enhanced games loading with expandable cards (no modal popups)
     function loadGames(games, container, type, noGamesElement, available) {
+        if (!container) return;
+        
         if (!available || !games || games.length === 0) {
             container.style.display = 'none';
-            noGamesElement.classList.remove('hidden');
+            if (noGamesElement) noGamesElement.classList.remove('hidden');
             return;
         }
         
         container.innerHTML = '';
-        games.forEach(game => {
+        if (noGamesElement) noGamesElement.classList.add('hidden');
+        
+        games.forEach((game, index) => {
             const isOpen = game.registrationOpen;
             const participantsText = game.teamBased 
                 ? `${game.currentParticipants || 0} Teams Registered` 
                 : `${game.currentParticipants || 0} Players Registered`;
             
+            const uniqueId = `${type}-${game.id}`;
+            console.log(`🎮 Creating game card: ${game.name} with unique ID: ${uniqueId}`);
+            
             // Get appropriate icon for game type
             let gameIcon = 'fa-gamepad';
-            if (type === 'virtual-pc') gameIcon = 'fa-desktop';
-            if (type === 'virtual-mobile') gameIcon = 'fa-mobile-alt';
+            let typeColor = 'purple';
+            if (type === 'virtual-pc') {
+                gameIcon = 'fa-desktop';
+                typeColor = 'red';
+            }
+            if (type === 'virtual-mobile') {
+                gameIcon = 'fa-mobile-alt';
+                typeColor = 'yellow';
+            }
             
             const gameCard = document.createElement('div');
-            gameCard.className = `game-card ${type}`;
+            gameCard.className = `game-card ${type} transform transition-all duration-300 hover:scale-105 hover:shadow-2xl`;
+            gameCard.style.animationDelay = `${index * 100}ms`;
+            gameCard.id = `game-card-${uniqueId}`;
+            
             gameCard.innerHTML = `
-                <div class="relative overflow-hidden">
-                    <img src="${game.logo || 'assets/images/placeholder-game.png'}" 
-                         alt="${game.name || 'Game'}" 
-                         class="game-image"
-                         onerror="this.src='assets/images/placeholder-game.png'">
+                <div class="relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-${typeColor}-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 z-10"></div>
                     
-                    <span class="game-status ${isOpen ? 'open' : 'closed'}">
-                        <i class="fas ${isOpen ? 'fa-unlock' : 'fa-lock'} mr-1"></i>
-                        ${isOpen ? 'OPEN' : 'CLOSED'}
-                    </span>
+                    <img src="${game.logo || 'assets/images/games/placeholder.png'}" 
+                         alt="${game.name || 'Game'}" 
+                         class="game-image transition-transform duration-500 group-hover:scale-110"
+                         onerror="this.src='assets/images/games/placeholder.png'">
+                    
+                    <div class="absolute top-4 right-4 z-20">
+                        <span class="game-status ${isOpen ? 'open' : 'closed'} shadow-lg">
+                            <i class="fas ${isOpen ? 'fa-unlock' : 'fa-lock'} mr-1"></i>
+                            ${isOpen ? 'OPEN' : 'CLOSED'}
+                        </span>
+                    </div>
                 </div>
                 
-                <div class="game-content">
-                    <h3 class="game-title">
-                        <i class="fas ${gameIcon}"></i>
+                <div class="game-content p-6">
+                    <h3 class="game-title mb-4 text-xl font-bold flex items-center">
+                        <i class="fas ${gameIcon} mr-3 text-${typeColor}-500"></i>
                         ${game.name || 'Untitled Game'}
                     </h3>
                     
-                    <div class="game-details">
-                        <p><strong><i class="fas fa-question-circle"></i> How to Play:</strong> ${game.howToPlay || 'N/A'}</p>
-                        <p><strong><i class="fas fa-money-bill-wave"></i> Fee:</strong> ${game.participationFee || 'N/A'}</p>
-                        <p><strong><i class="fas fa-user-check"></i> Eligibility:</strong> ${game.eligibility || 'N/A'}</p>
-                        <p><strong><i class="fas fa-users"></i> Participants:</strong> ${participantsText}</p>
+                    <div class="game-summary mb-4 space-y-2">
+                        <div class="flex items-center text-sm text-gray-300">
+                            <i class="fas fa-money-bill-wave text-green-400 mr-2 w-4"></i>
+                            <span><strong>Fee:</strong> ${game.participationFee || 'Free'}</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-300">
+                            <i class="fas fa-users text-blue-400 mr-2 w-4"></i>
+                            <span>${participantsText}</span>
+                        </div>
                     </div>
                     
-                    <div class="game-tags">
-                        <span class="game-tag">
-                            <i class="fas ${game.teamBased ? 'fa-users' : 'fa-user'}"></i>
+                    <div class="game-tags mb-4 flex flex-wrap gap-2">
+                        <span class="game-tag bg-${typeColor}-500/20 text-${typeColor}-300 border-${typeColor}-500/30">
+                            <i class="fas ${game.teamBased ? 'fa-users' : 'fa-user'} mr-1"></i>
                             ${game.teamBased ? 'Team' : 'Solo'}
                         </span>
                         ${game.tags && Array.isArray(game.tags) ? 
-                          game.tags.map(tag => `<span class="game-tag">${tag}</span>`).join('') : ''}
+                          game.tags.map(tag => `<span class="game-tag bg-gray-700/50 text-gray-300 border-gray-600">${tag}</span>`).join('') : ''}
                     </div>
                     
-                    <div class="game-actions grid grid-cols-2 gap-3">
+                    <!-- Expandable Details Section (initially hidden) -->
+                    <div class="game-details-expanded" 
+                         id="details-${uniqueId}" 
+                         style="display: none;">
+                        <div class="border-t border-gray-700 pt-4 mt-4 space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-${typeColor}-400 mb-2 flex items-center">
+                                        <i class="fas fa-question-circle mr-2"></i>
+                                        How to Play
+                                    </h4>
+                                    <p class="text-gray-300 text-sm leading-relaxed">${game.howToPlay || 'Game instructions will be provided during the tournament.'}</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-${typeColor}-400 mb-2 flex items-center">
+                                        <i class="fas fa-user-check mr-2"></i>
+                                        Eligibility
+                                    </h4>
+                                    <p class="text-gray-300 text-sm leading-relaxed">${game.eligibility || 'Open to all participants.'}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-800/50 p-4 rounded-lg">
+                                <h4 class="text-lg font-semibold text-${typeColor}-400 mb-2 flex items-center">
+                                    <i class="fas fa-info-circle mr-2"></i>
+                                    Registration Details
+                                </h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                                    <div><strong>Deadline:</strong> ${game.registrationDeadline || 'TBD'}</div>
+                                    <div><strong>Type:</strong> ${game.teamBased ? 'Team-based' : 'Individual'}</div>
+                                    <div><strong>Current Participants:</strong> ${game.currentParticipants || 0}</div>
+                                    <div><strong>Status:</strong> ${isOpen ? 'Open for Registration' : 'Registration Closed'}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-actions grid grid-cols-3 gap-2 mt-4">
+                        <button class="game-btn info flex items-center justify-center transition-all duration-300 hover:scale-105" 
+                                onclick="toggleGameDetails('${uniqueId}')">
+                            <i class="fas fa-info-circle mr-1"></i> 
+                            <span class="details-btn-text">Details</span>
+                        </button>
                         <a href="${game.rulebookLink || '#'}" 
                            target="_blank" 
-                           class="game-btn secondary">
-                            <i class="fas fa-book-open"></i> Rulebook
+                           class="game-btn secondary flex items-center justify-center transition-all duration-300 hover:scale-105">
+                            <i class="fas fa-book-open mr-1"></i> Rules
                         </a>
-                        <button class="game-btn ${isOpen ? 'primary' : 'disabled'}" 
-                                data-game-id="${game.id || ''}" 
-                                data-game-type="${type}"
-                                ${!isOpen ? 'disabled' : ''}>
-                            <i class="fas ${isOpen ? 'fa-user-plus' : 'fa-clock'}"></i>
-                            ${isOpen ? 'Register' : 'Closed'}
-                        </button>
+                        ${isOpen ? 
+                            `<a href="${game.registrationFormLink || '#'}" 
+                               target="_blank" 
+                               class="game-btn primary flex items-center justify-center transition-all duration-300 hover:scale-105">
+                                <i class="fas fa-external-link-alt mr-1"></i> Register
+                             </a>` :
+                            `<button class="game-btn disabled flex items-center justify-center" disabled>
+                                <i class="fas fa-lock mr-1"></i> Closed
+                             </button>`
+                        }
                     </div>
                 </div>
             `;
             container.appendChild(gameCard);
         });
+        
+        console.log(`✅ Loaded ${games.length} games for ${type} with expandable details`);
     }
 
-    // Open registration modal
-    function openRegistrationModal(gameId, gameType) {
-        fetch('data/tournament.json')
-            .then(response => {
-                if (!response.ok) throw new Error('Failed to load tournament.json');
-                return response.json();
-            })
-            .then(data => {
-                let game;
-                if (gameType === 'casual') {
-                    game = data.games.casual.games.find(g => g.id == gameId);
-                } else if (gameType === 'virtual-pc') {
-                    game = data.games.virtualPc.games.find(g => g.id == gameId);
-                } else if (gameType === 'virtual-mobile') {
-                    game = data.games.virtualMobile.games.find(g => g.id == gameId);
-                }
-                
-                if (game) {
-                    registrationModalContent.innerHTML = `
-                        <div class="text-center mb-6">
-                            <img src="${game.logo || 'assets/images/placeholder-game.png'}" 
-                                 alt="${game.name || 'Game'}" 
-                                 class="mx-auto h-24 mb-4 rounded-lg border-2 border-gray-700"
-                                 onerror="this.src='assets/images/placeholder-game.png'">
-                            <h2 class="text-2xl font-bold mb-2 font-orbitron text-green-400">
-                                <i class="fas ${gameType === 'casual' ? 'fa-gamepad' : gameType === 'virtual-pc' ? 'fa-desktop' : 'fa-mobile-alt'} mr-2"></i>
-                                ${game.name || 'Untitled Game'} Registration
-                            </h2>
-                            <p class="text-gray-400">
-                                <i class="fas ${game.teamBased ? 'fa-users' : 'fa-user'} mr-1"></i>
-                                ${game.teamBased ? 'Team Registration' : 'Individual Registration'}
-                            </p>
-                        </div>
-                        
-                        <div class="mb-6">
-                            <h3 class="text-lg font-semibold mb-2 flex items-center">
-                                <i class="fas fa-info-circle mr-2 text-green-400"></i>Registration Details
-                            </h3>
-                            <div class="bg-gray-700 rounded-lg p-4 space-y-3">
-                                <p class="flex items-center">
-                                    <i class="fas fa-money-bill-wave mr-2 text-blue-400"></i>
-                                    <strong class="mr-2">Participation Fee:</strong> ${game.participationFee || 'N/A'}
-                                </p>
-                                <p class="flex items-center">
-                                    <i class="fas fa-calendar-times mr-2 text-blue-400"></i>
-                                    <strong class="mr-2">Deadline:</strong> ${game.registrationDeadline || 'N/A'}
-                                </p>
-                                <p class="flex items-center">
-                                    <i class="fas fa-users mr-2 text-blue-400"></i>
-                                    <strong class="mr-2">Participants:</strong> ${game.currentParticipants || 0} ${game.teamBased ? 'teams' : 'players'}
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="text-center">
-                            <a href="${game.registrationFormLink || '#'}" 
-                               target="_blank" 
-                               class="inline-block bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg transition duration-300 mb-4 w-full">
-                                <i class="fas fa-external-link-alt mr-2"></i> Go to Registration Form
-                            </a>
-                            <p class="text-sm text-gray-400">
-                                <i class="fas fa-exclamation-circle mr-1"></i> You will be redirected to the registration form
-                            </p>
-                        </div>
-                    `;
-                    
-                    // Show modal
-                    registrationModal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    throw new Error('Game not found');
-                }
-            })
-            .catch(error => {
-                console.error('Error loading game details:', error);
-                registrationModalContent.innerHTML = `
-                    <div class="text-center p-8">
-                        <i class="fas fa-exclamation-triangle text-4xl text-red-500 mb-4"></i>
-                        <h2 class="text-xl font-bold mb-2">Error Loading Registration</h2>
-                        <p class="text-gray-400">Could not load registration details. Please try again later.</p>
-                        <button class="mt-4 px-4 py-2 bg-gray-700 rounded hover:bg-gray-600 transition duration-200">
-                            <i class="fas fa-sync-alt mr-2"></i> Retry
-                        </button>
-                    </div>
-                `;
-                
-                // Show modal
-                registrationModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            });
+    // SIMPLE & BULLETPROOF: Toggle game details expansion
+    function toggleGameDetails(uniqueGameId) {
+        console.log('🔍 Toggling game details for:', uniqueGameId);
+        
+        // Find the specific details section for this game
+        const detailsSection = document.getElementById(`details-${uniqueGameId}`);
+        const button = document.querySelector(`[onclick*="${uniqueGameId}"] .details-btn-text`);
+        
+        if (!detailsSection) {
+            console.error('❌ Could not find details section:', `details-${uniqueGameId}`);
+            return;
+        }
+        
+        // Simple toggle: check current display state
+        if (detailsSection.style.display === 'none' || detailsSection.style.display === '') {
+            // Show details
+            detailsSection.style.display = 'block';
+            detailsSection.style.animation = 'slideDown 0.3s ease-out';
+            if (button) button.textContent = 'Hide';
+            console.log('✅ Expanded:', uniqueGameId);
+        } else {
+            // Hide details
+            detailsSection.style.animation = 'slideUp 0.3s ease-out';
+            setTimeout(() => {
+                detailsSection.style.display = 'none';
+            }, 300);
+            if (button) button.textContent = 'Details';
+            console.log('✅ Collapsed:', uniqueGameId);
+        }
     }
+    
+    // Make function globally available
+    window.toggleGameDetails = toggleGameDetails;
+    
+    // DEBUG: Add a function to inspect all game details elements
+    window.debugGameDetails = function() {
+        console.log('=== DEBUG: All game detail elements ===');
+        const allDetailsElements = document.querySelectorAll('[id^="details-"]');
+        allDetailsElements.forEach(el => {
+            console.log(`ID: ${el.id}, Hidden: ${el.classList.contains('hidden')}, Display: ${el.style.display}`);
+        });
+        
+        const allGameCards = document.querySelectorAll('[id^="game-card-"]');
+        allGameCards.forEach(el => {
+            console.log(`Card ID: ${el.id}, Expanded: ${el.classList.contains('expanded')}`);
+        });
+    };
 
-    // Close registration modal
-    function closeModal() {
-        registrationModal.style.display = 'none';
-        document.body.style.overflow = '';
-    }
-
-    // Event listeners
+    
+    // Setup event listeners after games are loaded (simplified)
     function setupEventListeners() {
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('game-btn') && 
-                !e.target.classList.contains('disabled') && 
-                e.target.dataset.gameId) {
-                e.preventDefault();
-                openRegistrationModal(e.target.dataset.gameId, e.target.dataset.gameType);
-            }
-        });
-
-        closeRegistrationModal.addEventListener('click', closeModal);
-        registrationModal.addEventListener('click', (e) => {
-            if (e.target === registrationModal) {
-                closeModal();
-            }
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && registrationModal.style.display === 'flex') {
-                closeModal();
-            }
-        });
+        console.log('✅ Event listeners setup complete - using direct links and expandable cards');
     }
 });

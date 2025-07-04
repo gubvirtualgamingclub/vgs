@@ -1,80 +1,73 @@
 {
-  "current": [
-    {
-      "name": "Faysal Hossain Tomal",
-      "github": "https://github.com/FaysalHT",
-      "avatar": "https://github.com/FaysalHT.png",
-      "role": "Project Initiator & Project Leader"
-    },
+  "contributors": [
     {
       "name": "MD. SAZIB",
-      "github": "https://github.com/mdsazibhossenrabby",
-      "avatar": "https://avatars.githubusercontent.com/u/122990604",
-      "role": "Lead Full-Stack Developer"
-    }
-  ],
-  "past": [
-    {
-      "name": "Omor faruk",
-      "github": "https://github.com/johndoe",
-      "avatar": "https://github.com/johndoe.png",
-      "role": "Former Developer",
-      "year": "2024"
+      "role": "Project Lead & Full-stack Developer",
+      "photo": "assets/images/members/md-sazib.png",
+      "status": "current",
+      "github": "https://github.com/sudo-mdsazib"
     },
     {
-      "name": "Jane Smith",
-      "github": "https://github.com/janesmith",
-      "avatar": "https://github.com/janesmith.png",
-      "role": "Former Designer",
-      "year": "2023"
-    },{
-      "name": "John Doe",
-      "github": "https://github.com/johndoe",
-      "avatar": "https://github.com/johndoe.png",
-      "role": "Former Developer",
-      "year": "2024"
-    },{
-      "name": "John Doe",
-      "github": "https://github.com/johndoe",
-      "avatar": "https://github.com/johndoe.png",
-      "role": "Former Developer",
-      "year": "2024"
-    },{
-      "name": "John Doe",
-      "github": "https://github.com/johndoe",
-      "avatar": "https://github.com/johndoe.png",
-      "role": "Former Developer",
-      "year": "2024"
-    },{
-      "name": "John Doe",
-      "github": "https://github.com/johndoe",
-      "avatar": "https://github.com/johndoe.png",
-      "role": "Former Developer",
-      "year": "2024"
-    },{
-      "name": "John Doe",
-      "github": "https://github.com/johndoe",
-      "avatar": "https://github.com/johndoe.png",
-      "role": "Former Developer",
-      "year": "2024"
-    },{
-      "name": "John Doe",
-      "github": "https://github.com/johndoe",
-      "avatar": "https://github.com/johndoe.png",
-      "role": "Former Developer",
-      "year": "2024"
-    },{
-      "name": "John Doe",
-      "github": "https://github.com/johndoe",
-      "avatar": "https://github.com/johndoe.png",
-      "role": "Former Developer",
-      "year": "2024"
-    },{
-      "name": "John Doe",
-      "github": "https://github.com/johndoe",
-      "avatar": "https://github.com/johndoe.png",
-      "role": "Former Developer",
-      "year": "2024"
+      "name": "Faysal Hossain Tomal",
+      "role": "Project Manager & UI/UX Designer",
+      "photo": "assets/images/members/faysal-hossain-tomal.png",
+      "status": "current",
+      "github": "https://github.com/faysalhtomal"
+    },
+    {
+      "name": "Hasibul Hassan",
+      "role": "Lead Frontend Developer",
+      "photo": "assets/images/members/hasibul-hassan.png",
+      "status": "current",
+      "github": "https://github.com/hasibulhassan-github"
+    },
+    {
+      "name": "Nahian Reza Shafin",
+      "role": "Backend Developer",
+      "photo": "assets/images/members/nahian-reza-shafin.png",
+      "status": "current",
+      "github": "https://github.com/nahianshafin"
+    },
+    {
+      "name": "Jarin Tasnim Tonvi",
+      "role": "Jr. Frontend Developer",
+      "photo": "assets/images/members/jarin-tasnim-tonvi.png",
+      "status": "current",
+      "github": "https://github.com/jarintonvi"
+    },
+    {
+      "name": "Afiya Humaira",
+      "role": "UI/UX Designer",
+      "photo": "assets/images/members/afiya-humaira.png",
+      "status": "current",
+      "github": "https://github.com/afiyahumaira"
+    },
+    {
+      "name": "Ashraf Zaman",
+      "role": "Founder & Advisor",
+      "photo": "assets/images/members/ashraf-zaman.png",
+      "status": "past",
+      "year": "2022-2024",
+      "github": "https://github.com/ashrafzaman",
+      "contributions": "Founded the VGS project and provided initial guidance and vision. Secured early partnerships and established core team structure."
+    },
+    {
+      "name": "Feroza Naznin",
+      "role": "Community Manager",
+      "photo": "assets/images/members/feroza-naznin.jpg",
+      "status": "past",
+      "year": "2023",
+      "github": "https://github.com/ferozanaznin",
+      "contributions": "Managed community events and social media engagement during the initial growth phase. Established community guidelines and engagement strategies."
+    },
+    {
+      "name": "M. Tahsinur Rahman",
+      "role": "Content Creator",
+      "photo": "assets/images/members/m-tahsinur-rahman.png",
+      "status": "past",
+      "year": "2023",
+      "github": "https://github.com/tahsinrahman",
+      "contributions": "Developed initial website content and wrote articles for the updates section. Created content strategy and documentation guidelines."
     }
   ]
 }

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>GUCC        });g Society ‑ Games</title>
+
+    <!-- ——— CSS ——— -->
+    <link rel="stylesheet" href="css/loader.css?v=1.0.1" />
+    <link rel="stylesheet" href="css/games-simple.css?v=1.0.1" />
+    <link rel="stylesheet" href="css/nav.css?v=1.0.1" />
+    <link rel="stylesheet" href="css/footer.css?v=1.0.1" />
+    
+    <!-- Tailwind CSS CDN - Development Mode -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gaming-primary': '#10b981',
+                        'gaming-secondary': '#0f172a',
+                        'gaming-accent': '#3b82f6',
+                        'gaming-dark': '#111827',
+                        'gaming-light': '#e2e8f0'
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'monospace'],
+                        'rajdhani': ['Rajdhani', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slideInUp': 'slideInUp 0.6s ease-out forwards',
+                        'fadeIn': 'fadeIn 0.5s ease-out forwards',
+                        'scaleIn': 'scaleIn 0.4s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        glow: {
+                            'from': { boxShadow: '0 0 20px #10b981' },
+                            'to': { boxShadow: '0 0 30px #10b981, 0 0 40px #10b981' }
+                        },
+                        slideInUp: {
+                            'from': { opacity: '0', transform: 'translateY(50px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        fadeIn: {
+                            'from': { opacity: '0' },
+                            'to': { opacity: '1' }
+                        },
+                        scaleIn: {
+                            'from': { opacity: '0', transform: 'scale(0.9)' },
+                            'to': { opacity: '1', transform: 'scale(1)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- ——— FONTS ——— -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- ——— SEO & META ——— -->
+    <meta name="description" content="Discover all the games supported by GUCC Virtual Gaming Society. From competitive esports to casual gaming tournaments." />
+    <meta name="keywords" content="GUCC VGS, games, esports, gaming tournaments, VALORANT, CODM, FIFA, competitive gaming" />
+    <meta name="author" content="GUCC Virtual Gaming Society" />
+    <meta property="og:title" content="GUCC VGS - Games" />
+    <meta property="og:description" content="Discover all the games supported by GUCC Virtual Gaming Society" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-domain.com/games.html" />
+    <meta property="og:image" content="assets/images/logos/VGSwide.png" />
+
+    <!-- ——— FAVICON ——— -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logos/vgs.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logos/vgs.png" />
+    <link rel="apple-touch-icon" href="assets/images/logos/vgs.png" />
+</head>
+
+<body class="bg-gray-900 text-white overflow-x-hidden">
+
+
+    <!-- Navigation -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="min-h-screen pt-20">
+        <!-- Hero Section -->
+        <section class="games-hero relative overflow-hidden py-20 px-4 md:px-8">
+            <!-- Background Effects -->
+            <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-20 left-10 w-96 h-96 bg-gaming-primary rounded-full mix-blend-multiply filter blur-xl animate-pulse-slow"></div>
+                <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse-slow" style="animation-delay: 1s;"></div>
+            </div>
+            
+            <div class="container mx-auto relative z-10">
+                <div class="text-center max-w-4xl mx-auto">
+                    <div class="mb-6">
+                        <span class="inline-block px-4 py-2 bg-gaming-primary/20 border border-gaming-primary/30 rounded-full text-gaming-primary text-sm font-medium">
+                            <i class="fas fa-gamepad mr-2"></i>
+                            Gaming Portfolio
+                        </span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-orbitron">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-gaming-primary via-blue-400 to-purple-500">
+                            Games We
+                        </span>
+                        <br>
+                        <span class="text-white">Support</span>
+                    </h1>
+                    
+                    <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                        From competitive esports to casual gaming tournaments, discover the diverse gaming ecosystem that powers our community.
+                    </p>
+                    
+                    <div class="flex flex-wrap justify-center gap-4 mb-12">
+                        <button class="filter-tag active" data-filter="all" onclick="filterGames('all')">
+                            <div class="tag-glow"></div>
+                            <i class="fas fa-th-large"></i>
+                            <span>All Games</span>
+                            <div class="tag-count" id="count-all">11</div>
+                        </button>
+                        <button class="filter-tag" data-filter="pc" onclick="filterGames('PC')">
+                            <div class="tag-glow"></div>
+                            <i class="fas fa-desktop"></i>
+                            <span>PC Games</span>
+                            <div class="tag-count" id="count-pc">2</div>
+                        </button>
+                        <button class="filter-tag" data-filter="mobile" onclick="filterGames('Mobile')">
+                            <div class="tag-glow"></div>
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Mobile Games</span>
+                            <div class="tag-count" id="count-mobile">5</div>
+                        </button>
+                        <button class="filter-tag" data-filter="casual" onclick="filterGames('Casual')">
+                            <div class="tag-glow"></div>
+                            <i class="fas fa-chess"></i>
+                            <span>Casual Games</span>
+                            <div class="tag-count" id="count-casual">4</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Games Grid Section -->
+        <section class="games-section py-16 px-4 md:px-8">
+            <div class="container mx-auto">
+                <!-- Stats Bar -->
+                <div class="games-stats mb-12 p-6 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-2xl border border-gray-600/30 backdrop-blur-sm">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                        <div class="stat-item">
+                            <div class="text-3xl font-bold text-gaming-primary font-orbitron" id="total-games">11</div>
+                            <div class="text-gray-400 text-sm">Total Games</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="text-3xl font-bold text-blue-400 font-orbitron" id="pc-games">2</div>
+                            <div class="text-gray-400 text-sm">PC Games</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="text-3xl font-bold text-purple-400 font-orbitron" id="mobile-games">5</div>
+                            <div class="text-gray-400 text-sm">Mobile Games</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="text-3xl font-bold text-green-400 font-orbitron" id="casual-games">4</div>
+                            <div class="text-gray-400 text-sm">Casual Games</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Games Grid -->
+                <div id="games-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Games will be loaded here dynamically -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="games-empty" class="text-center py-16 hidden">
+                    <div class="mb-6">
+                        <i class="fas fa-gamepad text-6xl text-gray-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-400 mb-4">No games found</h3>
+                    <p class="text-gray-500">Try adjusting your filters or check back later.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="cta-section py-20 px-4 md:px-8 bg-gradient-to-r from-gaming-primary/10 via-blue-900/10 to-purple-900/10 relative overflow-hidden">
+            <div class="container mx-auto text-center relative z-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white font-orbitron">
+                    Ready to Compete?
+                </h2>
+                <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                    Join our gaming community and participate in tournaments across all these amazing games!
+                </p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="tournament.html" class="cta-primary group">
+                        <span class="relative z-10">View Tournaments</span>
+                        <i class="fas fa-trophy ml-2 group-hover:scale-110 transition-transform duration-300"></i>
+                        <div class="button-glow"></div>
+                    </a>
+                    <a href="activities.html" class="cta-secondary group">
+                        <span class="relative z-10">Join Activities</span>
+                        <i class="fas fa-calendar ml-2 group-hover:scale-110 transition-transform duration-300"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://kit.fontawesome.com/your-kit-code.js"></script>
+
+    <!-- Component Scripts -->
+    <script src="js/components/footer.js"></script>
+    <script src="js/components/loader.js"></script>
+
+    <!-- Page Scripts -->
+    <script src="js/games.js"></script>
+
+    <!-- Super Simple Filter System -->
+    <script>
+        // Immediate games loader - runs as soon as possible
+        (function() {
+            console.log('🚀 Immediate games loader starting...');
+            
+            // Function to load games immediately
+            function loadGamesImmediately() {
+                fetch('./data/games.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('⚡ Immediate loader got games:', data.games);
+                        const grid = document.getElementById('games-grid');
+                        if (grid && data.games && data.games.length > 0) {
+                            const gamesHTML = data.games.map(game => `
+                                <div class="game-card show" data-platform="${game.platform.toLowerCase()}" style="opacity: 1; transform: translateY(0) scale(1);">
+                                    <div class="game-card-inner">
+                                        <div class="game-logo-wrapper">
+                                            <img src="${game.logo}" 
+                                                 alt="${game.name}" 
+                                                 class="game-logo"
+                                                 onerror="this.src='assets/images/games/placeholder.png'">
+                                        </div>
+                                        <h3 class="game-title">${game.name}</h3>
+                                        <div class="game-platform-badge ${game.platform.toLowerCase()}">
+                                            <i class="fas fa-${game.platform === 'PC' ? 'desktop' : game.platform === 'Mobile' ? 'mobile-alt' : 'chess'}"></i>
+                                            <span>${game.platform}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('');
+                            
+                            grid.innerHTML = gamesHTML;
+                            console.log('✅ Games loaded immediately!');
+                            
+                            // Hide loading state
+                            const loading = document.getElementById('games-loading');
+                            if (loading) loading.style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('❌ Immediate loader failed:', error);
+                    });
+            }
+            
+            // Try to load immediately
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', loadGamesImmediately);
+            } else {
+                loadGamesImmediately();
+            }
+        })();
+
+        // Simple, bulletproof filter function
+        function filterGames(platform) {
+            console.log('🎯 Filtering games by:', platform);
+            
+            // Update active button
+            const allTags = document.querySelectorAll('.filter-tag');
+            allTags.forEach(tag => tag.classList.remove('active'));
+            
+            // Find and activate the clicked button
+            const activeTag = document.querySelector(`[data-filter="${platform.toLowerCase()}"]`) || 
+                             document.querySelector(`[onclick*="${platform}"]`);
+            if (activeTag) {
+                activeTag.classList.add('active');
+            }
+            
+            // Filter game cards with smooth animation
+            const gameCards = document.querySelectorAll('.game-card');
+            let visibleCount = 0;
+            
+            // First, animate out cards that should be hidden
+            gameCards.forEach(card => {
+                const cardPlatform = card.getAttribute('data-platform');
+                const shouldShow = platform === 'all' || 
+                                 cardPlatform === platform.toLowerCase() ||
+                                 cardPlatform === platform;
+                
+                if (!shouldShow) {
+                    card.classList.add('filtering-out');
+                    card.classList.remove('filtering-in', 'show');
+                }
+            });
+            
+            // After a short delay, hide the cards and show the relevant ones
+            setTimeout(() => {
+                gameCards.forEach(card => {
+                    const cardPlatform = card.getAttribute('data-platform');
+                    const shouldShow = platform === 'all' || 
+                                     cardPlatform === platform.toLowerCase() ||
+                                     cardPlatform === platform;
+                    
+                    if (shouldShow) {
+                        card.style.display = 'block';
+                        card.classList.remove('filtering-out');
+                        card.classList.add('filtering-in', 'show');
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('filtering-in', 'show');
+                    }
+                });
+                
+                console.log(`✅ Showing ${visibleCount} games for platform: ${platform}`);
+            }, 200);
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎮 Games filter system loaded!');
+            
+            // Make sure the "All Games" tag is active by default
+            setTimeout(() => {
+                const allTag = document.querySelector('[data-filter="all"]');
+                if (allTag && !allTag.classList.contains('active')) {
+                    allTag.classList.add('active');
+                }
+            }, 500);
+        });
+
+        // Backup filter system that runs after page load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                console.log('🔧 Final backup check...');
+                const gameCards = document.querySelectorAll('.game-card');
+                if (gameCards.length > 0) {
+                    // Ensure all games are visible by default
+                    gameCards.forEach(card => {
+                        card.style.display = 'block';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0) scale(1)';
+                        card.classList.add('show');
+                    });
+                    console.log('✅ All games made visible via backup');
+                } else {
+                    console.log('⚠️ No game cards found - might need manual refresh');
+                }
+            }, 100);
+        });
+    </script>
+
+    <!-- Backup Filter System -->
+    <script>
+        // Emergency backup filter system
+        setTimeout(function() {
+            console.log('🔧 Initializing backup filter system...');
+            
+            // Check if main filter system is working
+            const filterButtons = document.querySelectorAll('.games-filter-btn');
+            let hasEventListeners = false;
+            
+            filterButtons.forEach(btn => {
+                if (btn.onclick || btn.addEventListener) {
+                    hasEventListeners = true;
+                }
+            });
+            
+            // If no event listeners, add backup ones
+            if (!hasEventListeners || filterButtons.length === 0) {
+                console.log('🚨 Main filter system not working, activating backup...');
+                
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        console.log('🔄 Backup filter activated:', this.dataset.platform);
+                        
+                        // Update active button
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // Simple filter logic
+                        const targetPlatform = this.dataset.platform;
+                        const gameCards = document.querySelectorAll('.game-card');
+                        
+                        gameCards.forEach(card => {
+                            const cardPlatform = card.dataset.platform;
+                            if (targetPlatform === 'all' || cardPlatform === targetPlatform.toLowerCase()) {
+                                card.style.display = 'block';
+                                card.classList.add('show');
+                            } else {
+                                card.style.display = 'none';
+                                card.classList.remove('show');
+                            }
+                        });
+                        
+                        console.log(`✅ Backup filter applied for: ${targetPlatform}`);
+                    });
+                });
+            }
+        }, 3000);
+    </script>
+
+    <!-- Simple Test Script -->
+    <script>
+        console.log('🎮 Games page loaded');
+        console.log('📂 Base URL:', window.location.origin);
+        
+        // Simple fallback in case main script fails
+        setTimeout(() => {
+            if (typeof allGames === 'undefined' || allGames.length === 0) {
+                console.log('🔧 Main script may have failed, trying fallback...');
+                fetch('./data/games.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('✅ Fallback loaded games:', data.games);
+                        const grid = document.getElementById('games-grid');
+                        if (grid && data.games) {
+                            grid.innerHTML = data.games.map(game => `
+                                <div class="game-card show">
+                                    <div class="game-card-inner">
+                                        <div class="game-logo-wrapper">
+                                            <img src="${game.logo}" alt="${game.name}" class="game-logo">
+                                        </div>
+                                        <h3 class="game-title">${game.name}</h3>
+                                        <div class="game-platform-badge ${game.platform.toLowerCase()}">
+                                            <i class="fas fa-gamepad"></i>
+                                            <span>${game.platform}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('');
+                        }
+                    })
+                    .catch(console.error);
+            }
+        }, 5000);
+    </script>
+
+    <!-- Backup Component Loader -->
+    <script>
+        // Backup loader that runs if the main loader doesn't work
+        setTimeout(function() {
+            console.log('🔍 Backup loader checking...');
+            
+            if (!document.querySelector('.gaming-navbar')) {
+                console.log('🔧 Loading backup navigation...');
+                ComponentLoader.createFallbackNav(true);
+            }
+            
+            if (!document.querySelector('.site-footer')) {
+                console.log('🔧 Loading backup footer...');
+                ComponentLoader.createFallbackFooter(true);
+            }
+        }, 2000);
+
+        // Set active navigation link
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mark the Games navigation link as active
+            setTimeout(function() {
+                const gamesLinks = document.querySelectorAll('a[href="games.html"]');
+                gamesLinks.forEach(link => {
+                    if (link.classList.contains('nav-link') || link.classList.contains('mobile-nav-link')) {
+                        link.classList.add('active');
+                    }
+                });
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>

@@ -61,14 +61,14 @@
   opacity: 0;
   transition: opacity 0.3s ease;
   display: none;
-  z-index: 1000; /* Increased to ensure modal is above all content */
+  z-index: 9600; /* Lower than contributor modal */
 }
 
 .modal-content {
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   max-height: 90vh;
   overflow-y: auto;
-  z-index: 1001; /* Increased to ensure content is above modal background */
+  z-index: 9601; /* Content above modal background */
 }
 
 /* Modal Event Tags */
@@ -99,7 +99,7 @@
 
 #close-partner-modal { /* Updated ID */
   transition: all 0.2s ease;
-  z-index: 1002; /* Increased to ensure close button is clickable */
+  z-index: 9602; /* Close button above all modal content */
 }
 
 #close-partner-modal:hover { /* Updated ID */
@@ -149,7 +149,7 @@
   padding: 1rem;
   opacity: 0;
   transition: opacity 0.3s ease;
-  z-index: 1000; /* Increased to ensure modal is above all content */
+  z-index: 9650; /* Slightly higher than partner modal */
 }
 
 #collaborate-modal > div {
@@ -160,7 +160,7 @@
   overflow-y: auto;
   transform: scale(0.95);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  z-index: 1001; /* Increased to ensure content is above modal background */
+  z-index: 9651; /* Content above modal background */
 }
 
 #collaborate-modal[style*="display: flex"] {
@@ -206,7 +206,7 @@
   right: 0.5rem;
   font-size: 1.5rem;
   transition: all 0.2s ease;
-  z-index: 1002; /* Increased to ensure close button is clickable */
+  z-index: 9652; /* Close button above all modal content */
 }
 
 #close-collab-modal:hover {

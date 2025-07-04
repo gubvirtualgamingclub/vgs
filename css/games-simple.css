@@ -1,0 +1,534 @@
+/*═══════════════════════════════════════════════════════════════
+  GUCC VGS - GAMES PAGE STYLES
+  Simple, bulletproof, super responsive styling
+═══════════════════════════════════════════════════════════════*/
+
+/* ——— CSS VARIABLES ——— */
+:root {
+  --gaming-primary: #10b981;
+  --gaming-dark: #111827;
+  --gaming-light: #e2e8f0;
+  --transition-fast: all 0.3s ease;
+  --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-gaming: 0 20px 25px -5px rgba(16, 185, 129, 0.1);
+}
+
+/* ——— GAMES GRID ——— */
+#games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+/* ——— GAME CARDS ——— */
+.game-card {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  border: 1px solid #374151;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  min-height: 300px;
+  cursor: pointer;
+}
+
+.game-card.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.game-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--gaming-primary);
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+}
+
+.game-card-inner {
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+}
+
+/* ——— LOGO SECTION ——— */
+.game-logo-wrapper {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+  border-radius: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  border: 2px solid #4b5563;
+  transition: var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.game-logo-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  opacity: 0;
+  transition: var(--transition-fast);
+}
+
+.game-card:hover .game-logo-wrapper::before {
+  opacity: 1;
+}
+
+.game-card:hover .game-logo-wrapper {
+  transform: scale(1.05) rotate(2deg);
+  border-color: var(--gaming-primary);
+  box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
+}
+
+.game-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  transition: var(--transition-fast);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) brightness(1.1) contrast(1.1);
+  z-index: 2;
+  position: relative;
+}
+
+.game-card:hover .game-logo {
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5)) brightness(1.2) contrast(1.2);
+  transform: scale(1.1);
+}
+
+/* ——— GAME TITLE ——— */
+.game-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem;
+  font-family: 'Orbitron', monospace;
+  transition: var(--transition-fast);
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.3;
+}
+
+.game-card:hover .game-title {
+  color: var(--gaming-primary);
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+/* ——— PLATFORM BADGE ——— */
+.game-platform-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #374151;
+  color: #d1d5db;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid #4b5563;
+  transition: var(--transition-fast);
+  margin-top: auto;
+}
+
+.game-platform-badge i {
+  font-size: 1rem;
+}
+
+/* Platform-specific colors */
+.game-platform-badge.pc {
+  background: #1e3a8a;
+  color: #93c5fd;
+  border-color: #3b82f6;
+}
+
+.game-platform-badge.mobile {
+  background: #581c87;
+  color: #c4b5fd;
+  border-color: #8b5cf6;
+}
+
+.game-platform-badge.casual {
+  background: #065f46;
+  color: #6ee7b7;
+  border-color: #10b981;
+}
+
+.game-card:hover .game-platform-badge {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ——— SUPER COOL FILTER TAGS ——— */
+.filter-tag {
+  position: relative;
+  padding: 1.2rem 2rem 1.2rem 1.5rem;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #0f172a 100%);
+  border: 2px solid #374151;
+  border-radius: 1.5rem;
+  color: #d1d5db;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  overflow: hidden;
+  user-select: none;
+  transform-style: preserve-3d;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.filter-tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #8b5cf6 100%);
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+.filter-tag::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #0f172a 100%);
+  border-radius: 1.3rem;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.tag-glow {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6);
+  border-radius: 1.6rem;
+  opacity: 0;
+  filter: blur(10px);
+  transition: all 0.4s ease;
+  z-index: 0;
+}
+
+.filter-tag i {
+  position: relative;
+  z-index: 10;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.filter-tag span {
+  position: relative;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.tag-count {
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+  color: #10b981;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 900;
+  min-width: 2rem;
+  text-align: center;
+  border: 1px solid #4b5563;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ——— HOVER EFFECTS ——— */
+.filter-tag:hover {
+  transform: translateY(-4px) scale(1.05);
+  border-color: #10b981;
+  box-shadow: 
+    0 15px 35px rgba(16, 185, 129, 0.3),
+    0 5px 15px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.filter-tag:hover::before {
+  opacity: 0.15;
+}
+
+.filter-tag:hover .tag-glow {
+  opacity: 0.6;
+}
+
+.filter-tag:hover .tag-count {
+  background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+  color: white;
+  border-color: #10b981;
+  transform: scale(1.1);
+}
+
+.filter-tag:hover i {
+  color: #10b981;
+  transform: scale(1.2) rotate(10deg);
+}
+
+.filter-tag:hover span {
+  color: #10b981;
+}
+
+/* ——— ACTIVE STATE ——— */
+.filter-tag.active {
+  background: linear-gradient(135deg, #0f172a 0%, #1f2937 100%);
+  border-color: #10b981;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 20px 40px rgba(16, 185, 129, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.filter-tag.active::before {
+  opacity: 0.2;
+}
+
+.filter-tag.active .tag-glow {
+  opacity: 0.8;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.filter-tag.active .tag-count {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border-color: #10b981;
+  box-shadow: 
+    0 0 20px rgba(16, 185, 129, 0.6),
+    inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.filter-tag.active i {
+  color: #10b981;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
+}
+
+.filter-tag.active span {
+  color: #10b981;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+/* ——— ANIMATIONS ——— */
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 0.8; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.02);
+  }
+}
+
+/* ——— CLICK EFFECT ——— */
+.filter-tag:active {
+  transform: translateY(-1px) scale(0.98);
+  transition: all 0.1s ease;
+}
+
+/* ——— RESPONSIVE DESIGN ——— */
+@media (max-width: 768px) {
+  .filter-tag {
+    padding: 1rem 1.5rem 1rem 1.25rem;
+    font-size: 0.9rem;
+    gap: 0.5rem;
+  }
+  
+  .filter-tag i {
+    font-size: 1rem;
+  }
+  
+  .tag-count {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-tag {
+    padding: 0.875rem 1.25rem 0.875rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .filter-tag span {
+    display: none;
+  }
+  
+  .filter-tag i {
+    font-size: 1.1rem;
+  }
+}
+
+/* ——— STATS SECTION ——— */
+.games-stats {
+  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+  border: 1px solid #4b5563;
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+}
+
+.stat-item {
+  padding: 1.5rem;
+  transition: var(--transition-fast);
+}
+
+.stat-item:hover {
+  transform: translateY(-2px);
+}
+
+/* ——— LOADING & ERROR STATES ——— */
+#games-loading {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--gaming-primary);
+  font-size: 1.125rem;
+}
+
+.error-message {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #ef4444;
+  grid-column: 1 / -1;
+}
+
+.error-message i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.error-message h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.retry-btn {
+  background: var(--gaming-primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: var(--transition-fast);
+}
+
+.retry-btn:hover {
+  background: #059669;
+  transform: translateY(-2px);
+}
+
+/* ——— RESPONSIVE DESIGN ——— */
+@media (max-width: 768px) {
+  #games-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  .game-card-inner {
+    padding: 1.5rem;
+  }
+  
+  .game-logo-wrapper {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .game-logo {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .game-title {
+    font-size: 1.125rem;
+    min-height: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #games-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .game-card-inner {
+    padding: 1.25rem;
+  }
+}
+
+/* ——— GAME CARD FILTER ANIMATIONS ——— */
+.game-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.game-card.filtering-out {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+}
+
+.game-card.filtering-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  animation: filterIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes filterIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ——— UTILITY CLASSES ——— */
+.hidden {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
