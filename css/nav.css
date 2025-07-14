@@ -213,9 +213,14 @@
   background: rgba(16, 185, 129, 0.1);
 }
 
+.mobile-menu-btn:focus {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}
+
 .hamburger-box {
-  width: 100%;
-  height: 100%;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -232,6 +237,7 @@
   background: #d1d5db;
   position: absolute;
   transition: transform 0.3s ease, background-color 0.3s ease;
+  border-radius: 2px;
 }
 
 .hamburger-inner::before {
@@ -302,61 +308,14 @@
   background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
   transform: translateX(100%);
   transition: transform 0.3s ease;
-  z-index: 1000;
+  z-index: var(--z-nav-mobile);
   border-left: 1px solid rgba(16, 185, 129, 0.2);
   overflow-y: auto;
+  box-shadow: -8px 0 25px rgba(0, 0, 0, 0.3);
 }
 
 .nav-mobile.open {
   transform: translateX(0);
-}
-
-.mobile-nav-content {
-  padding: 2rem 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.mobile-nav-link {
-  display: flex;
-  align-items: center;
-  padding: 1rem 1.5rem;
-  text-decoration: none;
-  color: #d1d5db;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.mobile-nav-link:hover {
-  background: rgba(16, 185, 129, 0.1);
-  color: #10b981;
-}
-
-.mobile-nav-link i {
-  margin-right: 1rem;
-  font-size: 1.1rem;
-  width: 20px;
-  color: #10b981;
-}
-
-.nav-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 999;
-  backdrop-filter: blur(4px);
-}
-
-.nav-overlay.active {
-  opacity: 1;
-  visibility: visible;
 }
 
 .mobile-nav-content {
@@ -374,40 +333,55 @@
   text-decoration: none;
   font-family: 'Rajdhani', sans-serif;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 1rem 0;
+  letter-spacing: 0.5px;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
   border-bottom: 1px solid rgba(209, 213, 219, 0.1);
   transition: all 0.3s ease;
   position: relative;
   z-index: 1;
 }
 
-.mobile-nav-icon {
+.mobile-nav-link:hover,
+.mobile-nav-link:focus {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  transform: translateX(4px);
+}
+
+.mobile-nav-link i {
   font-size: 1.1rem;
   margin-right: 1rem;
   color: #10b981;
   transition: all 0.3s ease;
+  width: 20px;
+  text-align: center;
 }
 
-.mobile-nav-text {
-  flex: 1;
-  transition: all 0.3s ease;
-}
-
-.mobile-nav-arrow {
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
   opacity: 0;
-  transform: translateX(-10px);
+  visibility: hidden;
   transition: all 0.3s ease;
-  color: #10b981;
+  z-index: var(--z-nav-overlay);
+  backdrop-filter: blur(4px);
 }
 
-.mobile-nav-link:hover {
-  color: #10b981;
-  padding-left: 1rem;
-  background: rgba(16, 185, 129, 0.05);
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
+
+/* ==============================================
+   MOBILE RESPONSIVE STYLES
+   ============================================== */
 
 .mobile-nav-link:hover .mobile-nav-icon {
   transform: scale(1.2);
@@ -459,6 +433,130 @@
 .nav-overlay.active {
   opacity: 1;
   visibility: visible;
+}
+
+/* ==============================================
+   FAILSAFE MOBILE NAVIGATION
+   ============================================== */
+
+/* Ensure mobile menu button is always visible on mobile */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex !important;
+    position: relative;
+    z-index: 99999;
+  }
+  
+  .nav-desktop {
+    display: none !important;
+  }
+  
+  /* Ensure mobile menu is properly positioned */
+  .nav-mobile {
+    position: fixed !important;
+    top: 70px !important;
+    right: 0 !important;
+    width: 280px !important;
+    height: calc(100vh - 70px) !important;
+    background: #1f2937 !important;
+    transform: translateX(100%) !important;
+    transition: transform 0.3s ease !important;
+    z-index: 99998 !important;
+    overflow-y: auto !important;
+    border-left: 1px solid #10b981 !important;
+  }
+  
+  .nav-mobile.open {
+    transform: translateX(0) !important;
+  }
+  
+  .nav-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    z-index: 99997 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .nav-overlay.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .mobile-nav-content {
+    padding: 1rem !important;
+  }
+  
+  .mobile-nav-link {
+    display: flex !important;
+    align-items: center !important;
+    padding: 1rem !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .mobile-nav-link:hover {
+    background: rgba(16, 185, 129, 0.1) !important;
+    color: #10b981 !important;
+  }
+  
+  .mobile-nav-link i {
+    margin-right: 0.75rem !important;
+    color: #10b981 !important;
+  }
+  
+  /* Ensure hamburger lines are visible */
+  .hamburger-line {
+    display: block !important;
+    width: 20px !important;
+    height: 2px !important;
+    background: #fff !important;
+    margin: 3px 0 !important;
+    transition: 0.3s !important;
+  }
+  
+  .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px) !important;
+  }
+  
+  .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0 !important;
+  }
+  
+  .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px) !important;
+  }
+  
+  /* Fix body padding for mobile */
+  body {
+    padding-top: 70px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-mobile {
+    top: 65px !important;
+    height: calc(100vh - 65px) !important;
+    width: 100% !important;
+    max-width: 280px !important;
+  }
+  
+  body {
+    padding-top: 65px !important;
+  }
+}
+
+/* Ensure mobile menu works even if JavaScript fails */
+.mobile-menu-btn:focus + .nav-mobile,
+.mobile-menu-btn:active + .nav-mobile {
+  transform: translateX(0) !important;
 }
 
 /* ==============================================
@@ -681,6 +779,11 @@ body {
   
   .nav-mobile {
     top: 70px;
+  }
+  
+  .mobile-nav-link {
+    font-size: 1rem;
+    padding: 0.875rem 1.25rem;
   }
   
   body {
@@ -1166,3 +1269,82 @@ section,
     display: none !important;
   }
 }
+
+/* Mobile Touch Optimizations */
+@media (max-width: 768px) {
+  /* Ensure all interactive elements have proper touch targets */
+  .gaming-navbar .nav-link,
+  .gaming-navbar .nav-btn {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Improve button responsiveness */
+  .mobile-menu-btn {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+  }
+
+  /* Add smooth scrolling for mobile */
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent zoom on input focus */
+  input, select, textarea {
+    font-size: 16px;
+  }
+
+  /* Optimize mobile menu animations */
+  .mobile-menu {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Improve overlay performance */
+  .nav-overlay {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: opacity;
+  }
+}
+
+/* Additional mobile improvements */
+@media (max-width: 480px) {
+  .gaming-navbar .nav-link {
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+
+  .mobile-menu-btn {
+    padding: 12px;
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+/* Improve accessibility for all devices */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu,
+  .nav-overlay,
+  .hamburger-line {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Existing mobile styles continue below... */

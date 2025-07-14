@@ -1,8 +1,15 @@
+/*═══════════════════════════════════════════════════════════════
+  GUCC VGS - EXECUTIVE PAGE JAVASCRIPT
+  Year-based committee member display system
+═══════════════════════════════════════════════════════════════*/
+
+// Global variables
+let executiveData = null;
+let currentYear = null;
+
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize page with loading state
+  console.log('🚀 Executive page loading...');
   initializePage();
-  
-  // Load executive data
   loadExecutiveData();
 });
 
@@ -31,6 +38,7 @@ function initializePage() {
 
 async function loadExecutiveData() {
   try {
+    console.log('📡 Loading executive data...');
     const response = await fetch('data/executives.json');
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -39,9 +47,12 @@ async function loadExecutiveData() {
     const data = await response.json();
     
     // Validate data structure
-    if (!data.moderationPanel || !data.wingPanel) {
-      throw new Error('Invalid data structure');
+    if (!data.committees || typeof data.committees !== 'object') {
+      throw new Error('Invalid data structure: missing committees');
     }
+    
+    executiveData = data;
+    console.log('✅ Executive data loaded successfully');
     
     // Hide loading spinner
     const spinner = document.getElementById('loading-spinner');
@@ -49,17 +60,129 @@ async function loadExecutiveData() {
       spinner.style.display = 'none';
     }
     
-    // Render panels with staggered animation
-    await renderPanelWithAnimation('moderators-container', data.moderationPanel, 'moderation-panel');
-    await renderPanelWithAnimation('wing-members-container', data.wingPanel, 'wing-panel', 300);
+    // Generate year selector buttons
+    generateYearButtons();
+    
+    // Display the first committee (current committee)
+    const currentYear = findActiveYear();
+    displayCommittee(currentYear);
     
     // Initialize interactive features
     initializeInteractiveFeatures();
     
   } catch (error) {
-    console.error('Error loading executive data:', error);
+    console.error('❌ Error loading executive data:', error);
     showErrorState(error.message);
   }
+}
+
+function generateYearButtons() {
+  const yearSelector = document.getElementById('year-selector');
+  if (!yearSelector || !executiveData) return;
+  
+  // Get years in order (first object to last object)
+  const years = Object.keys(executiveData.committees);
+  console.log('📅 Available years (in order):', years);
+  
+  yearSelector.innerHTML = '';
+  
+  years.forEach((year, index) => {
+    const committee = executiveData.committees[year];
+    const button = document.createElement('button');
+    button.className = 'year-btn';
+    
+    // Add "Current" tag to the first committee (current)
+    if (index === 0) {
+      button.innerHTML = `${year} <span class="current-tag">Current</span>`;
+      button.classList.add('active');
+    } else {
+      button.textContent = year;
+    }
+    
+    button.dataset.year = year;
+    
+    // Add click event
+    button.addEventListener('click', function() {
+      switchToYear(year);
+    });
+    
+    yearSelector.appendChild(button);
+  });
+}
+
+function findActiveYear() {
+  if (!executiveData) return null;
+  
+  // Return the first year (current committee)
+  const years = Object.keys(executiveData.committees);
+  return years[0] || null;
+}
+
+function switchToYear(year) {
+  if (currentYear === year) return; // Already displaying this year
+  
+  console.log(`🔄 Switching to year: ${year}`);
+  
+  // Update button states
+  const yearButtons = document.querySelectorAll('.year-btn');
+  yearButtons.forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.dataset.year === year) {
+      btn.classList.add('active');
+    }
+  });
+  
+  // Fade out current content, then load new content
+  fadeOutSections().then(() => {
+    displayCommittee(year);
+  });
+}
+
+function fadeOutSections() {
+  return new Promise((resolve) => {
+    const sections = ['moderation-panel', 'wing-panel'];
+    sections.forEach(sectionId => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+      }
+    });
+    
+    setTimeout(resolve, 300);
+  });
+}
+
+function displayCommittee(year) {
+  if (!year || !executiveData || !executiveData.committees[year]) {
+    console.error('❌ Invalid year or missing committee data:', year);
+    return;
+  }
+  
+  currentYear = year;
+  const committee = executiveData.committees[year];
+  
+  console.log(`📋 Displaying committee for ${year}:`, committee);
+  
+  // Update page title
+  const titleElement = document.getElementById('committee-title');
+  if (titleElement && committee.name) {
+    titleElement.textContent = committee.name.toUpperCase();
+  }
+  
+  // Clear containers
+  const moderatorsContainer = document.getElementById('moderators-container');
+  const wingContainer = document.getElementById('wing-members-container');
+  
+  if (moderatorsContainer) moderatorsContainer.innerHTML = '';
+  if (wingContainer) wingContainer.innerHTML = '';
+  
+  // Render panels with animation
+  renderPanelWithAnimation('moderators-container', committee.moderationPanel, 'moderation-panel');
+  setTimeout(() => {
+    renderPanelWithAnimation('wing-members-container', committee.wingPanel, 'wing-panel');
+  }, 200);
 }
 
 async function renderPanelWithAnimation(containerId, members, sectionId, delay = 0) {
@@ -75,7 +198,13 @@ async function renderPanelWithAnimation(containerId, members, sectionId, delay =
 function renderPanel(containerId, members) {
   const container = document.getElementById(containerId);
   if (!container) {
-    console.error(`Container ${containerId} not found`);
+    console.error(`❌ Container ${containerId} not found`);
+    return;
+  }
+  
+  if (!members || !Array.isArray(members)) {
+    console.warn(`⚠️ No members data for ${containerId}`);
+    container.innerHTML = '<p class="text-gray-400 text-center py-8">No members found for this year.</p>';
     return;
   }
   
@@ -84,6 +213,13 @@ function renderPanel(containerId, members) {
   
   // Determine if this is the moderation panel
   const isModerationPanel = containerId === 'moderators-container';
+  
+  // Create grid container
+  const gridClass = isModerationPanel 
+    ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto'
+    : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6';
+  
+  container.className = gridClass;
   
   // Add members with enhanced cards
   members.forEach((member, index) => {
@@ -177,49 +313,45 @@ function animateSection(sectionId) {
 
 function initializeInteractiveFeatures() {
   // Enhanced hover effects
-  const cards = document.querySelectorAll('.member-card');
-  cards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-      this.style.zIndex = '10';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-      this.style.zIndex = '1';
-    });
-  });
+  document.addEventListener('mouseenter', function(e) {
+    if (e.target.classList.contains('member-card')) {
+      e.target.style.zIndex = '10';
+    }
+  }, true);
   
-  // Keyboard navigation
-  cards.forEach((card, index) => {
-    card.setAttribute('tabindex', '0');
-    card.addEventListener('keydown', function(e) {
+  document.addEventListener('mouseleave', function(e) {
+    if (e.target.classList.contains('member-card')) {
+      e.target.style.zIndex = '1';
+    }
+  }, true);
+  
+  // Keyboard navigation for year buttons
+  document.addEventListener('keydown', function(e) {
+    if (e.target.classList.contains('year-btn')) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        const firstSocialLink = card.querySelector('.social-icon');
+        e.target.click();
+      }
+    }
+    
+    if (e.target.classList.contains('member-card')) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const firstSocialLink = e.target.querySelector('.social-icon');
         if (firstSocialLink) {
           firstSocialLink.click();
         }
       }
-    });
+    }
   });
   
-  // Simple intersection observer for scroll animations
-  const observerOptions = {
-    threshold: 0.2,
-    rootMargin: '0px 0px -20px 0px'
-  };
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-in-view');
-        observer.unobserve(entry.target); // Only animate once
-      }
+  // Set tabindex for accessibility
+  setTimeout(() => {
+    const cards = document.querySelectorAll('.member-card');
+    cards.forEach(card => {
+      card.setAttribute('tabindex', '0');
     });
-  }, observerOptions);
-  
-  cards.forEach(card => {
-    observer.observe(card);
-  });
+  }, 500);
 }
 
 function showErrorState(errorMessage) {
@@ -241,5 +373,10 @@ function showErrorState(errorMessage) {
   }
 }
 
-
-
+// Export functions for debugging
+window.executiveDebug = {
+  executiveData,
+  currentYear,
+  switchToYear,
+  displayCommittee
+};

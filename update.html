@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="css/loader.css?v=1.0.1" />
   <link rel="stylesheet" href="css/nav.css?v=1.0.1" />
   <link rel="stylesheet" href="css/footer.css?v=1.0.1" />
-  <link rel="stylesheet" href="css/update.css">
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <link rel="stylesheet" href="css/update.css?v=1.0.1">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
   <script>
       tailwind.config = {
           theme: {
@@ -51,19 +51,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
-  
-  <!-- Loader Script (Load Early) -->
-  <script src="js/loader.js"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"></script>
   
 </head>
 <body class="bg-gray-900 text-white font-sans">
+  <div id="fb-root"></div>
   <!-- Navbar -->
   <div id="nav-placeholder"></div>
 
   <!-- Main Content -->
   <main class="pt-20 pb-10 px-4 md:px-8 max-w-7xl mx-auto">
     <!-- Hero Section -->
-    <section class="relative py-20 overflow-hidden bg-gradient-to-b from-gray-800 to-gray-900">
+    <section class="relative py-20 overflow-hidden bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg">
       <div class="container mx-auto px-4 text-center relative z-10">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-orbitron text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
           CLUB UPDATES
@@ -81,35 +80,36 @@
 
     <!-- Club Updates Section -->
     <section class="mb-20 mt-16">
-      <div class="flex justify-between items-center mb-8">
+      <div class="flex flex-wrap justify-between items-center gap-4 mb-8">
         <h2 class="text-2xl md:text-3xl font-bold text-green-400">
           <i class="fas fa-bullhorn mr-2"></i> Club Announcements
         </h2>
-        <button id="toggle-updates" class="view-toggle px-4 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition">
-          <span id="toggle-text">Show Less</span>
-          <i class="fas fa-chevron-up ml-2"></i>
+        <button id="toggle-updates" class="view-toggle px-4 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition hidden">
+          <span id="toggle-text">Show More</span>
+          <i class="fas fa-chevron-down ml-2"></i>
         </button>
       </div>
 
       <div id="updates-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Updates will be loaded from JSON -->
-        <div class="text-center py-12">
+        <!-- Loader -->
+        <div id="updates-loader" class="col-span-full text-center py-12">
           <div class="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-green-500 mx-auto"></div>
           <p class="mt-4 text-gray-400">Loading updates...</p>
         </div>
+        <!-- Updates will be loaded from JSON -->
       </div>
     </section>
 
     <!-- Facebook Updates Section -->
     <section>
-      <div class="flex justify-between items-center mb-8">
+      <div class="flex flex-wrap justify-between items-center gap-4 mb-8">
         <h2 class="text-2xl md:text-3xl font-bold text-blue-400">
           <i class="fab fa-facebook mr-2"></i> Facebook Updates
         </h2>
-        <div>
-          <button id="toggle-facebook" class="view-toggle px-4 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition mr-4">
-            <span id="fb-toggle-text">Show Less</span>
-            <i class="fas fa-chevron-up ml-2"></i>
+        <div class="flex items-center gap-4">
+          <button id="toggle-facebook" class="view-toggle px-4 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition hidden">
+            <span id="fb-toggle-text">Show More</span>
+            <i id="fb-toggle-icon" class="fas fa-chevron-down ml-2"></i>
           </button>
           <a href="https://facebook.com/gucc.vgs" target="_blank" class="fb-btn px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition">
             <i class="fab fa-facebook-f mr-2"></i> Visit Page
@@ -118,55 +118,39 @@
       </div>
 
       <div id="facebook-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-        <!-- Facebook posts will be loaded via JS -->
-        <div class="text-center py-12">
+        <!-- Loader -->
+        <div id="facebook-loader" class="col-span-full text-center py-12">
           <div class="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-blue-500 mx-auto"></div>
           <p class="mt-4 text-gray-400">Loading Facebook posts...</p>
         </div>
+        <!-- Facebook posts will be loaded via JS -->
       </div>
     </section>
   </main>
 
-   <!-- Footer / modal shells -->
+   <!-- Footer -->
    <div id="footer-placeholder"></div>
 
-   <!-- Component Loader -->
+   <!-- Scripts -->
    <script src="js/components/loader.js"></script>
+   <script src="js/components/nav.js"></script>
+   <script src="js/components/footer.js"></script>
+   <script src="js/update.js"></script>
 
-   <!-- Page-specific scripts -->
-   <script src="js/update.js" defer></script>
-   
-   <!-- Particles.js for background animation -->
-   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
    <script>
-       // Initialize particles.js if available
-       if (typeof particlesJS !== 'undefined') {
-           document.addEventListener('DOMContentLoaded', () => {
-               particlesJS('updates-particles-js', {
-                   "particles": {
-                       "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                       "color": { "value": "#10b981" },
-                       "shape": { "type": "circle" },
-                       "opacity": { "value": 0.6, "random": true },
-                       "size": { "value": 3.5, "random": true },
-                       "line_linked": { "enable": true, "distance": 150, "color": "#3b82f6", "opacity": 0.5, "width": 1 },
-                       "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
-                   },
-                   "interactivity": {
-                       "detect_on": "canvas",
-                       "events": {
-                           "onhover": { "enable": true, "mode": "repulse" },
-                           "onclick": { "enable": true, "mode": "push" }
-                       },
-                       "modes": {
-                           "repulse": { "distance": 100, "duration": 0.4 },
-                           "push": { "particles_nb": 4 }
-                       }
-                   }
-               });
-           });
-       }
-   </script>
-
+    // Wait for everything to be ready
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize components first
+      loadNavigation().then(() => {
+        loadFooter().then(() => {
+          console.log('🔄 Components loaded, initializing updates...');
+          // Now initialize the updates
+          if (typeof forceInitialize === 'function') {
+            forceInitialize();
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

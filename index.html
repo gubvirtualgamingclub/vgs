@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/nav.css?v=1.0.1" />
     <link rel="stylesheet" href="css/footer.css?v=1.0.1" />
     <!-- Tailwind CSS CDN - Development Mode -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -443,11 +443,14 @@
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
 <script src="https://unpkg.com/scrollreveal"></script>
-<script src="https://kit.fontawesome.com/your-kit-code.js"></script>
+<!-- FontAwesome is loaded via CDN in CSS files -->
+<!-- <script src="https://kit.fontawesome.com/your-kit-code.js"></script> -->
 
 <!-- Component Scripts -->
 <script src="js/components/footer.js"></script>
 <script src="js/components/loader.js"></script>
+<script src="js/components/nav.js"></script>
+<script src="js/mobile-optimization.js"></script>
 
 <!-- Backup Component Loader (in case external file fails) -->
 <script>

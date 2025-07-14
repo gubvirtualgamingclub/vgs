@@ -4,7 +4,14 @@ class GamingNavigation {
     this.lastScrollY = 0;
     this.scrollTimeout = null;
     this.scrollTimer = null;
+    this.isMobile = this.detectMobile();
     this.init();
+  }
+
+  detectMobile() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent) || 
+           window.innerWidth <= 768;
   }
 
   init() {
@@ -14,8 +21,8 @@ class GamingNavigation {
     
     this.nav = document.querySelector('.gaming-navbar');
     this.mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    this.navMobile = document.querySelector('.nav-mobile');
-    this.navOverlay = document.querySelector('.nav-overlay');
+    this.navMobile = document.getElementById('mobile-menu');
+    this.navOverlay = document.getElementById('nav-overlay');
     
     console.log('Navigation elements found:', {
       nav: !!this.nav,
@@ -43,9 +50,24 @@ class GamingNavigation {
     // Mobile menu toggle
     if (this.mobileMenuBtn) {
       console.log('Adding click listener to mobile menu button');
+      
+      // Handle both click and touch events for better mobile support
       this.mobileMenuBtn.addEventListener('click', (e) => {
         console.log('Mobile menu button clicked');
         this.toggleMobileMenu(e);
+      });
+      
+      // Prevent double-tap zoom on mobile menu button
+      this.mobileMenuBtn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+      });
+      
+      // Add keyboard support for accessibility
+      this.mobileMenuBtn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.toggleMobileMenu(e);
+        }
       });
     } else {
       console.warn('Mobile menu button not found');
@@ -54,11 +76,23 @@ class GamingNavigation {
     // Navigation overlay click
     if (this.navOverlay) {
       this.navOverlay.addEventListener('click', this.closeMobileMenu.bind(this));
+      
+      // Add touch event for better mobile support
+      this.navOverlay.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        this.closeMobileMenu();
+      });
     }
 
     // Close mobile menu when clicking a link
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
       link.addEventListener('click', this.closeMobileMenu.bind(this));
+      
+      // Add touch event for better mobile support
+      link.addEventListener('touchstart', (e) => {
+        // Don't prevent default here as we want the link to work
+        setTimeout(() => this.closeMobileMenu(), 100);
+      });
     });
 
     // Scroll handler for navbar hide/show

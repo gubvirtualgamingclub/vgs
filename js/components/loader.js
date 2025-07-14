@@ -375,7 +375,7 @@ class ComponentLoader {
                 <!-- University Info -->
                 <div class="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
                   <div class="university-logo-container relative">
-                    <img src="assets/images/logos/green-university-logo.svg" alt="Green University of Bangladesh" 
+                    <img src="assets/images/logos/GUB-New.png" alt="Green University of Bangladesh" 
                          class="university-logo h-16 w-16 sm:h-20 sm:w-20 object-contain filter drop-shadow-lg">
                   </div>
                   <div class="university-info">

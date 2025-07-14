@@ -1,0 +1,621 @@
+/* Activities Page Styles - SPA Version */
+body {
+    padding-top: 80px;
+    font-family: 'Rajdhani', sans-serif;
+    background-color: #111827;
+    color: #fff;
+}
+
+/* Event Cards */
+.event-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(55, 65, 81, 0.3);
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
+
+.event-card:hover {
+    border-color: rgba(16, 185, 129, 0.5);
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.15);
+}
+
+/* Event Details Page Styles */
+.event-details-view {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Event Detail Sections */
+.event-info-section {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    border: 1px solid rgba(55, 65, 81, 0.3);
+}
+
+.event-info-section:hover {
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* Prize Cards */
+.prize-card {
+    transition: all 0.3s ease;
+    background: rgba(31, 41, 55, 0.5);
+    border: 1px solid transparent;
+}
+
+.prize-card:hover {
+    transform: translateY(-2px);
+    background: rgba(31, 41, 55, 0.8);
+}
+
+.prize-card.first {
+    border-color: rgba(251, 191, 36, 0.3);
+    background: rgba(251, 191, 36, 0.05);
+}
+
+.prize-card.second {
+    border-color: rgba(156, 163, 175, 0.3);
+    background: rgba(156, 163, 175, 0.05);
+}
+
+.prize-card.third {
+    border-color: rgba(249, 115, 22, 0.3);
+    background: rgba(249, 115, 22, 0.05);
+}
+
+/* Sponsor Cards */
+.sponsor-card {
+    transition: all 0.3s ease;
+    background: rgba(31, 41, 55, 0.6);
+}
+
+.sponsor-card:hover {
+    background: rgba(31, 41, 55, 0.9);
+    transform: scale(1.02);
+}
+
+/* Game Cards */
+.game-card {
+    transition: all 0.3s ease;
+    background: rgba(55, 65, 81, 0.6);
+}
+
+.game-card:hover {
+    background: rgba(55, 65, 81, 0.9);
+    transform: translateY(-2px);
+}
+
+/* Schedule Items */
+.schedule-item {
+    transition: all 0.3s ease;
+    background: rgba(55, 65, 81, 0.6);
+}
+
+.schedule-item:hover {
+    background: rgba(55, 65, 81, 0.9);
+    transform: translateX(5px);
+}
+
+/* Guest Cards */
+.guest-card {
+    transition: all 0.3s ease;
+    background: rgba(55, 65, 81, 0.6);
+}
+
+.guest-card:hover {
+    background: rgba(55, 65, 81, 0.9);
+    transform: translateY(-2px);
+}
+
+/* Action Buttons */
+.action-button {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.5s;
+}
+
+.action-button:hover::before {
+    left: 100%;
+}
+
+/* Back Button */
+.back-button {
+    transition: all 0.3s ease;
+    background: rgba(31, 41, 55, 0.8);
+    border: 1px solid rgba(55, 65, 81, 0.5);
+}
+
+.back-button:hover {
+    background: rgba(55, 65, 81, 0.8);
+    border-color: rgba(16, 185, 129, 0.5);
+    transform: translateX(-5px);
+}
+
+/* Hero Banner Overlay */
+.hero-banner-overlay {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(16, 185, 129, 0.1) 50%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+}
+
+/* Status Badges */
+.status-badge {
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Line Clamp Utility */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+    
+    .event-card {
+        margin-bottom: 1rem;
+    }
+    
+    .hero-banner {
+        height: 250px !important;
+    }
+    
+    .hero-banner h1 {
+        font-size: 2rem !important;
+    }
+    
+    .event-details-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .activities-page {
+        padding-top: 70px;
+    }
+    
+    .hero-section {
+        padding: 2rem 1rem;
+        min-height: 60vh;
+    }
+    
+    .hero-title {
+        font-size: 2rem !important;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem !important;
+    }
+    
+    .activities-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem 0;
+    }
+    
+    .event-card {
+        margin: 0 0.5rem;
+    }
+    
+    .event-card-content {
+        padding: 1.5rem;
+    }
+    
+    .event-title {
+        font-size: 1.25rem !important;
+    }
+    
+    .event-description {
+        font-size: 0.9rem !important;
+        line-height: 1.5;
+    }
+    
+    .event-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+    
+    .event-date,
+    .event-status {
+        font-size: 0.875rem;
+    }
+    
+    .event-details-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .event-info-section {
+        padding: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.25rem !important;
+    }
+    
+    .section-content {
+        font-size: 0.9rem !important;
+    }
+    
+    .prize-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .prize-card {
+        padding: 1rem;
+    }
+    
+    .prize-amount {
+        font-size: 1.25rem !important;
+    }
+    
+    .prize-position {
+        font-size: 0.9rem !important;
+    }
+    
+    .sponsor-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .sponsor-card {
+        padding: 1.5rem;
+    }
+    
+    .sponsor-logo {
+        width: 80px !important;
+        height: 40px !important;
+    }
+    
+    .sponsor-name {
+        font-size: 1.1rem !important;
+    }
+    
+    .sponsor-description {
+        font-size: 0.85rem !important;
+    }
+    
+    .game-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .game-card {
+        padding: 1rem;
+    }
+    
+    .game-logo {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    .game-name {
+        font-size: 1rem !important;
+    }
+    
+    .game-details {
+        font-size: 0.8rem !important;
+    }
+    
+    .schedule-item {
+        padding: 1rem;
+    }
+    
+    .schedule-time {
+        font-size: 0.9rem !important;
+    }
+    
+    .schedule-event {
+        font-size: 1rem !important;
+    }
+    
+    .schedule-description {
+        font-size: 0.85rem !important;
+    }
+    
+    .guest-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .guest-card {
+        padding: 1.5rem;
+    }
+    
+    .guest-avatar {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    
+    .guest-name {
+        font-size: 1.1rem !important;
+    }
+    
+    .guest-title {
+        font-size: 0.9rem !important;
+    }
+    
+    .guest-bio {
+        font-size: 0.85rem !important;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .action-buttons a {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+    }
+    
+    .back-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .activities-page {
+    padding-top: 65px;
+  }
+  
+  .hero-section {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .hero-title {
+    font-size: 1.75rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem !important;
+  }
+  
+  .activities-grid {
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+  
+  .event-card {
+    margin: 0;
+  }
+  
+  .event-card-content {
+    padding: 1.25rem;
+  }
+  
+  .event-title {
+    font-size: 1.125rem !important;
+  }
+  
+  .event-description {
+    font-size: 0.85rem !important;
+  }
+  
+  .event-info-section {
+    padding: 1.25rem;
+  }
+  
+  .section-title {
+    font-size: 1.125rem !important;
+  }
+  
+  .section-content {
+    font-size: 0.85rem !important;
+  }
+  
+  .prize-card {
+    padding: 0.75rem;
+  }
+  
+  .prize-amount {
+    font-size: 1.125rem !important;
+  }
+  
+  .sponsor-card {
+    padding: 1.25rem;
+  }
+  
+  .sponsor-logo {
+    width: 70px !important;
+    height: 35px !important;
+  }
+  
+  .game-card {
+    padding: 0.75rem;
+  }
+  
+  .game-logo {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .schedule-item {
+    padding: 0.75rem;
+  }
+  
+  .guest-card {
+    padding: 1.25rem;
+  }
+  
+  .guest-avatar {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+/* Ultra-small screens */
+@media (max-width: 320px) {
+  .event-card-content {
+    padding: 1rem;
+  }
+  
+  .event-title {
+    font-size: 1rem !important;
+  }
+  
+  .event-description {
+    font-size: 0.8rem !important;
+  }
+  
+  .event-info-section {
+    padding: 1rem;
+  }
+  
+  .section-title {
+    font-size: 1rem !important;
+  }
+  
+  .section-content {
+    font-size: 0.8rem !important;
+  }
+  
+  .prize-card {
+    padding: 0.5rem;
+  }
+  
+  .sponsor-card {
+    padding: 1rem;
+  }
+  
+  .game-card {
+    padding: 0.5rem;
+  }
+  
+  .schedule-item {
+    padding: 0.5rem;
+  }
+  
+  .guest-card {
+    padding: 1rem;
+  }
+}
+
+/* Mobile Touch Optimizations */
+@media (max-width: 768px) {
+  /* Ensure proper touch targets */
+  .event-card,
+  .btn,
+  .cta-btn,
+  .social-btn {
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+  }
+
+  /* Improve scrolling performance */
+  .events-grid,
+  .event-details {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent zoom on input focus */
+  input, select, textarea {
+    font-size: 16px;
+  }
+
+  /* Smooth animations for mobile */
+  .event-card {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .event-card,
+  .fade-in,
+  .slide-in {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Loading Animation */
+.loading-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus Styles for Accessibility */
+.event-card:focus,
+.action-button:focus,
+.back-button:focus {
+    outline: 2px solid #10b981;
+    outline-offset: 2px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #374151;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4b5563;
+}

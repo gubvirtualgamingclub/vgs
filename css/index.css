@@ -973,148 +973,254 @@ body {
     }
 }
 
-@media (max-width: 480px) {
-    .about-text-card {
+/* ==============================================
+   ENHANCED MOBILE RESPONSIVE STYLES
+   ============================================== */
+
+/* Mobile-first approach for hero section */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 100vh;
+        padding: 2rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem !important;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-buttons a {
+        width: 100%;
+        justify-content: center;
+        max-width: 250px;
+    }
+    
+    .hero-stats {
+        grid-template-columns: 2fr 2fr;
+        gap: 1rem;
+        max-width: 100%;
+    }
+    
+    .stat-preview {
         padding: 1rem;
+        text-align: center;
     }
     
-    .story-highlight,
-    .mission-highlight,
-    .vision-highlight {
-        padding: 1rem 0;
+    .stat-number {
+        font-size: 1.5rem !important;
     }
     
-    .main-image {
-        min-height: 250px;
+    .stat-label {
+        font-size: 0.75rem !important;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 1rem 0.5rem;
     }
     
-    .team-image {
-        min-height: 250px;
+    .hero-title {
+        font-size: 2rem !important;
     }
     
-    .image-overlay {
-        padding: 1.5rem 1rem;
+    .hero-subtitle {
+        font-size: 0.9rem !important;
+    }
+    
+    .hero-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+    
+    .stat-preview {
+        padding: 0.75rem;
+    }
+    
+    .stat-number {
+        font-size: 1.25rem !important;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem !important;
+    }
+}
+
+/* Mission/Vision section mobile */
+@media (max-width: 768px) {
+    .section-header h2 {
+        font-size: 2rem !important;
+    }
+    
+    .value-card {
+        margin-bottom: 2rem;
+    }
+    
+    .card-content {
+        padding: 1.5rem;
+    }
+    
+    .card-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .card-text {
+        font-size: 0.9rem !important;
+        line-height: 1.6;
+    }
+}
+
+/* Collaborators section mobile */
+@media (max-width: 768px) {
+    .collaborators-section {
+        padding: 3rem 1rem;
+    }
+    
+    .collaborators-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .section-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem !important;
+        margin-bottom: 1rem;
+    }
+    
+    .view-all-btn {
+        margin-top: 1rem;
+    }
+}
+
+/* Stats section mobile */
+@media (max-width: 768px) {
+    .stats-section {
+        padding: 2rem 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 100%;
+    }
+    
+    .stat-card {
+        margin-bottom: 1rem;
+    }
+    
+    .stat-content {
+        padding: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem !important;
+    }
+    
+    .stat-label {
+        font-size: 1rem !important;
+    }
+    
+    .stat-description {
+        font-size: 0.8rem !important;
+    }
+}
+
+/* CTA section mobile */
+@media (max-width: 768px) {
+    .cta-section {
+        padding: 3rem 1rem;
+    }
+    
+    .cta-section h2 {
+        font-size: 2rem !important;
+    }
+    
+    .cta-section p {
+        font-size: 1rem !important;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .cta-buttons a {
+        width: 100%;
+        justify-content: center;
+        max-width: 250px;
+    }
+}
+
+/* Button responsive styles */
+@media (max-width: 768px) {
+    .cta-primary,
+    .cta-secondary,
+    .cta-primary-large,
+    .cta-secondary-large {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+        justify-content: center;
     }
     
     .overlay-btn {
-        padding: 0.75rem 1.5rem;
-        font-size: 0.875rem;
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Fix overflow and scrolling issues */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
     }
     
-    .floating-icon {
-        width: 36px;
-        height: 36px;
-        display: none; /* Hide on very small screens for better performance */
-    }
-}
-
-@media (min-width: 1400px) {
-    .about-image-section .image-container {
-        max-width: 1200px;
+    .hero-content-wrapper {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1rem;
     }
     
-    .main-image {
-        min-height: 500px;
+    .about-title {
+        font-size: 2.5rem !important;
     }
     
-    .team-image {
-        min-height: 500px;
+    .about-text-card {
+        margin: 0 0.5rem;
+        padding: 1.5rem;
     }
-}
-
-.image-container:hover .team-image {
-    transform: scale(1.05);
-}
-
-.image-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 2rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.image-container:hover .image-overlay {
-    opacity: 1;
-}
-
-.overlay-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: white;
-}
-
-.overlay-text {
-    color: rgba(209, 213, 219, 0.9);
-    margin-bottom: 1rem;
-}
-
-.overlay-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background: linear-gradient(135deg, #10b981, #3b82f6);
-    color: white;
-    border: none;
-    border-radius: 0.25rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    max-width: max-content;
-    text-decoration: none;
-}
-
-.overlay-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
-    color: white;
-}
-
-.floating-icon {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(31, 41, 55, 0.8);
-    color: white;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    animation: float 6s ease-in-out infinite;
-}
-
-.floating-icon i {
-    font-size: 1rem;
-}
-
-.gaming-icon-1 {
-    top: 20%;
-    left: 10%;
-    animation-delay: 0s;
-}
-
-.gaming-icon-2 {
-    top: 70%;
-    right: 15%;
-    animation-delay: 1s;
-}
-
-.gaming-icon-3 {
-    bottom: 10%;
-    left: 20%;
-    animation-delay: 2s;
-}
-
-@keyframes float {
-    0% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
-    100% { transform: translateY(0) rotate(0deg); }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .feature-item {
+        padding: 1.5rem;
+    }
 }
 
 /*───────────────────────────────────────────────────────────────
@@ -1847,4 +1953,49 @@ html {
 .stat-card:focus {
     outline: 2px solid rgba(74, 222, 128, 0.5);
     outline-offset: 2px;
+}
+
+/* Mobile Touch Optimizations */
+@media (max-width: 768px) {
+  /* Ensure proper touch targets */
+  .cta-btn,
+  .btn,
+  .hero-btn,
+  .social-link {
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+  }
+
+  /* Improve scrolling performance */
+  .hero-section,
+  .about-section,
+  .collaborators-section {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent zoom on input focus */
+  input, select, textarea {
+    font-size: 16px;
+  }
+
+  /* Smooth animations for mobile */
+  .hero-content,
+  .about-card,
+  .collaborator-logo {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .slide-in,
+  .hero-content {
+    transition: none !important;
+    animation: none !important;
+  }
 }
