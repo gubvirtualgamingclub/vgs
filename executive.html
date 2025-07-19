@@ -8,7 +8,7 @@
   
   <!-- ——— CSS ——— -->
   <link rel="stylesheet" href="css/loader.css?v=1.0.1" />
-  <link rel="stylesheet" href="css/nav.css?v=1.0.1" />
+  <link rel="stylesheet" href="css/nav.css" />
   <link rel="stylesheet" href="css/footer.css?v=1.0.1" />
   <link rel="stylesheet" href="css/executive.css">
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
@@ -52,9 +52,102 @@
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
 </head>
-<body class="bg-gray-900 text-white font-sans" style="padding-top: 80px;">
-  <!-- Navbar -->
-  <div id="nav-placeholder"></div>
+<body class="bg-gray-900 text-white font-inter overflow-x-hidden">
+  <!-- Navigation -->
+  <nav class="gaming-navbar">
+    <div class="nav-container">
+      <!-- Logo/Brand -->
+      <a href="index.html" class="nav-brand">
+        <img src="assets/images/logos/VGSwide.png" alt="GUCC VGS Logo" class="nav-logo">
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <div class="nav-desktop">
+        <a href="index.html" class="nav-link">
+          <span class="nav-text">
+            <i class="fas fa-home nav-icon"></i>
+            Home
+          </span>
+          <span class="nav-underline"></span>
+        </a>
+        <a href="update.html" class="nav-link">
+          <span class="nav-text">
+            <i class="fas fa-newspaper nav-icon"></i>
+            Updates
+          </span>
+          <span class="nav-underline"></span>
+        </a>
+        <a href="activities.html" class="nav-link">
+          <span class="nav-text">
+            <i class="fas fa-calendar-alt nav-icon"></i>
+            Activities
+          </span>
+          <span class="nav-underline"></span>
+        </a>
+        <a href="tournament.html" class="nav-link">
+          <span class="nav-text">
+            <i class="fas fa-trophy nav-icon"></i>
+            Tournament
+          </span>
+          <span class="nav-underline"></span>
+        </a>
+        <a href="executive.html" class="nav-link">
+          <span class="nav-text">
+            <i class="fas fa-users nav-icon"></i>
+            Committee
+          </span>
+          <span class="nav-underline"></span>
+        </a>
+        <a href="games.html" class="nav-link">
+          <span class="nav-text">
+            <i class="fas fa-gamepad nav-icon"></i>
+            Games
+          </span>
+          <span class="nav-underline"></span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="nav-mobile" id="mobile-menu" aria-hidden="true">
+      <div class="mobile-nav-content">
+        <a href="index.html" class="mobile-nav-link">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="update.html" class="mobile-nav-link">
+          <i class="fas fa-newspaper"></i>
+          <span>Updates</span>
+        </a>
+        <a href="activities.html" class="mobile-nav-link">
+          <i class="fas fa-calendar-alt"></i>
+          <span>Activities</span>
+        </a>
+        <a href="tournament.html" class="mobile-nav-link">
+          <i class="fas fa-trophy"></i>
+          <span>Tournament</span>
+        </a>
+        <a href="executive.html" class="mobile-nav-link">
+          <i class="fas fa-users"></i>
+          <span>Committee</span>
+        </a>
+        <a href="games.html" class="mobile-nav-link">
+          <i class="fas fa-gamepad"></i>
+          <span>Games</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+  </nav>
 
   <!-- Main Content -->
   <main class="pt-20 pb-10 px-4 md:px-8 max-w-7xl mx-auto">
@@ -105,10 +198,11 @@
    <!-- Footer / modal shells -->
    <div id="footer-placeholder"></div>
 
-
-    <!-- Unified Component Loader -->
+    <!-- Navigation Script -->
+    <script src="js/nav.js"></script>
+    
+    <!-- Component Loader -->
     <script src="js/components/loader.js"></script>
-    <script src="js/components/nav.js"></script>
 
     <!-- Page-specific scripts -->
     <script src="js/executive.js" defer></script>

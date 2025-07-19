@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let allEvents = [];
     let currentView = 'list'; // 'list' or 'details'
     let currentEventId = null;
+    let showAllEvents = false; // For show more/less functionality
+    const INITIAL_EVENTS_LIMIT = 6;
 
     // Initialize
     loadEvents();
@@ -66,7 +68,57 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        allEventsGrid.innerHTML = allEvents.map(event => createEventCard(event)).join('');
+        // Determine how many events to show
+        const eventsToShow = showAllEvents ? allEvents : allEvents.slice(0, INITIAL_EVENTS_LIMIT);
+        
+        // Render event cards
+        allEventsGrid.innerHTML = eventsToShow.map(event => createEventCard(event)).join('');
+        
+        // Add show more/less button if there are more than 6 events
+        if (allEvents.length > INITIAL_EVENTS_LIMIT) {
+            addShowMoreButton();
+        }
+    }
+
+    function addShowMoreButton() {
+        // Remove existing button if any
+        const existingButton = document.getElementById('show-more-btn');
+        if (existingButton) {
+            existingButton.remove();
+        }
+
+        // Create show more/less button
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'col-span-full flex justify-center mt-8';
+        buttonContainer.id = 'show-more-btn';
+        
+        const button = document.createElement('button');
+        button.className = 'show-more-button bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl';
+        button.setAttribute('aria-label', showAllEvents ? 'Show less events' : 'Show more events');
+        
+        const hiddenCount = allEvents.length - INITIAL_EVENTS_LIMIT;
+        
+        if (showAllEvents) {
+            button.innerHTML = '<i class="fas fa-chevron-up mr-2"></i>Show Less';
+        } else {
+            button.innerHTML = `<i class="fas fa-chevron-down mr-2"></i>Show More (${hiddenCount} more events)`;
+        }
+        
+        button.addEventListener('click', toggleShowMore);
+        
+        buttonContainer.appendChild(button);
+        allEventsGrid.appendChild(buttonContainer);
+    }
+
+    function toggleShowMore() {
+        showAllEvents = !showAllEvents;
+        renderAllEvents();
+        
+        // Smooth scroll to top of events grid if showing less
+        if (!showAllEvents) {
+            const eventsSection = document.querySelector('#all-events').parentElement;
+            eventsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     }
 
     function createEventCard(event) {

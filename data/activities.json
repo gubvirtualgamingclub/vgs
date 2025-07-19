@@ -327,6 +327,198 @@
         "gallery": "https://facebook.com/gucc.vgs/albums/valorant-championship-gallery",
         "highlights": "https://youtube.com/watch?v=valorant-highlights"
       }
+    },
+    {
+      "id": 5,
+      "title": "Mobile Gaming Workshop",
+      "date": "August 20, 2024",
+      "time": "3:00 PM - 6:00 PM",
+      "venue": "Green University Computer Lab",
+      "shortDescription": "Learn advanced mobile gaming techniques and strategies from professional players.",
+      "banner": "assets/images/events/mobile-gaming-workshop.jpg",
+      "category": "past",
+      "about": "A comprehensive workshop designed to enhance your mobile gaming skills. Learn from professional players about advanced techniques, strategy formation, team coordination, and competitive gameplay. The workshop covered popular mobile games including PUBG Mobile, Mobile Legends, and Free Fire.",
+      "games": ["PUBG Mobile", "Mobile Legends", "Free Fire", "Call of Duty Mobile"],
+      "prizes": {
+        "participation": "Certificate of Completion",
+        "best_performer": "Gaming Accessories Kit"
+      },
+      "participants": 45,
+      "maxParticipants": 50,
+      "registrationStatus": "Completed",
+      "guests": [
+        {
+          "name": "Rifat Ahmed",
+          "title": "PUBG Mobile Coach",
+          "image": "assets/images/guests/placeholder.png",
+          "description": "Professional mobile gaming coach with 5+ years experience"
+        }
+      ],
+      "contact": {
+        "organizer": "GUCC VGS Workshop Team",
+        "email": "workshop@vgs.gucc.edu.bd",
+        "phone": "+880 1518-918266"
+      },
+      "socialLinks": {
+        "facebook": "https://facebook.com/gucc.vgs/events/mobile-workshop-2024",
+        "gallery": "https://facebook.com/gucc.vgs/albums/mobile-workshop-gallery"
+      }
+    },
+    {
+      "id": 6,
+      "title": "PC Building Workshop",
+      "date": "September 10, 2024",
+      "time": "10:00 AM - 4:00 PM",
+      "venue": "Green University Tech Lab",
+      "shortDescription": "Hands-on workshop to learn PC building, hardware optimization, and gaming setup configuration.",
+      "banner": "assets/images/events/pc-building-workshop.jpg",
+      "category": "past",
+      "about": "A practical workshop where participants learned to build gaming PCs from scratch. The session covered component selection, assembly techniques, cable management, BIOS configuration, and performance optimization for gaming. Participants got hands-on experience with latest gaming hardware and learned troubleshooting techniques.",
+      "games": ["Hardware Assembly", "Performance Testing", "Overclocking Basics"],
+      "prizes": {
+        "best_build": "Gaming Peripheral Set",
+        "participation": "Workshop Certificate"
+      },
+      "participants": 30,
+      "maxParticipants": 30,
+      "registrationStatus": "Completed",
+      "guests": [
+        {
+          "name": "Tanvir Hassan",
+          "title": "Hardware Specialist",
+          "image": "assets/images/guests/placeholder.png",
+          "description": "Computer hardware expert and gaming PC specialist"
+        }
+      ],
+      "contact": {
+        "organizer": "GUCC VGS Tech Team",
+        "email": "tech@vgs.gucc.edu.bd",
+        "phone": "+880 1518-918266"
+      },
+      "socialLinks": {
+        "facebook": "https://facebook.com/gucc.vgs/events/pc-building-2024",
+        "gallery": "https://facebook.com/gucc.vgs/albums/pc-building-gallery"
+      }
+    },
+    {
+      "id": 7,
+      "title": "Retro Gaming Night",
+      "date": "October 5, 2024",
+      "time": "6:00 PM - 11:00 PM",
+      "venue": "Green University Student Lounge",
+      "shortDescription": "A nostalgic evening celebrating classic games and retro gaming culture.",
+      "banner": "assets/images/events/inter-dept-championship.jpg",
+      "category": "past",
+      "about": "Step back in time and experience the golden age of gaming! Our Retro Gaming Night featured classic arcade games, vintage console setups, and tournaments for beloved retro titles. Participants enjoyed a nostalgic journey through gaming history while competing in friendly tournaments and sharing gaming memories.",
+      "games": ["Street Fighter II", "Pac-Man", "Tetris", "Super Mario Bros", "Contra"],
+      "prizes": {
+        "retro_champion": "Vintage Gaming Collection",
+        "participation": "Retro Gaming Stickers"
+      },
+      "participants": 60,
+      "maxParticipants": 75,
+      "registrationStatus": "Completed",
+      "guests": [
+        {
+          "name": "Shafiq Rahman",
+          "title": "Gaming Historian",
+          "image": "assets/images/guests/placeholder.png",
+          "description": "Expert in gaming history and retro gaming culture"
+        }
+      ],
+      "contact": {
+        "organizer": "GUCC VGS Events Team",
+        "email": "events@vgs.gucc.edu.bd",
+        "phone": "+880 1518-918266"
+      },
+      "socialLinks": {
+        "facebook": "https://facebook.com/gucc.vgs/events/retro-gaming-2024",
+        "gallery": "https://facebook.com/gucc.vgs/albums/retro-gaming-gallery"
+      }
+    },
+    {
+      "id": 8,
+      "title": "Esports Career Seminar",
+      "date": "November 15, 2024",
+      "time": "2:00 PM - 5:00 PM",
+      "venue": "Green University Main Auditorium",
+      "shortDescription": "Discover career opportunities in the growing esports and gaming industry.",
+      "banner": "assets/images/events/valorant-championship.jpg",
+      "category": "past",
+      "about": "An informative seminar exploring various career paths in the esports industry. Industry professionals shared insights about opportunities in competitive gaming, content creation, event management, game development, and esports journalism. The session included panel discussions, Q&A sessions, and networking opportunities.",
+      "games": ["Career Guidance", "Industry Insights", "Networking"],
+      "prizes": {
+        "participation": "Industry Resource Kit",
+        "best_question": "Gaming Merchandise"
+      },
+      "participants": 80,
+      "maxParticipants": 100,
+      "registrationStatus": "Completed",
+      "guests": [
+        {
+          "name": "Nazmul Islam",
+          "title": "Esports Industry Expert",
+          "image": "assets/images/guests/placeholder.png",
+          "description": "Senior consultant in esports industry development"
+        },
+        {
+          "name": "Fatima Khan",
+          "title": "Content Creator",
+          "image": "assets/images/guests/placeholder.png",
+          "description": "Successful gaming content creator and influencer"
+        }
+      ],
+      "contact": {
+        "organizer": "GUCC VGS Career Development",
+        "email": "career@vgs.gucc.edu.bd",
+        "phone": "+880 1518-918266"
+      },
+      "socialLinks": {
+        "facebook": "https://facebook.com/gucc.vgs/events/esports-career-2024",
+        "gallery": "https://facebook.com/gucc.vgs/albums/career-seminar-gallery"
+      }
+    },
+    {
+      "id": 9,
+      "title": "Esports Career Seminar",
+      "date": "November 15, 2024",
+      "time": "2:00 PM - 5:00 PM",
+      "venue": "Green University Main Auditorium",
+      "shortDescription": "Discover career opportunities in the growing esports and gaming industry.",
+      "banner": "assets/images/events/valorant-championship.jpg",
+      "category": "past",
+      "about": "An informative seminar exploring various career paths in the esports industry. Industry professionals shared insights about opportunities in competitive gaming, content creation, event management, game development, and esports journalism. The session included panel discussions, Q&A sessions, and networking opportunities.",
+      "games": ["Career Guidance", "Industry Insights", "Networking"],
+      "prizes": {
+        "participation": "Industry Resource Kit",
+        "best_question": "Gaming Merchandise"
+      },
+      "participants": 80,
+      "maxParticipants": 100,
+      "registrationStatus": "Completed",
+      "guests": [
+        {
+          "name": "Nazmul Islam",
+          "title": "Esports Industry Expert",
+          "image": "assets/images/guests/placeholder.png",
+          "description": "Senior consultant in esports industry development"
+        },
+        {
+          "name": "Fatima Khan",
+          "title": "Content Creator",
+          "image": "assets/images/guests/placeholder.png",
+          "description": "Successful gaming content creator and influencer"
+        }
+      ],
+      "contact": {
+        "organizer": "GUCC VGS Career Development",
+        "email": "career@vgs.gucc.edu.bd",
+        "phone": "+880 1518-918266"
+      },
+      "socialLinks": {
+        "facebook": "https://facebook.com/gucc.vgs/events/esports-career-2024",
+        "gallery": "https://facebook.com/gucc.vgs/albums/career-seminar-gallery"
+      }
     }
   ]
 }

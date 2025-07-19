@@ -1,4 +1,5 @@
 {
+  "isActive": true,
   "updates": [
     {
       "id": 1,
@@ -8,7 +9,8 @@
       "image": "assets/images/logos/vgs.png",
       "description": "Join our biggest tournament of the year with a $5000 prize pool! Registration opens June 1st.",
       "registration_link": "https://example.com/register",
-      "status": "upcoming"
+      "status": "upcoming",
+      "isActive": true
     },
     {
       "id": 2,
@@ -17,7 +19,8 @@
       "date": "2024-05-20",
       "image": "assets/images/logos/vgs.png",
       "description": "Monthly club meeting on May 25th at 4PM in the Student Center. All members must attend.",
-      "important": true
+      "important": true,
+      "isActive": true
     },
     {
       "id": 3,
@@ -26,36 +29,38 @@
       "date": "2024-06-01",
       "image": "assets/images/logos/vgs.png",
       "description": "We're accepting new members for the fall semester. Application deadline is June 15th.",
-      "form_link": "https://example.com/join"
+      "form_link": "https://example.com/join",
+      "isActive": false
     },
      {
       "id": 4,
       "type": "event",
-      "title": "Summer Tournament 2024",
-      "date": "2024-07-15",
+      "title": "Winter Gaming Championship 2024",
+      "date": "2024-12-15",
       "image": "assets/images/logos/vgs.png",
-      "description": "Join our biggest tournament of the year with a $5000 prize pool! Registration opens June 1st.",
-      "registration_link": "https://example.com/register",
-      "status": "upcoming"
+      "description": "Get ready for the ultimate winter gaming showdown! Multiple games, exciting prizes, and fierce competition awaits.",
+      "registration_link": "https://example.com/register-winter",
+      "status": "upcoming",
+      "isActive": true
     },
     {
       "id": 5,
       "type": "notice",
-      "title": "Club Meeting Announcement",
+      "title": "System Maintenance Notice",
       "date": "2024-05-20",
       "image": "assets/images/logos/vgs.png",
-      "description": "Monthly club meeting on May 25th at 4PM in the Student Center. All members must attend.",
-      "important": true
+      "description": "Our gaming servers will undergo maintenance on July 25th from 2AM-6AM. Please plan accordingly.",
+      "important": true,
+      "isActive": false
     },
     {
       "id": 6,
-      "type": "registration",
-      "title": "New Member Intake",
-      "date": "2024-06-01",
+      "type": "announcement",
+      "title": "New Gaming Lounge Opening",
+      "date": "2024-08-01",
       "image": "assets/images/logos/vgs.png",
-      "description": "We're accepting new members for the fall semester. Application deadline is June 15th.",
-      "form_link": "https://example.com/join"
+      "description": "We're excited to announce the opening of our new state-of-the-art gaming lounge with latest hardware and comfortable seating.",
+      "isActive": true
     }
-
   ]
 }

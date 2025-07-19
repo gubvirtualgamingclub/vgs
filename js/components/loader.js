@@ -7,42 +7,50 @@ class ComponentLoader {
     try {
       console.log('🔧 Loading components...');
       
-      // Load navigation first with retries
-      if (!this.loadedComponents.has('nav')) {
+      // Check if navigation placeholder exists before trying to load
+      const navPlaceholder = document.getElementById('nav-placeholder');
+      if (navPlaceholder && !this.loadedComponents.has('nav')) {
         console.log('📡 Loading navigation component...');
         await this.loadComponentWithRetry('components/nav.html', 'nav-placeholder');
         this.loadedComponents.add('nav');
-        
-        // Load nav script after a short delay
-        setTimeout(async () => {
-          try {
-            await this.loadScript('js/components/nav.js');
-            console.log('✅ Navigation script loaded');
-            document.dispatchEvent(new CustomEvent('navigationLoaded'));
-          } catch (error) {
-            console.warn('⚠️ Navigation script failed to load:', error);
-          }
-          
-        }, 200);
+        console.log('✅ Navigation loaded successfully');
+        document.dispatchEvent(new CustomEvent('navigationLoaded'));
+      } else if (!navPlaceholder) {
+        console.log('ℹ️ Navigation placeholder not found, skipping nav loading (likely embedded in HTML)');
       }
 
-      // Load footer with retries
-      if (!this.loadedComponents.has('footer')) {
+      // Check if footer placeholder exists before trying to load
+      const footerPlaceholder = document.getElementById('footer-placeholder');
+      if (footerPlaceholder && !this.loadedComponents.has('footer')) {
         console.log('📡 Loading footer component...');
         await this.loadComponentWithRetry('components/footer.html', 'footer-placeholder');
         this.loadedComponents.add('footer');
+        console.log('✅ Footer HTML loaded successfully');
           
-          // Load footer script after HTML is loaded
+        // Load footer script after HTML is loaded
+        try {
           await this.loadScript('js/components/footer.js');
-          console.log('✅ Footer script loaded');
+          console.log('✅ Footer script loaded successfully');
           
           // Wait a moment for footer script to initialize
-          await new Promise(resolve => setTimeout(resolve, 100));
+          await new Promise(resolve => setTimeout(resolve, 200));
           
-          // Trigger footer initialization manually
-          if (typeof initFooter === 'function') {
+          // Trigger footer initialization manually if function exists
+          if (typeof window.initFooter === 'function') {
+            console.log('🚀 Initializing footer manually...');
+            window.initFooter();
+          } else if (typeof initFooter === 'function') {
+            console.log('🚀 Initializing footer (global scope)...');
             initFooter();
+          } else {
+            console.log('⚠️ Footer init function not found, footer should auto-initialize');
           }
+        } catch (scriptError) {
+          console.error('❌ Footer script loading failed:', scriptError);
+          // Footer HTML is loaded, continue without script
+        }
+      } else if (!footerPlaceholder) {
+        console.log('⚠️ Footer placeholder not found, cannot load footer');
       }
 
       console.log('✅ All components loaded successfully');
@@ -334,7 +342,7 @@ class ComponentLoader {
             });
             
             window.addEventListener('resize', function() {
-              if (window.innerWidth > 768 && isOpen) {
+              if (window.innerWidth >= 1024 && isOpen) {
                 console.log('📱 Fallback window resized to desktop, closing menu');
                 closeMenu();
               }
@@ -475,25 +483,19 @@ function initializeLoader() {
     console.error('❌ footer-placeholder not found in DOM');
   }
   
-  if (!navPlaceholder || !footerPlaceholder) {
-    console.error('❌ Missing placeholders, using fallback immediately');
-    ComponentLoader.createFallbackUI();
+  if (!navPlaceholder && !footerPlaceholder) {
+    console.error('❌ No placeholders found, cannot load components');
     return;
   }
   
-  // IMMEDIATE FALLBACK for reliable display
-  console.log('🔄 Using immediate fallback to ensure components show');
-  ComponentLoader.createFallbackUI();
-  
-  // Add visual indicator that loader is working
-  document.body.style.setProperty('--loader-active', 'true');
-  
-  // Still try to load the real components in the background
+  // Try to load real components first
+  console.log('🔄 Attempting to load real components...');
   ComponentLoader.load().then(() => {
-    console.log('✅ Real components loaded successfully (replacing fallback)');
+    console.log('✅ Real components loaded successfully');
     document.body.style.setProperty('--loader-active', 'false');
   }).catch(error => {
-    console.error('❌ Real component loading failed, keeping fallback:', error);
+    console.error('❌ Real component loading failed, using fallback:', error);
+    ComponentLoader.createFallbackUI();
     document.body.style.setProperty('--loader-active', 'false');
   });
 }

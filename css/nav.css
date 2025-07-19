@@ -1,145 +1,120 @@
-/* ==============================================
-   ROOT STACKING CONTEXT
-   ============================================== */
-:root {
-  --z-nav-base: 99000;
-  --z-nav-overlay: 99990;
-  --z-nav-mobile: 99995;
-  --z-nav-brand: 99996;
-  --z-nav-button: 99997;
+/* ========================================
+   RESPONSIVE NAVIGATION - MOBILE FIRST
+   ======================================== */
+
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
 }
 
-/* ==============================================
-   MODERN GAMING NAVIGATION STYLES
-   ============================================== */
+body {
+  margin: 0;
+  padding-top: 70px !important; /* Force override of any other padding */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
 
-/* Base Navigation Styles */
-.gaming-navbar {
+/* Override Tailwind and other CSS that might conflict */
+body.bg-gray-950,
+body.bg-gray-900 {
+  padding-top: 70px !important;
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open,
+body.no-scroll {
+  overflow: hidden !important;
   position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* ========================================
+   NAVIGATION CONTAINER
+   ======================================== */
+.gaming-navbar {
+  position: fixed !important;
   top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(17, 24, 39, 0.95));
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(16, 185, 129, 0.25);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  z-index: var(--z-nav-base);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  isolation: isolate;
-}
-
-.gaming-navbar.hidden {
-  transform: translateY(-100%);
-}
-
-.gaming-navbar.scrolled {
-  background: linear-gradient(to right, rgba(15, 23, 42, 0.98), rgba(26, 54, 93, 0.98));
-  box-shadow: 0 8px 40px rgba(16, 185, 129, 0.15);
+  z-index: 10000 !important;
+  background: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+  height: 70px;
 }
 
 .nav-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 1rem 0 1.5rem;
-  height: 80px;
+  padding: 0 20px;
+  height: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   position: relative;
+  z-index: 10001;
 }
 
-/* ==============================================
-   LOGO & BRAND STYLES
-   ============================================== */
-
+/* ========================================
+   LOGO/BRAND
+   ======================================== */
 .nav-brand {
   display: flex;
   align-items: center;
-  position: relative;
-  z-index: var(--z-nav-brand);
-  transition: all 0.3s ease;
-  margin-right: auto;
+  text-decoration: none;
+  z-index: 1001;
 }
 
 .nav-logo {
-  height: 55px;
+  height: 40px;
   width: auto;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  object-fit: contain;
-  filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.3));
-  max-width: none;
+  transition: transform 0.3s ease;
 }
 
 .nav-brand:hover .nav-logo {
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.6));
+  transform: scale(1.05);
 }
 
-.logo-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70px;
-  height: 70px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.1), transparent);
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.nav-brand:hover .logo-glow {
-  opacity: 1;
-}
-
-/* ==============================================
-   DESKTOP NAVIGATION STYLES
-   ============================================== */
-
+/* ========================================
+   DESKTOP NAVIGATION (Hidden on mobile)
+   ======================================== */
 .nav-desktop {
-  display: flex;
+  display: none; /* Hidden by default (mobile-first) */
   align-items: center;
-  gap: 2rem;
+  gap: 30px;
 }
 
 .nav-link {
   position: relative;
-  color: #e2e8f0;
   text-decoration: none;
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 1rem 0;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
+  color: #e2e8f0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 500 !important;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .nav-text {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  position: relative;
-  z-index: 1;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 500 !important;
+}
+
+.nav-link:hover {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
 }
 
 .nav-icon {
-  font-size: 0.9rem;
-  opacity: 0.8;
-  transition: all 0.3s ease;
-}
-
-.nav-link:hover .nav-icon {
-  opacity: 1;
-  transform: scale(1.1);
+  font-size: 14px;
 }
 
 .nav-underline {
   position: absolute;
-  bottom: 0;
+  bottom: -2px;
   left: 0;
   width: 0;
   height: 2px;
@@ -147,143 +122,45 @@
   transition: width 0.3s ease;
 }
 
-.nav-link:hover .nav-underline,
-.nav-link.active .nav-underline {
+.nav-link:hover .nav-underline {
   width: 100%;
 }
 
-.nav-link:hover {
-  color: #10b981;
-}
-
-.btn-corner {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border: 1px solid #10b981;
-}
-
-.btn-corner-tl {
-  top: -1px;
-  left: -1px;
-  border-right: none;
-  border-bottom: none;
-}
-
-.btn-corner-tr {
-  top: -1px;
-  right: -1px;
-  border-left: none;
-  border-bottom: none;
-}
-
-.btn-corner-bl {
-  bottom: -1px;
-  left: -1px;
-  border-right: none;
-  border-top: none;
-}
-
-.btn-corner-br {
-  bottom: -1px;
-  right: -1px;
-  border-left: none;
-  border-top: none;
-}
-
-/* Mobile Menu Button */
+/* ========================================
+   MOBILE MENU BUTTON (Visible on mobile)
+   ======================================== */
 .mobile-menu-btn {
-  display: none;
+  display: flex !important; /* Force visibility on mobile */
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 40px;
+  height: 40px;
   background: none;
   border: none;
-  width: 44px;
-  height: 44px;
-  padding: 8px;
   cursor: pointer;
-  z-index: var(--z-nav-button);
-  position: relative;
-  border-radius: 8px;
+  padding: 8px;
+  border-radius: 6px;
   transition: background-color 0.3s ease;
+  z-index: 10002;
 }
 
 .mobile-menu-btn:hover {
   background: rgba(16, 185, 129, 0.1);
 }
 
-.mobile-menu-btn:focus {
-  outline: 2px solid #10b981;
-  outline-offset: 2px;
-}
-
-.hamburger-box {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.hamburger-inner,
-.hamburger-inner::before,
-.hamburger-inner::after {
-  content: '';
-  display: block;
+.hamburger-line {
   width: 24px;
   height: 2px;
-  background: #d1d5db;
-  position: absolute;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  border-radius: 2px;
-}
-
-.hamburger-inner::before {
-  top: -8px;
-}
-
-.hamburger-inner::after {
-  bottom: -8px;
-}
-
-.mobile-menu-btn.active .hamburger-inner {
-  transform: rotate(45deg);
-  background: #10b981;
-}
-
-.mobile-menu-btn.active .hamburger-inner::before {
-  transform: rotate(90deg) translate(8px, 0);
-  background: #10b981;
-  top: 0;
-}
-
-.mobile-menu-btn.active .hamburger-inner::after {
-  transform: rotate(90deg) translate(-8px, 0);
-  background: #10b981;
-  bottom: 0;
-}
-
-/* ==============================================
-   SIMPLE HAMBURGER LINES
-   ============================================== */
-.hamburger-line {
-  display: block;
-  width: 24px;
-  height: 3px;
-  background: #d1d5db;
+  background: #e2e8f0;
   margin: 3px 0;
   transition: all 0.3s ease;
   border-radius: 2px;
 }
 
-.mobile-menu-btn.active .hamburger-line {
-  background: #10b981;
-}
-
+/* Hamburger Animation */
 .mobile-menu-btn.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
 .mobile-menu-btn.active .hamburger-line:nth-child(2) {
@@ -291,78 +168,82 @@
 }
 
 .mobile-menu-btn.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+  transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* ==============================================
-   MOBILE NAVIGATION STYLES - SIMPLIFIED
-   ============================================== */
-
+/* ========================================
+   MOBILE NAVIGATION MENU
+   ======================================== */
 .nav-mobile {
   position: fixed;
-  top: 80px;
+  top: 70px;
+  left: 0;
   right: 0;
-  bottom: 0;
-  width: 100%;
-  max-width: 300px;
-  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-  transform: translateX(100%);
+  background: rgba(15, 23, 42, 0.98);
+  backdrop-filter: blur(20px);
+  transform: translateY(-100%);
   transition: transform 0.3s ease;
-  z-index: var(--z-nav-mobile);
-  border-left: 1px solid rgba(16, 185, 129, 0.2);
+  z-index: 9999;
+  max-height: calc(100vh - 70px);
   overflow-y: auto;
-  box-shadow: -8px 0 25px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
-.nav-mobile.open {
-  transform: translateX(0);
+.nav-mobile.active {
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .mobile-nav-content {
-  padding: 1rem;
-  height: 100%;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 10px;
 }
 
 .mobile-nav-link {
   display: flex;
   align-items: center;
-  color: #d1d5db;
+  gap: 15px;
+  padding: 15px 20px;
   text-decoration: none;
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 600;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  border-bottom: 1px solid rgba(209, 213, 219, 0.1);
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
   transition: all 0.3s ease;
-  position: relative;
-  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mobile-nav-link:hover,
 .mobile-nav-link:focus {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.3);
   color: #10b981;
-  transform: translateX(4px);
+  transform: translateX(5px);
 }
 
 .mobile-nav-link i {
-  font-size: 1.1rem;
-  margin-right: 1rem;
-  color: #10b981;
-  transition: all 0.3s ease;
+  font-size: 18px;
   width: 20px;
   text-align: center;
 }
 
+.mobile-nav-link span {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 16px;
+}
+
+/* ========================================
+   OVERLAY
+   ======================================== */
 .nav-overlay {
   position: fixed;
-  top: 0;
+  top: 70px; /* Start below navbar */
   left: 0;
   right: 0;
   bottom: 0;
@@ -370,981 +251,204 @@
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-  z-index: var(--z-nav-overlay);
-  backdrop-filter: blur(4px);
-}
-
-.nav-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* ==============================================
-   MOBILE RESPONSIVE STYLES
-   ============================================== */
-
-.mobile-nav-link:hover .mobile-nav-icon {
-  transform: scale(1.2);
-}
-
-.mobile-nav-link:hover .mobile-nav-arrow {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.mobile-nav-link::before {
-  content: '';
-  position: absolute;
-  left: -100%;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
-  transition: left 0.5s ease;
-}
-
-.mobile-nav-link:hover::before {
-  left: 100%;
-}
-
-/* ==============================================
-   MOBILE CONTACT BUTTON STYLES
-   ============================================== */
-
-/* ==============================================
-   NAVIGATION OVERLAY
-   ============================================== */
-
-.nav-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  opacity: 0;
-  visibility: hidden;
-  z-index: var(--z-nav-overlay);
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.nav-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* ==============================================
-   FAILSAFE MOBILE NAVIGATION
-   ============================================== */
-
-/* Ensure mobile menu button is always visible on mobile */
-@media (max-width: 768px) {
-  .mobile-menu-btn {
-    display: flex !important;
-    position: relative;
-    z-index: 99999;
-  }
-  
-  .nav-desktop {
-    display: none !important;
-  }
-  
-  /* Ensure mobile menu is properly positioned */
-  .nav-mobile {
-    position: fixed !important;
-    top: 70px !important;
-    right: 0 !important;
-    width: 280px !important;
-    height: calc(100vh - 70px) !important;
-    background: #1f2937 !important;
-    transform: translateX(100%) !important;
-    transition: transform 0.3s ease !important;
-    z-index: 99998 !important;
-    overflow-y: auto !important;
-    border-left: 1px solid #10b981 !important;
-  }
-  
-  .nav-mobile.open {
-    transform: translateX(0) !important;
-  }
-  
-  .nav-overlay {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    background: rgba(0, 0, 0, 0.5) !important;
-    z-index: 99997 !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transition: all 0.3s ease !important;
-  }
-  
-  .nav-overlay.active {
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-  
-  .mobile-nav-content {
-    padding: 1rem !important;
-  }
-  
-  .mobile-nav-link {
-    display: flex !important;
-    align-items: center !important;
-    padding: 1rem !important;
-    color: #fff !important;
-    text-decoration: none !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    transition: all 0.3s ease !important;
-  }
-  
-  .mobile-nav-link:hover {
-    background: rgba(16, 185, 129, 0.1) !important;
-    color: #10b981 !important;
-  }
-  
-  .mobile-nav-link i {
-    margin-right: 0.75rem !important;
-    color: #10b981 !important;
-  }
-  
-  /* Ensure hamburger lines are visible */
-  .hamburger-line {
-    display: block !important;
-    width: 20px !important;
-    height: 2px !important;
-    background: #fff !important;
-    margin: 3px 0 !important;
-    transition: 0.3s !important;
-  }
-  
-  .mobile-menu-btn.active .hamburger-line:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px) !important;
-  }
-  
-  .mobile-menu-btn.active .hamburger-line:nth-child(2) {
-    opacity: 0 !important;
-  }
-  
-  .mobile-menu-btn.active .hamburger-line:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px) !important;
-  }
-  
-  /* Fix body padding for mobile */
-  body {
-    padding-top: 70px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-mobile {
-    top: 65px !important;
-    height: calc(100vh - 65px) !important;
-    width: 100% !important;
-    max-width: 280px !important;
-  }
-  
-  body {
-    padding-top: 65px !important;
-  }
-}
-
-/* Ensure mobile menu works even if JavaScript fails */
-.mobile-menu-btn:focus + .nav-mobile,
-.mobile-menu-btn:active + .nav-mobile {
-  transform: translateX(0) !important;
-}
-
-/* ==============================================
-   UTILITY CLASSES
-   ============================================== */
-
-body.no-scroll {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-}
-
-/* ==============================================
-   GLOBAL BODY STYLES FOR FIXED NAVBAR
-   ============================================== */
-
-/* Base body padding for fixed navbar */
-body {
-  padding-top: 80px !important;
-}
-
-/* Adjust for smaller screens */
-@media (max-width: 768px) {
-  body {
-    padding-top: 70px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    padding-top: 65px !important;
-  }
-}
-
-/* ==============================================
-   ADDITIONAL RESPONSIVE FIXES
-   ============================================== */
-
-/* Ensure consistent logo sizing across all devices */
-@media (min-width: 1400px) {
-  .nav-logo {
-    height: 60px;
-  }
-  
-  .nav-container {
-    padding: 0 1rem 0 2rem;
-  }
-}
-
-@media (max-width: 1200px) {
-  .nav-logo {
-    height: 52px;
-  }
-}
-
-@media (max-width: 992px) {
-  .nav-logo {
-    height: 48px;
-  }
-  
-  .nav-container {
-    padding: 0 1rem 0 1.25rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .nav-container {
-    padding: 0 0.5rem 0 0.75rem;
-    height: 60px;
-  }
-  
-  .nav-logo {
-    height: 38px;
-  }
-  
-  .nav-mobile {
-    top: 60px;
-  }
-  
-  body {
-    padding-top: 60px !important;
-  }
-}
-
-/* Additional responsive breakpoints for better tablet support */
-@media (max-width: 1024px) and (min-width: 769px) {
-  .nav-container {
-    padding: 0 1.5rem;
-  }
-  
-  .nav-desktop {
-    gap: 1.5rem;
-  }
-  
-  .nav-link {
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 992px) and (min-width: 769px) {
-  .nav-container {
-    padding: 0 1.25rem;
-  }
-  
-  .nav-desktop {
-    gap: 1.25rem;
-  }
-  
-  .nav-link {
-    font-size: 0.9rem;
-  }
-}
-
-/* Enhanced logo positioning for different screen sizes */
-@media (min-width: 1600px) {
-  .nav-container {
-    padding: 0 1.5rem 0 2.5rem;
-    max-width: 1600px;
-  }
-  
-  .nav-logo {
-    height: 65px;
-  }
-  
-  .logo-glow {
-    width: 80px;
-    height: 80px;
-  }
-}
-
-/* Ensure logo stays within safe bounds on ultra-wide screens */
-@media (min-width: 1920px) {
-  .nav-container {
-    padding: 0 2rem 0 3rem;
-  }
-  
-  .nav-logo {
-    height: 68px;
-  }
-}
-
-/* ==============================================
-   PERFORMANCE OPTIMIZATIONS
-   ============================================== */
-
-/* GPU acceleration for smooth animations */
-.gaming-navbar,
-.nav-mobile,
-.nav-overlay {
-  will-change: transform;
-  transform: translateZ(0);
-}
-
-/* Reduce motion for users who prefer it */
-@media (prefers-reduced-motion: reduce) {
-  .gaming-navbar,
-  .nav-mobile,
-  .nav-link,
-  .nav-contact-btn,
-  .mobile-nav-link,
-  .mobile-contact-btn {
-    transition: none;
-  }
-  
-  .nav-mobile.open .mobile-nav-link {
-    animation: none;
-  }
-}
-
-/* ==============================================
-   RESPONSIVE DESIGN
-   ============================================== */
-
-/* Desktop and large tablets */
-@media (min-width: 769px) {
-  .nav-desktop {
-    display: flex;
-  }
-  
-  .mobile-menu-btn {
-    display: none !important;
-  }
-  
-  .nav-mobile {
-    display: none !important;
-  }
-  
-  .nav-overlay {
-    display: none !important;
-  }
-}
-
-/* Tablet and below */
-@media (max-width: 768px) {
-  .nav-desktop {
-    display: none !important;
-  }
-  
-  .mobile-menu-btn {
-    display: flex !important;
-  }
-  
-  .nav-mobile {
-    display: block !important;
-  }
-  
-  .nav-overlay {
-    display: block !important;
-  }
-  
-  .nav-container {
-    padding: 0 0.75rem 0 1rem;
-    height: 70px;
-  }
-  
-  .nav-logo {
-    height: 44px;
-  }
-  
-  .nav-mobile {
-    top: 70px;
-  }
-  
-  .mobile-nav-link {
-    font-size: 1rem;
-    padding: 0.875rem 1.25rem;
-  }
-  
-  body {
-    padding-top: 70px !important;
-  }
-}
-
-/* Mobile devices */
-@media (max-width: 480px) {
-  .nav-container {
-    padding: 0 0.5rem 0 0.75rem;
-    height: 65px;
-  }
-  
-  .nav-logo {
-    height: 40px;
-  }
-  
-  .nav-mobile {
-    top: 65px;
-  }
-  
-  .mobile-nav-content {
-    padding: 1.5rem;
-  }
-  
-  .mobile-nav-link {
-    font-size: 1.1rem;
-    padding: 1.25rem 0;
-  }
-  
-  body {
-    padding-top: 65px !important;
-  }
-}
-
-/* Very small screens */
-@media (max-width: 320px) {
-  .nav-container {
-    padding: 0 0.5rem 0 0.5rem;
-    height: 60px;
-  }
-  
-  .nav-logo {
-    height: 36px;
-  }
-  
-  .nav-mobile {
-    top: 60px;
-  }
-  
-  .mobile-nav-content {
-    padding: 1rem;
-  }
-  
-  .mobile-nav-link {
-    font-size: 1rem;
-    padding: 1rem 0;
-  }
-  
-  body {
-    padding-top: 60px !important;
-  }
-}
-
-/* ==============================================
-   ANIMATIONS & EFFECTS
-   ============================================== */
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(16, 185, 129, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.8);
-  }
-}
-
-.nav-mobile.open .mobile-nav-link {
-  animation: fadeInUp 0.3s ease forwards;
-}
-
-.nav-mobile.open .mobile-nav-link:nth-child(1) { animation-delay: 0.1s; }
-.nav-mobile.open .mobile-nav-link:nth-child(2) { animation-delay: 0.15s; }
-.nav-mobile.open .mobile-nav-link:nth-child(3) { animation-delay: 0.2s; }
-.nav-mobile.open .mobile-nav-link:nth-child(4) { animation-delay: 0.25s; }
-.nav-mobile.open .mobile-nav-link:nth-child(5) { animation-delay: 0.3s; }
-
-/* ==============================================
-   HOVER STATES FOR TOUCH DEVICES
-   ============================================== */
-
-@media (hover: none) and (pointer: coarse) {
-  .nav-link:hover {
-    transform: none;
-  }
-}
-
-/* ==============================================
-   HIGH CONTRAST MODE SUPPORT
-   ============================================== */
-
-@media (prefers-contrast: high) {
-  .gaming-navbar {
-    background: rgba(0, 0, 0, 0.95);
-    border-bottom-color: #ffffff;
-  }
-  
-  .nav-link {
-    color: #ffffff;
-  }
-}
-
-/* Navigation Overlay */
-.nav-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  opacity: 0;
-  visibility: hidden;
-  z-index: var(--z-nav-overlay);
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.nav-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Mobile Navigation Menu */
-
-/* Brand and Menu Button */
-.nav-brand {
-  z-index: var(--z-nav-brand);
-  position: relative;
-}
-
-.mobile-menu-btn {
-  z-index: var(--z-nav-button);
-  position: relative;
-}
-
-/* Mobile Menu Content */
-.mobile-nav-content {
-  padding: 1rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-/* Prevent body scroll when mobile menu is open */
-body.menu-open {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-}
-
-/* Mobile Navigation Menu - Single Definition */
-.nav-mobile {
-  position: fixed;
-  top: 70px;
-  right: 0;
-  bottom: 0;
-  width: 300px;
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(17, 24, 39, 0.98));
-  transform: translateX(100%);
-  visibility: hidden;
-  z-index: var(--z-nav-mobile);
-  transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.3);
-  isolation: isolate;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  max-height: calc(100vh - 70px);
-}
-
-.nav-mobile.open {
-  transform: translateX(0);
-  visibility: visible;
-}
-
-.nav-mobile.closing {
-  transform: translateX(100%);
-  visibility: hidden;
-}
-
-.mobile-nav-link {
-  color: #d1d5db;
-  text-decoration: none;
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 600;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(209, 213, 219, 0.1);
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 1;
-}
-
-.mobile-nav-link:hover {
-  color: #10b981;
-  padding-left: 1rem;
-}
-
-.mobile-contact-btn {
-  margin-top: 2rem;
-  width: 100%;
-  text-align: center;
-}
-
-/* Ensure mobile menu stays within viewport */
-
-/* Prevent body scroll when modal is open */
-body.no-scroll {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-}
-
-/* Mobile menu button z-index */
-.mobile-menu-btn {
-  z-index: 1001;
-}
-
-/* Modal z-index adjustments */
-.gaming-modal {
-  z-index: 9999;
-}
-
-.modal-overlay {
-  z-index: 9998;
-}
-
-/* Contributor modal should be highest */
-.contributors-modal {
-  z-index: 10000 !important;
-}
-
-/* ==============================================
-   ADDITIONAL MOBILE NAVIGATION POLISH
-   ============================================== */
-
-/* Mobile navigation slide in from right */
-@keyframes slideInFromRight {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* Mobile navigation slide out to right */
-@keyframes slideOutToRight {
-  from {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
-
-.nav-mobile.open {
-  animation: slideInFromRight 0.3s ease-out forwards;
-}
-
-.nav-mobile.closing {
-  animation: slideOutToRight 0.3s ease-in forwards;
-}
-
-/* Mobile backdrop blur effect */
-.nav-mobile::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(3, 7, 13, 0.95) 0%,
-    rgba(6, 10, 18, 0.98) 50%,
-    rgba(3, 7, 13, 0.95) 100%
-  );
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: -1;
-}
-
-/* Enhanced mobile link hover effects */
-.mobile-nav-link {
-  border-left: 3px solid transparent;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.mobile-nav-link:hover {
-  border-left-color: #10b981;
-  background: linear-gradient(
-    90deg,
-    rgba(16, 185, 129, 0.1) 0%,
-    transparent 50%
-  );
-}
-
-/* Stagger animation for mobile menu items */
-.nav-mobile.open .mobile-nav-link:nth-child(1) { animation-delay: 0.05s; }
-.nav-mobile.open .mobile-nav-link:nth-child(2) { animation-delay: 0.1s; }
-.nav-mobile.open .mobile-nav-link:nth-child(3) { animation-delay: 0.15s; }
-.nav-mobile.open .mobile-nav-link:nth-child(4) { animation-delay: 0.2s; }
-.nav-mobile.open .mobile-nav-link:nth-child(5) { animation-delay: 0.25s; }
-
-/* Loading state for navigation */
-.gaming-navbar.loading {
-  opacity: 0.7;
+  z-index: 9998; /* Below mobile menu and navbar */
   pointer-events: none;
 }
 
-.gaming-navbar.loading::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  border: 2px solid #10b981;
-  border-top: 2px solid transparent;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
-@keyframes spin {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+   ======================================== */
+
+/* Small Devices (480px and up) */
+@media (min-width: 480px) {
+  .nav-container {
+    padding: 0 30px;
+  }
+  
+  .mobile-nav-content {
+    padding: 30px;
+    gap: 15px;
+  }
 }
 
-/* Focus management for accessibility */
-.nav-mobile.open {
-  outline: none;
+/* Medium Devices - Tablets (768px and up) */
+@media (min-width: 768px) {
+  body,
+  body.bg-gray-950,
+  body.bg-gray-900 {
+    padding-top: 80px !important;
+  }
+  
+  .gaming-navbar {
+    height: 80px;
+  }
+  
+  .nav-container {
+    z-index: 10001;
+  }
+  
+  .nav-mobile {
+    top: 80px;
+    max-height: calc(100vh - 80px);
+    z-index: 9999;
+  }
+  
+  .nav-overlay {
+    top: 80px; /* Start below navbar on tablet too */
+  }
+  
+  .nav-container {
+    padding: 0 40px;
+  }
+  
+  .nav-logo {
+    height: 45px;
+  }
+  
+  .mobile-nav-content {
+    padding: 40px;
+    gap: 20px;
+  }
+  
+  .mobile-nav-link {
+    padding: 18px 25px;
+    font-size: 18px;
+  }
 }
 
-.nav-mobile.open .mobile-nav-link:first-child {
+/* Large Devices - Desktop (1024px and up) */
+@media (min-width: 1024px) {
+  /* Hide mobile elements completely */
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  
+  .nav-mobile {
+    display: none !important;
+  }
+  
+  .nav-overlay {
+    display: none !important;
+  }
+  
+  /* Show desktop navigation */
+  .nav-desktop {
+    display: flex !important;
+  }
+  
+  body,
+  body.bg-gray-950,
+  body.bg-gray-900 {
+    padding-top: 90px !important;
+  }
+  
+  .gaming-navbar {
+    height: 90px;
+  }
+  
+  /* Complete desktop layout restructure */
+  .nav-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 0 30px;
+    gap: 20px;
+    max-width: none;
+    width: 100%;
+  }
+  
+  .nav-brand {
+    grid-column: 1;
+    justify-self: start;
+  }
+  
+  .nav-desktop {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .nav-logo {
+    height: 50px;
+  }
+}
+
+/* Extra Large Devices (1280px and up) */
+@media (min-width: 1280px) {
+  .nav-container {
+    padding: 0 40px; /* Adjust padding for larger screens */
+  }
+  
+  .nav-desktop {
+    gap: 40px;
+  }
+  
+  .nav-link {
+    padding: 12px 18px;
+    font-size: 16px;
+  }
+}
+
+/* Ultra Wide Devices (1536px and up) */
+@media (min-width: 1536px) {
+  .nav-container {
+    padding: 0 60px; /* Maximum padding for ultra-wide screens */
+  }
+  
+  .nav-desktop {
+    gap: 50px;
+  }
+  
+  .nav-link {
+    padding: 15px 20px;
+    font-size: 17px;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY & ANIMATIONS
+   ======================================== */
+
+/* Focus styles for accessibility */
+.nav-link:focus,
+.mobile-nav-link:focus,
+.mobile-menu-btn:focus {
   outline: 2px solid #10b981;
   outline-offset: 2px;
 }
 
-/* Safe area adjustments for mobile devices */
-@supports (padding: max(0px)) {
-  .gaming-navbar {
-    padding-left: max(1rem, env(safe-area-inset-left));
-    padding-right: max(1rem, env(safe-area-inset-right));
-  }
-  
-  .nav-mobile {
-    padding-left: max(1rem, env(safe-area-inset-left));
-    padding-right: max(1rem, env(safe-area-inset-right));
-  }
-}
-
-/* ==============================================
-   Z-INDEX RESETS & OVERRIDES
-   ============================================== */
-
-/* Reset z-index for potential conflicting elements */
-section,
-header,
-.hero-section,
-.banner,
-.background-overlay {
-  z-index: 1 !important;
-  position: relative;
-}
-
-/* Ensure modals still work properly */
-.modal,
-.dialog,
-.popup {
-  z-index: calc(var(--z-nav-base) - 1) !important;
-}
-
-/* Special handling for critical overlays */
-.critical-overlay {
-  z-index: calc(var(--z-nav-base) + 1000) !important;
-}
-
-/* ==============================================
-   FINAL Z-INDEX AND STACKING CONTEXT FIXES
-   ============================================== */
-
-/* Force mobile menu and overlay above all content */
-.nav-mobile,
-.nav-overlay {
-  position: fixed !important;
-  z-index: var(--z-nav-mobile) !important;
-}
-
-/* Reset hero and other section z-indices */
-.hero-section,
-section,
-.background,
-.overlay,
-.content-section {
-  z-index: 1 !important;
-  position: relative !important;
-}
-
-/* Ensure proper stacking context */
-.gaming-navbar,
-.nav-mobile,
-.nav-overlay {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-  will-change: transform;
-}
-
-/* Force mobile menu above hero sections */
-@media (max-width: 768px) {
-  .nav-mobile {
-    isolation: isolate;
-  }
-  
-  .nav-mobile::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: inherit;
-    z-index: -1;
-  }
-}
-
-/* ==============================================
-   MOBILE RESPONSIVE NAVIGATION
-   ============================================== */
-
-@media (max-width: 768px) {
-  .nav-desktop {
-    display: none !important;
-  }
-  
-  .mobile-menu-btn {
-    display: flex !important;
-  }
-}
-
-@media (min-width: 769px) {
-  .mobile-menu-btn {
-    display: none !important;
-  }
-  
-  .nav-mobile {
-    display: none !important;
-  }
-  
-  .nav-overlay {
-    display: none !important;
-  }
-}
-
-/* Mobile Touch Optimizations */
-@media (max-width: 768px) {
-  /* Ensure all interactive elements have proper touch targets */
-  .gaming-navbar .nav-link,
-  .gaming-navbar .nav-btn {
-    min-height: 44px;
-    min-width: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  /* Improve button responsiveness */
-  .mobile-menu-btn {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    touch-action: manipulation;
-  }
-
-  /* Add smooth scrolling for mobile */
-  html {
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* Prevent zoom on input focus */
-  input, select, textarea {
-    font-size: 16px;
-  }
-
-  /* Optimize mobile menu animations */
-  .mobile-menu {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    will-change: transform;
-  }
-
-  /* Improve overlay performance */
-  .nav-overlay {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    will-change: opacity;
-  }
-}
-
-/* Additional mobile improvements */
-@media (max-width: 480px) {
-  .gaming-navbar .nav-link {
-    padding: 12px 16px;
-    font-size: 16px;
-  }
-
-  .mobile-menu-btn {
-    padding: 12px;
-    min-height: 48px;
-    min-width: 48px;
-  }
-}
-
-/* Improve accessibility for all devices */
+/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  .mobile-menu,
-  .nav-overlay,
-  .hamburger-line {
-    transition: none !important;
-    animation: none !important;
+  .nav-mobile,
+  .hamburger-line,
+  .nav-link,
+  .mobile-nav-link,
+  .nav-overlay {
+    transition: none;
   }
 }
 
-/* Existing mobile styles continue below... */
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .gaming-navbar {
+    background: #000;
+    border-bottom: 2px solid #fff;
+  }
+  
+  .nav-link,
+  .mobile-nav-link {
+    color: #fff;
+  }
+  
+  .hamburger-line {
+    background: #fff;
+  }
+}

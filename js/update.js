@@ -29,6 +29,7 @@ function createCard(update) {
     const actionButton = actionLink ? `
         <a href="${actionLink}" target="_blank" 
            class="action-btn">
+           <i class="fas fa-external-link-alt mr-2"></i>
            ${update.registration_link ? 'Register Now' : 'Learn More'}
         </a>
     ` : '';
@@ -36,18 +37,21 @@ function createCard(update) {
     const card = document.createElement('div');
     card.className = 'update-card';
     card.innerHTML = `
-        <div class="card-header">
-            <i class="fas ${icon} text-green-500 mr-2"></i>
-            <h3 class="card-title">${update.title}</h3>
-        </div>
-        <img src="${update.image}" alt="${update.title}" class="w-full h-48 object-cover rounded-md mb-4">
-        <div class="card-content">
-            <p>${update.description}</p>
-            ${actionButton}
-        </div>
-        <div class="card-footer">
-            <span>${formatDate(update.date)}</span>
-            ${update.important ? '<span class="status-badge">Important</span>' : ''}
+        <img src="${update.image}" alt="${update.title}" class="w-full h-48 object-cover" 
+             onerror="this.src='assets/images/logos/vgs.png'">
+        <div class="card-content-wrapper">
+            <div class="card-header">
+                <i class="fas ${icon}"></i>
+                <h3 class="card-title">${update.title}</h3>
+            </div>
+            <div class="card-content">
+                <p>${update.description}</p>
+                ${actionButton}
+            </div>
+            <div class="card-footer">
+                <span><i class="fas fa-calendar-alt mr-1"></i>${formatDate(update.date)}</span>
+                ${update.important ? '<span class="status-badge"><i class="fas fa-exclamation-triangle mr-1"></i>Important</span>' : ''}
+            </div>
         </div>
     `;
     
@@ -73,14 +77,30 @@ async function forceInitialize() {
         if (!response.ok) throw new Error('Network response was not ok');
         
         const data = await response.json();
-        console.log('📊 Loaded updates:', data.updates.length, 'items');
+        console.log('📊 Loaded updates data:', data);
+        
+        // Check if updates are globally active
+        if (!data.isActive) {
+            showNoUpdatesMessage(grid, loader, 'Updates are currently disabled');
+            return;
+        }
+        
+        // Filter only active updates
+        const activeUpdates = data.updates.filter(update => update.isActive === true);
+        console.log('📊 Active updates:', activeUpdates.length, 'out of', data.updates.length, 'total updates');
+        
+        // Check if there are any active updates
+        if (activeUpdates.length === 0) {
+            showNoUpdatesMessage(grid, loader, 'No updates available at the moment');
+            return;
+        }
         
         // Clear grid and hide loader
         grid.innerHTML = '';
         loader.style.display = 'none';
         
         // Sort updates by date, most recent first
-        const sortedUpdates = data.updates.sort((a, b) => 
+        const sortedUpdates = activeUpdates.sort((a, b) => 
             new Date(b.date) - new Date(a.date)
         );
         
@@ -102,85 +122,81 @@ async function forceInitialize() {
             }, index * 100);
         });
 
-        initFacebook();
+        console.log('✅ Update page initialization complete!');
         
     } catch (error) {
         console.error('❌ Error loading updates:', error);
-        // Show error state in grid
-        grid.innerHTML = `
-            <div class="col-span-full text-center py-12">
-                <i class="fas fa-exclamation-triangle text-red-500 text-4xl mb-4"></i>
-                <p class="text-gray-400">Failed to load updates. Please try again later.</p>
-            </div>
-        `;
-        loader.style.display = 'none';
+        showNoUpdatesMessage(grid, loader, 'Failed to load updates. Please try again later.', true);
     }
 }
 
-function initFacebook() {
-    console.log('📘 Initializing Facebook embed');
-    const fbGrid = document.getElementById('facebook-grid');
-    const fbLoader = document.getElementById('facebook-loader');
+// Function to show "No Updates" message
+function showNoUpdatesMessage(grid, loader, message, isError = false) {
+    loader.style.display = 'none';
     
-    if (!fbGrid || !fbLoader) {
-        console.error('❌ Facebook elements not found!');
-        return;
-    }
+    const iconClass = isError ? 'fa-exclamation-triangle' : 'fa-info-circle';
+    const iconColor = isError ? 'text-red-400' : 'text-blue-400';
+    const bgClass = isError ? 'from-red-900 to-red-800' : 'from-blue-900 to-blue-800';
     
-    fbLoader.style.display = 'none';
-    fbGrid.innerHTML = '';
-    
-    const embedContainer = document.createElement('div');
-    embedContainer.className = 'col-span-full';
-    embedContainer.innerHTML = `
-        <div class="fb-page" 
-             data-href="https://facebook.com/gucc.vgs" 
-             data-tabs="timeline" 
-             data-width="" 
-             data-height="800" 
-             data-small-header="false" 
-             data-adapt-container-width="true" 
-             data-hide-cover="false" 
-             data-show-facepile="true">
-            <blockquote cite="https://facebook.com/gucc.vgs" 
-                        class="fb-xfbml-parse-ignore">
-                <a href="https://facebook.com/gucc.vgs">GUCC VGS</a>
-            </blockquote>
+    grid.innerHTML = `
+        <div class="col-span-full">
+            <div class="no-updates-container bg-gradient-to-br ${bgClass} border border-gray-600 rounded-2xl p-8 md:p-12 text-center shadow-2xl">
+                <div class="no-updates-icon mb-6">
+                    <i class="fas ${iconClass} ${iconColor} text-6xl md:text-7xl opacity-80"></i>
+                </div>
+                <h3 class="no-updates-title text-2xl md:text-3xl font-bold text-white mb-4 font-orbitron">
+                    ${isError ? 'Oops! Something went wrong' : 'No Updates Yet'}
+                </h3>
+                <p class="no-updates-message text-gray-300 text-lg md:text-xl mb-6 max-w-md mx-auto leading-relaxed">
+                    ${message}
+                </p>
+                ${!isError ? `
+                <div class="no-updates-action">
+                    <div class="inline-flex items-center gap-2 text-blue-400 text-sm font-semibold">
+                        <i class="fas fa-clock animate-pulse"></i>
+                        <span>Check back soon for exciting announcements!</span>
+                    </div>
+                </div>
+                ` : `
+                <div class="no-updates-action">
+                    <button onclick="forceInitialize()" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-redo-alt"></i>
+                        <span>Try Again</span>
+                    </button>
+                </div>
+                `}
+            </div>
         </div>
     `;
-    fbGrid.appendChild(embedContainer);
-    
-    if (typeof FB !== 'undefined') {
-        FB.XFBML.parse();
-    } else {
-        console.warn('⚠️ FB SDK not loaded yet, embed may auto-initialize');
-    }
 }
 
+// Enhanced initialization with proper error handling
 let initialized = false;
 
 function initializeAll() {
     if (initialized) return;
     initialized = true;
+    
+    console.log('🚀 Initializing update page...');
     forceInitialize();
-    initFacebook();
 }
 
-// Try multiple initialization methods
+// Initialize when DOM is ready
 console.log('📋 Current DOM state:', document.readyState);
 
-// Method 1: Immediate
-setTimeout(initializeAll, 100);
-
-// Method 2: DOM Ready
+// Multiple initialization strategies for reliability
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeAll);
 } else {
-    initializeAll();
+    // DOM is already ready
+    setTimeout(initializeAll, 100);
 }
 
-// Method 3: Window Load
+// Fallback initialization
 window.addEventListener('load', initializeAll);
+
+// Make function available globally for manual initialization
+window.forceInitialize = forceInitialize;
 
 // Method 4: Aggressive timeout
 setTimeout(initializeAll, 2000);

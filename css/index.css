@@ -601,6 +601,12 @@ body {
     padding: 0 1rem;
 }
 
+/* About Visual - Full Width Banner */
+.about-visual {
+    width: 100%;
+    margin: 0 auto;
+}
+
 .image-container {
     position: relative;
     width: 100%;
@@ -608,6 +614,7 @@ body {
     overflow: hidden;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
     transition: all 0.5s ease;
+    max-height: 500px;
 }
 
 .image-container:hover {
@@ -618,14 +625,13 @@ body {
 .main-image {
     position: relative;
     width: 100%;
-    min-height: 400px;
+    height: 450px;
     overflow: hidden;
 }
 
 .team-image {
     width: 100%;
-    height: auto;
-    min-height: 400px;
+    height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
@@ -777,6 +783,10 @@ body {
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
     }
+    
+    .main-image {
+        height: 500px;
+    }
 }
 
 @media (min-width: 1280px) {
@@ -791,7 +801,6 @@ body {
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     width: 100%;
-    min-height: 200px;
 }
 
 .stat-card:hover {
@@ -808,43 +817,59 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 200px;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
     transition: all 0.3s ease;
+    text-align: center;
 }
 
-.icon-container {
+.stat-card:hover .stat-content {
+    border-color: rgba(16, 185, 129, 0.4);
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.9), rgba(17, 24, 39, 0.9));
+}
+
+.stat-icon {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+    border: 2px solid rgba(16, 185, 129, 0.3);
     margin-bottom: 1rem;
     transition: all 0.3s ease;
 }
 
-.stat-card:hover .icon-container {
+.stat-icon i {
+    font-size: 1.5rem;
+    color: #10b981;
+}
+
+.stat-card:hover .stat-icon {
     transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(59, 130, 246, 0.2));
+    border-color: rgba(16, 185, 129, 0.5);
+}
+
+.stat-info {
+    text-align: center;
 }
 
 .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     font-family: 'Orbitron', monospace;
     line-height: 1;
 }
 
 .stat-label {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 500;
     color: rgb(209 213 219);
     line-height: 1.2;
-}
-
-.stat-description {
-    font-size: 0.875rem;
-    color: rgb(107 114 128);
-    margin-top: 0.5rem;
-    line-height: 1.3;
 }
 
 .stat-arrow {
@@ -853,12 +878,13 @@ body {
     right: 1.5rem;
     color: rgba(209, 213, 219, 0.5);
     transition: all 0.3s ease;
-    z-index: 10;
+    opacity: 0;
 }
 
 .stat-card:hover .stat-arrow {
     color: white;
     transform: translateX(4px);
+    opacity: 1;
 }
 
 .stat-glow {

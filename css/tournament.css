@@ -43,20 +43,37 @@
 
 
 
-/* Tournament Game Cards with Optimized Performance */
+/* Tournament Game Cards with Enhanced Responsive Design */
 .tournament-page .game-card {
     position: relative;
     background: linear-gradient(145deg, #1f2937, #111827);
     border-radius: 1rem;
     overflow: hidden;
-    transition: none;
+    transition: all 0.3s ease;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
     border-left: 4px solid transparent;
     width: 100%;
-    max-width: 380px;
-    min-height: 540px;
+    max-width: 400px;
+    min-height: 500px;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation classes for card entrance */
+.tournament-page .game-card.opacity-0 {
+    opacity: 0;
+}
+
+.tournament-page .game-card.translate-y-4 {
+    transform: translateY(1rem);
+}
+
+.tournament-page .game-card.opacity-100 {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .tournament-page .game-card.casual {
@@ -72,7 +89,8 @@
 }
 
 .tournament-page .game-card:hover {
-    box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.4);
 }
 
 .tournament-page .game-card-inner {
@@ -86,13 +104,16 @@
 .max-participants i {
     color: var(--accent-green);
     font-size: 0.9rem;
+    margin-right: 0.25rem;
 }
 
 .game-details-grid .detail-item i {
     color: var(--accent-green);
     font-size: 1rem;
-    width: 16px;
+    width: 18px;
     text-align: center;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
 }
 
 .tournament-page .game-image-container {
@@ -136,21 +157,29 @@
     gap: 0.25rem;
     backdrop-filter: blur(3px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 5;
+}
+
+.tournament-page .game-type-badge i {
+    font-size: 0.7rem;
 }
 
 .tournament-page .game-type-badge.casual {
-    background: rgba(139, 92, 246, 0.9);
+    background: rgba(139, 92, 246, 0.95);
     color: white;
+    border-color: rgba(139, 92, 246, 0.8);
 }
 
 .tournament-page .game-type-badge.virtual-pc {
-    background: rgba(239, 68, 68, 0.9);
+    background: rgba(239, 68, 68, 0.95);
     color: white;
+    border-color: rgba(239, 68, 68, 0.8);
 }
 
 .tournament-page .game-type-badge.virtual-mobile {
-    background: rgba(245, 158, 11, 0.9);
+    background: rgba(245, 158, 11, 0.95);
     color: white;
+    border-color: rgba(245, 158, 11, 0.8);
 }
 
 .tournament-page .registration-status-badge {
@@ -166,16 +195,23 @@
     gap: 0.25rem;
     backdrop-filter: blur(3px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 5;
+}
+
+.tournament-page .registration-status-badge i {
+    font-size: 0.7rem;
 }
 
 .tournament-page .registration-status-badge.open {
-    background: rgba(16, 185, 129, 0.9);
+    background: rgba(16, 185, 129, 0.95);
     color: white;
+    border-color: rgba(16, 185, 129, 0.8);
 }
 
 .tournament-page .registration-status-badge.closed {
-    background: rgba(107, 114, 128, 0.9);
+    background: rgba(107, 114, 128, 0.95);
     color: white;
+    border-color: rgba(107, 114, 128, 0.8);
 }
 
 .tournament-page .game-content {
@@ -291,7 +327,7 @@
     border-radius: 0.75rem;
     font-weight: 600;
     text-decoration: none;
-    transition: none;
+    transition: all 0.2s ease;
     border: 2px solid;
     position: relative;
     overflow: hidden;
@@ -299,6 +335,23 @@
     text-transform: uppercase;
     letter-spacing: 0.025em;
     cursor: pointer;
+}
+
+/* Icon styling for buttons */
+.tournament-page .register-btn i, .tournament-page .rulebook-btn i {
+    font-size: 1rem;
+    opacity: 1;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.tournament-page .register-btn span, .tournament-page .rulebook-btn span {
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.tournament-page .register-btn:hover:not(.disabled) i, .tournament-page .rulebook-btn:hover i {
+    transform: scale(1.1);
 }
 
 .tournament-page .register-btn.casual {
@@ -345,15 +398,50 @@
 }
 
 .register-btn:hover:not(.disabled), .rulebook-btn:hover {
-    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.tournament-page .register-btn.casual:hover:not(.disabled) {
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6);
+}
+
+.tournament-page .register-btn.virtual-pc:hover:not(.disabled) {
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.6);
+}
+
+.tournament-page .register-btn.virtual-mobile:hover:not(.disabled) {
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
+}
+
+.tournament-page .rulebook-btn.casual:hover {
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
+}
+
+.tournament-page .rulebook-btn.virtual-pc:hover {
+    box-shadow: 0 8px 25px rgba(5, 150, 105, 0.5);
+}
+
+.tournament-page .rulebook-btn.virtual-mobile:hover {
+    box-shadow: 0 8px 25px rgba(2, 132, 199, 0.5);
 }
 
 .register-btn.disabled {
-    background: rgba(107, 114, 128, 0.5);
-    border-color: #6b7280;
-    color: #9ca3af;
-    cursor: not-allowed;
-    box-shadow: none;
+    background: rgba(107, 114, 128, 0.5) !important;
+    border-color: #6b7280 !important;
+    color: #9ca3af !important;
+    cursor: not-allowed !important;
+    box-shadow: none !important;
+    opacity: 0.7;
+}
+
+.register-btn.disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.register-btn.disabled i {
+    color: #9ca3af !important;
 }
 
 .game-title {
@@ -458,132 +546,77 @@
     filter: grayscale(0%) brightness(1.2);
 }
 
-/* Enhanced Game Card Grid - Left-to-Right Responsive Layout */
+/* Enhanced Game Card Grid - Mobile-First Responsive Layout */
 #casual-games, #virtual-pc-games, #virtual-mobile-games {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
     align-items: stretch;
-    justify-items: stretch;
-    padding: 0 1rem;
+    justify-items: center;
+    padding: 0 0.5rem;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-/* Large screens: 3 cards per row */
-@media (min-width: 1400px) {
+/* Small tablets: 480px+ */
+@media (min-width: 480px) {
     #casual-games, #virtual-pc-games, #virtual-mobile-games {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        justify-content: start;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.25rem;
+        padding: 0 1rem;
+    }
+}
+
+/* Tablets: 768px+ */
+@media (min-width: 768px) {
+    #casual-games, #virtual-pc-games, #virtual-mobile-games {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+}
+
+/* Large tablets/Small desktop: 1024px+ */
+@media (min-width: 1024px) {
+    #casual-games, #virtual-pc-games, #virtual-mobile-games {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1.75rem;
+        padding: 0 1.5rem;
+    }
+}
+
+/* Desktop: 1200px+ */
+@media (min-width: 1200px) {
+    #casual-games, #virtual-pc-games, #virtual-mobile-games {
+        grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
+        padding: 0 2rem;
         max-width: 1200px;
     }
 }
 
-/* Responsive Adjustments - Optimized Performance */
-@media (max-width: 1200px) {
+/* Large desktop: 1400px+ */
+@media (min-width: 1400px) {
     #casual-games, #virtual-pc-games, #virtual-mobile-games {
-        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-        gap: 1.25rem;
-        padding: 0 0.75rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+        padding: 0 2rem;
+        max-width: 1400px;
     }
 }
 
-@media (max-width: 768px) {
+/* Mobile-First Responsive Design - Complete Rewrite */
+
+/* Base Mobile Styles (320px - 479px) */
+@media (max-width: 479px) {
     body {
         padding-top: 4.5rem;
     }
     
-    /* Tablet: Two columns */
-    #casual-games, #virtual-pc-games, #virtual-mobile-games {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 1rem;
-        padding: 0 0.5rem;
-        justify-items: stretch;
-    }
-    
     .tournament-page .game-card {
         max-width: 100%;
-        min-height: 480px;
-    }
-    
-    .tournament-page .game-image-container {
-        height: 120px;
-    }
-    
-    .tournament-page .game-image {
-        height: 80px;
-        padding: 0.5rem;
-    }
-    
-    .tournament-page .game-content {
-        padding: 0.75rem;
-    }
-    
-    .tournament-page .game-title {
-        font-size: 1rem;
-    }
-    
-    .tournament-page .game-description {
-        font-size: 0.8rem;
-        margin-bottom: 0.75rem;
-    }
-    
-    .tournament-page .game-details-grid {
-        grid-template-columns: 1fr;
-        gap: 0.375rem;
-    }
-    
-    .detail-item {
-        padding: 0.5rem;
-    }
-    
-    .collaborator-logo, .credit-logo {
-        height: 50px;
-        max-width: 140px;
-    }
-
-    #tournament-info {
-        padding: 1.5rem;
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    #tournament-name {
-        font-size: 2rem;
-    }
-    
-    #tournament-description {
-        font-size: 1rem;
-    }
-    
-    #tournament-meta {
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
-    }
-    
-    .tournament-page .game-actions {
-        gap: 0.5rem;
-    }
-    
-    .tournament-page .register-btn, .tournament-page .rulebook-btn {
-        padding: 0.75rem 1rem;
-        font-size: 0.875rem;
-    }
-}
-
-@media (max-width: 480px) {
-    /* Mobile: Single column but still left-aligned */
-    #casual-games, #virtual-pc-games, #virtual-mobile-games {
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
-        padding: 0 0.25rem;
-        justify-items: stretch;
-    }
-    
-    .tournament-page .game-card {
-        min-height: 440px;
-        max-width: 100%;
+        min-height: 420px;
+        margin: 0;
     }
     
     .tournament-page .game-image-container {
@@ -596,7 +629,7 @@
     }
     
     .tournament-page .game-content {
-        padding: 0.5rem;
+        padding: 0.75rem;
     }
     
     .tournament-page .game-title {
@@ -610,17 +643,21 @@
     }
     
     .tournament-page .game-details-grid {
-        gap: 0.25rem;
+        grid-template-columns: 1fr;
+        gap: 0.375rem;
         margin-bottom: 0.75rem;
     }
     
     .tournament-page .game-details-grid .detail-item {
-        padding: 0.375rem;
+        padding: 0.5rem;
     }
     
     .additional-info {
         margin-bottom: 0.75rem;
-        padding: 0.375rem;
+        padding: 0.5rem;
+        flex-direction: column;
+        gap: 0.25rem;
+        text-align: center;
     }
     
     .tournament-page .register-btn, .tournament-page .rulebook-btn {
@@ -630,9 +667,226 @@
     
     #tournament-info {
         padding: 1rem;
+        flex-direction: column;
+        text-align: center;
     }
     
     #tournament-name {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
+    }
+    
+    #tournament-description {
+        font-size: 0.9rem;
+    }
+    
+    #tournament-meta {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .collaborator-logo, .credit-logo {
+        height: 50px;
+        max-width: 120px;
+    }
+}
+
+/* Small Mobile to Large Mobile (480px - 767px) */
+@media (min-width: 480px) and (max-width: 767px) {
+    .tournament-page .game-card {
+        max-width: 100%;
+        min-height: 450px;
+    }
+    
+    .tournament-page .game-image-container {
+        height: 120px;
+    }
+    
+    .tournament-page .game-image {
+        height: 80px;
+        padding: 0.5rem;
+    }
+    
+    .tournament-page .game-content {
+        padding: 0.875rem;
+    }
+    
+    .tournament-page .game-title {
+        font-size: 1rem;
+    }
+    
+    .tournament-page .game-description {
+        font-size: 0.8rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .tournament-page .game-details-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .additional-info {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    #tournament-info {
+        padding: 1.5rem;
+    }
+    
+    #tournament-name {
+        font-size: 2.25rem;
+    }
+    
+    #tournament-meta {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .tournament-page .game-card {
+        max-width: 100%;
+        min-height: 480px;
+    }
+    
+    .tournament-page .game-image-container {
+        height: 130px;
+    }
+    
+    .tournament-page .game-image {
+        height: 90px;
+        padding: 0.5rem;
+    }
+    
+    .tournament-page .game-content {
+        padding: 1rem;
+    }
+    
+    .tournament-page .game-title {
+        font-size: 1.05rem;
+    }
+    
+    .tournament-page .game-description {
+        font-size: 0.85rem;
+        margin-bottom: 0.875rem;
+    }
+    
+    .tournament-page .game-details-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.625rem;
+    }
+    
+    #tournament-info {
+        padding: 2rem;
+    }
+    
+    #tournament-name {
+        font-size: 2.5rem;
+    }
+    
+    .collaborator-logo, .credit-logo {
+        height: 60px;
+        max-width: 150px;
+    }
+}
+
+/* Desktop (1024px - 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .tournament-page .game-card {
+        max-width: 380px;
+        min-height: 500px;
+    }
+    
+    .tournament-page .game-image-container {
+        height: 140px;
+    }
+    
+    .tournament-page .game-image {
+        height: 100px;
+        padding: 0.5rem;
+    }
+    
+    .tournament-page .game-content {
+        padding: 1rem;
+    }
+    
+    .tournament-page .game-title {
+        font-size: 1.1rem;
+    }
+    
+    .tournament-page .game-description {
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+    }
+    
+    .tournament-page .game-details-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    #tournament-info {
+        padding: 2rem;
+        flex-direction: row;
+        text-align: left;
+    }
+    
+    #tournament-name {
+        font-size: 3rem;
+    }
+    
+    .collaborator-logo, .credit-logo {
+        height: 70px;
+        max-width: 160px;
+    }
+}
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+    .tournament-page .game-card {
+        max-width: 400px;
+        min-height: 520px;
+    }
+    
+    .tournament-page .game-image-container {
+        height: 150px;
+    }
+    
+    .tournament-page .game-image {
+        height: 110px;
+        padding: 0.5rem;
+    }
+    
+    .tournament-page .game-content {
+        padding: 1.25rem;
+    }
+    
+    .tournament-page .game-title {
+        font-size: 1.2rem;
+    }
+    
+    .tournament-page .game-description {
+        font-size: 0.9rem;
+        margin-bottom: 1.125rem;
+    }
+    
+    .tournament-page .game-details-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.875rem;
+    }
+    
+    #tournament-info {
+        padding: 2.5rem;
+        flex-direction: row;
+        text-align: left;
+    }
+    
+    #tournament-name {
+        font-size: 3.5rem;
+    }
+    
+    .collaborator-logo, .credit-logo {
+        height: 80px;
+        max-width: 180px;
     }
 }

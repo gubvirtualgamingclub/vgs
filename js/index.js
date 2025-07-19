@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // Initialize particles with retry mechanism
-    initParticlesWithRetry();
     initHeroLighting();
     initScrollReveal();
     //initPopup(); // Deprecated
@@ -18,24 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadCollaborators();
     loadGamesData();
 });
-
-function initParticlesWithRetry(retryCount = 0) {
-    const maxRetries = 5;
-    const retryDelay = 1000; // 1 second
-    
-    console.log(`🎯 Attempting to initialize particles (attempt ${retryCount + 1}/${maxRetries})...`);
-    
-    if (window.tsParticles && document.getElementById('tsparticles')) {
-        initParticles();
-    } else {
-        if (retryCount < maxRetries) {
-            console.log(`⏳ Retrying particles initialization in ${retryDelay}ms...`);
-            setTimeout(() => initParticlesWithRetry(retryCount + 1), retryDelay);
-        } else {
-            console.error('❌ Failed to initialize particles after maximum retries');
-        }
-    }
-}
 
 async function loadSiteStats() {
     try {
@@ -217,123 +197,6 @@ async function loadCollaborators() {
             `;
         }
     }
-}
-
-/*───────────────────────────────────────────────────────────────
-  PARTICLE SYSTEM INITIALIZATION
-───────────────────────────────────────────────────────────────*/
-function initParticles() {
-    console.log('🎯 Initializing particles...');
-    
-    const particlesContainer = document.getElementById('tsparticles');
-    if (!particlesContainer) {
-        console.error('❌ Particles container not found');
-        return;
-    }
-    
-    if (!window.tsParticles) {
-        console.warn('⚠️ tsParticles library not loaded, retrying...');
-        setTimeout(initParticles, 500);
-        return;
-    }
-    
-    console.log('✅ tsParticles library loaded, starting particles...');
-
-    tsParticles.load('tsparticles', {
-        fpsLimit: 60,
-        background: { color: 'transparent' },
-        particles: {
-            number: { 
-                value: 80,
-                density: { 
-                    enable: true, 
-                    area: 1000 
-                } 
-            },
-            color: { 
-                value: ['#10b981', '#3b82f6', '#8b5cf6', '#06b6d4'] 
-            },
-            opacity: { 
-                value: { min: 0.3, max: 0.8 },
-                random: true,
-                animation: {
-                    enable: true,
-                    speed: 1,
-                    minimumValue: 0.1,
-                    sync: false
-                }
-            },
-            size: { 
-                value: { 
-                    min: 1, 
-                    max: 4
-                },
-                random: true,
-                animation: {
-                    enable: true,
-                    speed: 2,
-                    minimumValue: 0.5,
-                    sync: false
-                }
-            },
-            shape: { 
-                type: 'circle' 
-            },
-            links: {
-                enable: true,
-                distance: 150,
-                color: '#3b82f6',
-                opacity: 0.3,
-                width: 1,
-                triangles: {
-                    enable: false
-                }
-            },
-            move: { 
-                enable: true, 
-                speed: 2,
-                direction: 'none',
-                random: true,
-                straight: false,
-                outModes: { 
-                    default: 'bounce' 
-                },
-                attract: {
-                    enable: false,
-                    rotateX: 600,
-                    rotateY: 600
-                }
-            }
-        },
-        interactivity: {
-            detect_on: 'canvas',
-            events: {
-                onHover: {
-                    enable: true,
-                    mode: 'repulse'
-                },
-                onClick: {
-                    enable: true,
-                    mode: 'push'
-                },
-                resize: true
-            },
-            modes: {
-                repulse: {
-                    distance: 100,
-                    duration: 0.4
-                },
-                push: {
-                    quantity: 4
-                }
-            }
-        },
-        detectRetina: true
-    }).then(() => {
-        console.log('✅ Particles loaded successfully');
-    }).catch(error => {
-        console.error('❌ Error loading particles:', error);
-    });
 }
 
 /*───────────────────────────────────────────────────────────────

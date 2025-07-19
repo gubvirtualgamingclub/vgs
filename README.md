@@ -756,7 +756,305 @@ function hideLoadingState(container) {
 
 ---
 
-## 🚀 Getting Started
+## �️ **Page Management Instructions**
+
+### **🎯 Content Management Overview**
+
+The VGS website uses a **JSON-based content management system** that allows easy updates without touching the codebase. Each page pulls data from specific JSON files in the `data/` directory.
+
+<div align="center">
+
+| 📄 Page | 📊 Data Source | 🎯 Purpose | ⚡ Update Frequency |
+|---------|---------------|------------|-------------------|
+| **🏠 Homepage** | `site-data.json` | Statistics & Config | Weekly |
+| **📰 Updates** | `updates.json` | News & Announcements | Daily |
+| **🎯 Activities** | `activities.json` | Events & Registration | Weekly |
+| **🏆 Tournament** | `tournament.json` | Game Registration | Event-based |
+| **👥 Executive** | `executives.json` | Team Members | Semester |
+| **🎮 Games** | `games.json` | Supported Games | Monthly |
+| **🤝 Collaboration** | `collaborations.json` | Partners & Sponsors | Quarterly |
+
+</div>
+
+### 📰 **Updates Page Management**
+
+**📍 File Location**: `data/updates.json`
+
+**🎯 How to Add New Update**:
+
+1. **Open** `data/updates.json`
+2. **Add new entry** to the `updates` array:
+
+```json
+{
+  "isActive": true,
+  "updates": [
+    {
+      "id": 5,                          // ⚡ Increment from last ID
+      "type": "event",                  // 🎭 event|notice|registration|announcement
+      "title": "New Tournament Announcement", // 📝 Update title
+      "date": "2025-07-20",            // 📅 Format: YYYY-MM-DD
+      "description": "Join our exciting new tournament with amazing prizes!", // 📄 Description
+      "isActive": true,                 // 🔄 Show/hide this update
+      "important": true,                // ⭐ Highlight as important
+      "registration_link": "https://forms.google.com/register", // 🔗 Optional
+      "form_link": "https://example.com/form" // 🔗 Optional
+    }
+  ]
+}
+```
+
+**🎛️ Control Options**:
+- **Global Control**: Set `"isActive": false` to hide ALL updates
+- **Individual Control**: Set update's `"isActive": false` to hide specific update
+- **Priority**: Set `"important": true` for highlighted updates
+
+### 🎯 **Activities Page Management**
+
+**📍 File Location**: `data/activities.json`
+
+**🎯 How to Add New Activity**:
+
+1. **Choose Category**: `recent` (upcoming) or `past` (completed)
+2. **Add new entry**:
+
+```json
+{
+  "recent": [
+    {
+      "id": 6,                          // ⚡ Unique identifier
+      "title": "Gaming Workshop 2025",  // 📝 Event title
+      "date": "2025-08-15",            // 📅 Event date
+      "time": "2:00 PM - 5:00 PM",     // ⏰ Event time
+      "location": "Computer Lab 3",     // 📍 Venue
+      "image": "assets/images/events/workshop2025.jpg", // 🖼️ Event image
+      "description": "Learn advanced gaming techniques", // 📄 Description
+      "type": "workshop",               // 🏷️ Event type
+      "status": "registration_open",    // 📊 Status
+      "registration_link": "https://example.com/register", // 🔗 Registration
+      "prizes": [                       // 🏆 Prize information
+        "1st Place: Gaming Setup",
+        "2nd Place: Gaming Chair",
+        "3rd Place: Gaming Headset"
+      ],
+      "contact": {                      // 📞 Contact details
+        "name": "Event Coordinator",
+        "email": "coordinator@example.com",
+        "phone": "+1234567890"
+      },
+      "rules": "Standard tournament rules apply" // 📋 Rules
+    }
+  ],
+  "past": [ /* Previous events */ ]
+}
+```
+
+**📊 Status Options**: `registration_open`, `registration_closed`, `ongoing`, `completed`
+**🏷️ Event Types**: `tournament`, `workshop`, `meetup`, `competition`
+
+### 🏆 **Tournament Page Management**
+
+**📍 File Location**: `data/tournament.json`
+
+**🎯 How to Add New Tournament**:
+
+```json
+{
+  "tournaments": [
+    {
+      "gameId": "valorant",            // 🎮 Game identifier (must match games.json)
+      "status": "open",                // 📊 open|closed|upcoming|completed
+      "participants": 45,              // 👥 Current participants
+      "maxParticipants": 64,           // 🎯 Maximum allowed
+      "type": "virtual-pc",            // 🖥️ casual|virtual-pc|virtual-mobile
+      "registrationDeadline": "2025-08-01", // ⏰ Registration deadline
+      "startDate": "2025-08-05",       // 📅 Tournament start
+      "prizePool": "50,000 BDT",       // 💰 Total prizes
+      "entryFee": "500 BDT",          // 💳 Entry fee
+      "format": "Single Elimination",  // 🏆 Tournament format
+      "rules": "assets/rulebooks/valorant-rules.txt" // 📋 Rules file
+    }
+  ]
+}
+```
+
+**🎮 Supported Game IDs**: Check `data/games.json` for available games
+**📊 Status Flow**: `upcoming` → `open` → `closed` → `completed`
+
+### 👥 **Executive Page Management**
+
+**📍 File Location**: `data/executives.json`
+
+**🎯 How to Add New Member**:
+
+```json
+{
+  "executives": [
+    {
+      "name": "John Doe",              // 👤 Full name
+      "position": "President",         // 💼 Official position
+      "image": "assets/images/members/john-doe.png", // 📸 Profile photo
+      "bio": "Passionate gamer and leader with 5+ years experience", // 📝 Biography
+      "contact": {                     // 📞 Contact information
+        "email": "john@example.com",
+        "facebook": "https://facebook.com/johndoe",
+        "phone": "+1234567890"         // 📱 Optional
+      },
+      "year": "2025",                  // 📅 Service year
+      "department": "CSE",             // 🏫 Academic department
+      "skills": ["Leadership", "Strategy", "Tournament Management"], // 🎯 Skills
+      "achievements": [                // 🏆 Achievements
+        "Led 10+ successful tournaments",
+        "Increased membership by 200%"
+      ]
+    }
+  ]
+}
+```
+
+**💼 Position Hierarchy**: `President`, `Vice President`, `Secretary`, `Treasurer`, `Event Coordinator`, `Technical Lead`, `Member`
+
+### 🎮 **Games Page Management**
+
+**📍 File Location**: `data/games.json`
+
+**🎯 How to Add New Game**:
+
+```json
+{
+  "games": [
+    {
+      "id": "newgame",                 // 🆔 Unique identifier
+      "name": "New Game Title",        // 🎯 Game name
+      "category": "pc",                // 🖥️ pc|mobile|casual
+      "image": "assets/images/games/newgame.png", // 🖼️ Game thumbnail
+      "description": "Exciting new game with amazing features", // 📄 Description
+      "popularity": "high",            // 📊 high|medium|low
+      "tournaments": 5,                // 🏆 Number of tournaments held
+      "players": "5v5",               // 👥 Team format
+      "platform": ["PC", "PlayStation", "Xbox"], // 🎮 Supported platforms
+      "genre": "FPS",                  // 🏷️ Game genre
+      "developer": "Game Studio",      // 🏢 Developer name
+      "releaseYear": 2023,            // 📅 Release year
+      "esportsReady": true,           // 🏆 Competitive gaming ready
+      "website": "https://game-website.com" // 🔗 Official website
+    }
+  ]
+}
+```
+
+**🏷️ Categories**: `pc`, `mobile`, `casual`
+**🎮 Genres**: `FPS`, `MOBA`, `Battle Royale`, `Strategy`, `Fighting`, `Racing`
+
+### 🤝 **Collaboration Page Management**
+
+**📍 File Location**: `data/collaborations.json`
+
+**🎯 How to Add New Partner**:
+
+```json
+{
+  "collaborations": [
+    {
+      "id": "newpartner",              // 🆔 Unique identifier
+      "name": "Partner Company",       // 🏢 Company name
+      "type": "sponsor",               // 🤝 sponsor|partner|supporter
+      "logo": "assets/images/collaborators/partner.png", // 🖼️ Logo image
+      "description": "Leading technology company supporting esports", // 📄 Description
+      "website": "https://partner.com", // 🔗 Company website
+      "partnership_date": "2025-01-15", // 📅 Partnership start
+      "status": "active",              // 📊 active|inactive|pending
+      "contribution": [                // 🎁 What they provide
+        "Gaming Equipment",
+        "Prize Sponsorship",
+        "Technical Support"
+      ],
+      "contact": {                     // 📞 Contact person
+        "name": "Partnership Manager",
+        "email": "partnerships@partner.com"
+      },
+      "social": {                      // 📱 Social media
+        "facebook": "https://facebook.com/partner",
+        "twitter": "https://twitter.com/partner"
+      }
+    }
+  ]
+}
+```
+
+**🤝 Partnership Types**: `sponsor`, `partner`, `supporter`, `media_partner`
+**📊 Status Options**: `active`, `inactive`, `pending`, `expired`
+
+### 🏠 **Homepage Statistics Management**
+
+**📍 File Location**: `data/site-data.json`
+
+**🎯 How to Update Statistics**:
+
+```json
+{
+  "site": {
+    "title": "GUCC Virtual Gaming Society",
+    "description": "Green University's official gaming club",
+    "year": "2025"
+  },
+  "stats": {
+    "activeMembers": 25,             // 👥 Update member count
+    "tournaments": 8,                // 🏆 Update tournament count
+    "gamesSupported": 12,            // 🎮 Update games count
+    "industryPartners": 10           // 🤝 Update partner count
+  },
+  "contact": {
+    "email": "faysaltomal02@gmail.com",
+    "facebook": "https://www.facebook.com/gucc.vgs",
+    "address": "Green University of Bangladesh, Dhaka"
+  }
+}
+```
+
+### 🚀 **Quick Update Checklist**
+
+#### ✅ **Before Making Changes**
+
+- [ ] 📋 **Backup Files**: Copy JSON files before editing
+- [ ] 🔍 **Validate JSON**: Use online JSON validator
+- [ ] 📸 **Prepare Images**: Optimize and place in correct folders
+- [ ] ✏️ **Check Content**: Proofread text content
+
+#### ✅ **After Making Changes**
+
+- [ ] 🌐 **Test Locally**: Check changes on local server
+- [ ] 📱 **Mobile Test**: Verify on mobile devices
+- [ ] 🔍 **Browser Test**: Check across different browsers
+- [ ] 📊 **Validate Data**: Ensure no broken links or images
+
+### 🖼️ **Image Guidelines**
+
+| 📄 Content Type | 📐 Recommended Size | 📁 Location | 🎨 Format |
+|-----------------|-------------------|------------|-----------|
+| **Profile Photos** | 400x400px | `assets/images/members/` | PNG/JPG |
+| **Game Thumbnails** | 300x200px | `assets/images/games/` | PNG/JPG |
+| **Event Images** | 800x400px | `assets/images/events/` | PNG/JPG |
+| **Partner Logos** | 200x100px | `assets/images/collaborators/` | PNG |
+| **Banners** | 1200x600px | `assets/images/banners/` | JPG |
+
+### 🔧 **JSON Validation Tools**
+
+- **Online Validators**: [JSONLint](https://jsonlint.com/), [JSON Formatter](https://jsonformatter.org/)
+- **VS Code Extensions**: JSON Tools, Prettier
+- **Command Line**: `jq` for terminal validation
+
+### ⚠️ **Common Pitfalls to Avoid**
+
+- ❌ **Missing Commas**: Ensure proper JSON syntax
+- ❌ **Duplicate IDs**: Use unique identifiers
+- ❌ **Broken Image Paths**: Verify image file locations
+- ❌ **Invalid Dates**: Use YYYY-MM-DD format
+- ❌ **Missing Fields**: Include all required properties
+
+---
+
+## �🚀 Getting Started
 
 ### 📋 Prerequisites
 

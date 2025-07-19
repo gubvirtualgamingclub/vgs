@@ -27,9 +27,102 @@
         }
     </style>
 </head>
-<body class="tournament-page bg-gray-900 text-white overflow-x-hidden">
-    <!-- Navigation will be injected here -->
-    <div id="nav-placeholder"></div>
+<body class="tournament-page bg-gray-900 text-white font-inter overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="gaming-navbar">
+      <div class="nav-container">
+        <!-- Logo/Brand -->
+        <a href="index.html" class="nav-brand">
+          <img src="assets/images/logos/VGSwide.png" alt="GUCC VGS Logo" class="nav-logo">
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <div class="nav-desktop">
+          <a href="index.html" class="nav-link">
+            <span class="nav-text">
+              <i class="fas fa-home nav-icon"></i>
+              Home
+            </span>
+            <span class="nav-underline"></span>
+          </a>
+          <a href="update.html" class="nav-link">
+            <span class="nav-text">
+              <i class="fas fa-newspaper nav-icon"></i>
+              Updates
+            </span>
+            <span class="nav-underline"></span>
+          </a>
+          <a href="activities.html" class="nav-link">
+            <span class="nav-text">
+              <i class="fas fa-calendar-alt nav-icon"></i>
+              Activities
+            </span>
+            <span class="nav-underline"></span>
+          </a>
+          <a href="tournament.html" class="nav-link">
+            <span class="nav-text">
+              <i class="fas fa-trophy nav-icon"></i>
+              Tournament
+            </span>
+            <span class="nav-underline"></span>
+          </a>
+          <a href="executive.html" class="nav-link">
+            <span class="nav-text">
+              <i class="fas fa-users nav-icon"></i>
+              Committee
+            </span>
+            <span class="nav-underline"></span>
+          </a>
+          <a href="games.html" class="nav-link">
+            <span class="nav-text">
+              <i class="fas fa-gamepad nav-icon"></i>
+              Games
+            </span>
+            <span class="nav-underline"></span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div class="nav-mobile" id="mobile-menu" aria-hidden="true">
+        <div class="mobile-nav-content">
+          <a href="index.html" class="mobile-nav-link">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+          <a href="update.html" class="mobile-nav-link">
+            <i class="fas fa-newspaper"></i>
+            <span>Updates</span>
+          </a>
+          <a href="activities.html" class="mobile-nav-link">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Activities</span>
+          </a>
+          <a href="tournament.html" class="mobile-nav-link">
+            <i class="fas fa-trophy"></i>
+            <span>Tournament</span>
+          </a>
+          <a href="executive.html" class="mobile-nav-link">
+            <i class="fas fa-users"></i>
+            <span>Committee</span>
+          </a>
+          <a href="games.html" class="mobile-nav-link">
+            <i class="fas fa-gamepad"></i>
+            <span>Games</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Overlay -->
+      <div class="nav-overlay" id="nav-overlay"></div>
+    </nav>
     
     <!-- Hero Section -->
     <section class="relative py-20 overflow-hidden bg-gradient-to-b from-gray-800 to-gray-900">
@@ -40,11 +133,6 @@
             <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                 <i class="fas fa-trophy mr-2 text-yellow-400"></i> Join the ultimate gaming showdown and prove your skills!
             </p>
-        </div>
-        
-        <!-- Animated particles background -->
-        <div class="absolute inset-0 overflow-hidden opacity-20 z-0">
-            <div id="particles-js" class="w-full h-full"></div>
         </div>
     </section>
 
@@ -148,38 +236,13 @@
     <!-- Footer -->
     <div id="footer-placeholder"></div>
 
-    <!-- Unified Component Loader -->
+    <!-- Navigation Script -->
+    <script src="js/nav.js"></script>
+    
+    <!-- Component Loader -->
     <script src="js/components/loader.js"></script>
 
     <!-- Page-specific scripts -->
     <script src="js/tournament.js" defer></script>
-     
-    <!-- Particles.js for background animation -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // Initialize particles.js if available
-        if (typeof particlesJS !== 'undefined') {
-            document.addEventListener('DOMContentLoaded', () => {
-                particlesJS('particles-js', {
-                    "particles": {
-                        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                        "color": { "value": "#10b981" },
-                        "shape": { "type": "circle" },
-                        "opacity": { "value": 0.5, "random": true },
-                        "size": { "value": 3, "random": true },
-                        "line_linked": { "enable": true, "distance": 150, "color": "#3b82f6", "opacity": 0.4, "width": 1 },
-                        "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
-                    },
-                    "interactivity": {
-                        "detect_on": "canvas",
-                        "events": {
-                            "onhover": { "enable": true, "mode": "repulse" },
-                            "onclick": { "enable": true, "mode": "push" }
-                        }
-                    }
-                });
-            });
-        }
-    </script>
 </body>
 </html>
